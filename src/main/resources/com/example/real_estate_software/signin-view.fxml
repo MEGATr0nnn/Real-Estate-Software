@@ -6,11 +6,11 @@
 <?import javafx.scene.control.Button?>
 
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.real_estate_software.controller.HelloController">
+      fx:controller="com.example.real_estate_software.controller.LoginController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
-    <Label text="Welcome Page"/>
+    <Label text="Sign In Page"/>
     <Button fx:id="signInButton" text="Sign In" onAction="#onSignInClick"/>
-    <Button fx:id="signUpButton" text="Sign Up" onAction="#onSignUpClick"/>
+    <Button fx:id="backButton" text="Go Back" onAction="#onBackClick"/>
 </VBox>
