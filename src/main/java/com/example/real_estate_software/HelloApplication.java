@@ -8,8 +8,8 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
     public static final String TITLE = "Real Estate Software";
-    public static final int WIDTH = 360;
-    public static final int HEIGHT = 180;
+    public static final int WIDTH = 600;
+    public static final int HEIGHT = 300;
 
     @Override
     public void start(Stage stage) throws IOException {
