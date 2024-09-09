@@ -1,4 +1,4 @@
-package com.example.real_estate_software;
+package com.example.real_estate_software.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
