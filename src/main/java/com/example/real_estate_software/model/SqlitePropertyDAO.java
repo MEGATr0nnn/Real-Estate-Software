@@ -7,7 +7,7 @@ public class SqlitePropertyDAO {
     private Connection connection;
 
     public SqlitePropertyDAO(){
-        connection = DatabaseConnection.getInstance();
+        connection = SqliteConnection.getInstance();
     }
 
     public void create_Table() {
