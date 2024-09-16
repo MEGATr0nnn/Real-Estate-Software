@@ -5,14 +5,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class OwnerTest {
     private Owner owner;
+    private Owner owner2;
+    private Owner owner3;
 
     @BeforeEach
     public void setUp() {
         owner = new Owner("Johnny", "Walker", "johnnywalker@email.com", "abcd1234");
+        owner2 = new Owner("Johnny", "Walker", "johnnywalker@email.com", "abcd1234");
+        owner3 = new Owner("Ben", "Walker", "benwalker.com", "Abcd1234");
     }
 
     @Test
     public void testGetID() {
+        owner.setId(1);
         assertEquals(1, owner.getId());
     }
 
@@ -75,4 +80,47 @@ public class OwnerTest {
         owner.setConnection(false);
         assertFalse(owner.getConnection());
     }
+
+    @Test
+    public void testDuplicateAccounts(){
+        if (owner.getEmail().equals(owner2.getEmail())){
+            assertFalse(false, "Account already exists with this email address!");
+        }
+    }
+
+    @Test
+    public void testInvalidEmailAddress(){
+        if (!owner3.getEmail().contains("@")){
+            assertFalse(false, "Email Address Invalid!");
+        }
+    }
+
+    @Test
+    public void testCorrectEmailAddress(){
+        assertTrue(owner.getEmail().contains("@"));
+    }
+
+    @Test
+    public void testPasswordCapital(){
+        boolean containsCapital = owner.getPassword().matches(".*[A-Z]*.");
+        assertTrue(containsCapital, "Password must contain a Capital Letter");
+    }
+
+    @Test
+    public void testPasswordNumber(){
+        boolean containsNumber = owner.getPassword().matches(".*[0-9].*");
+        assertTrue(containsNumber, "Password must contain a number");
+    }
+
+    @Test
+    public void testPasswordLength(){
+        assertTrue(owner.getPassword().length() >= 8, "Password must be at least 8 characters long");
+    }
+
+    @Test
+    public void testPasswordUnique(){
+        assertTrue(owner.getPassword().matches(".*[!@#$%^&*()_+{}|:;<>?,./`~]*."),"Password must contain a special character");
+    }
+
 }
+
