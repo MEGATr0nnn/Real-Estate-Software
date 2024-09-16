@@ -75,12 +75,13 @@ public class OwnerDAO {
         }
     }
 
-    public Owner getOwner(int id) {
+    public Owner getOwner(boolean connected) {
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM owners WHERE id = ?");
-            statement.setInt(1, id);
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM owners WHERE connection = ?");
+            statement.setBoolean(1, connected);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
+                int id = resultSet.getInt("id");
                 String firstName = resultSet.getString("firstName");
                 String lastName = resultSet.getString("lastName");
                 String email = resultSet.getString("email");
