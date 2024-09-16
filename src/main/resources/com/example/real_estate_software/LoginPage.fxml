@@ -9,17 +9,18 @@
 <?import javafx.scene.text.Font?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_software.controller.LoginPageController">
-      <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="160.0" layoutY="33.0" text="My Home Manager">
-         <font>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_software.controller.LoginPageController">
+    <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="160.0" layoutY="33.0" text="My Home Manager">
+        <font>
             <Font size="35.0" />
-         </font>
-      </Label>
-      <TextField layoutX="220.0" layoutY="220.0" promptText="Username" />
-      <TextField layoutX="220.0" layoutY="258.0" promptText="Password" />
-      <Button fx:id="signInButton" layoutX="237.0" layoutY="320.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Sign In" onAction="#onSignInClick" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
-      </ImageView>
-      <Button fx:id="signUpButton" layoutX="237.0" layoutY="354.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Sign Up" onAction="#onSignUpClick" />
-      <Hyperlink layoutX="250.0" layoutY="291.0" text="Forgot Password" />
+        </font>
+    </Label>
+    <TextField fx:id="emailField" layoutX="220.0" layoutY="220.0" promptText="Email" />
+    <TextField fx:id="passwordField" layoutX="220.0" layoutY="258.0" promptText="Password" />
+    <Button fx:id="signInButton" layoutX="237.0" layoutY="320.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Sign In" onAction="#onSignInClick" />
+    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+
+    </ImageView>
+    <Button fx:id="signUpButton" layoutX="237.0" layoutY="354.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Sign Up" onAction="#onSignUpClick" />
+    <Hyperlink layoutX="250.0" layoutY="291.0" text="Forgot Password" />
 </Pane>
