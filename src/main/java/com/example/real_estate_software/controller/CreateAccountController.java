@@ -31,11 +31,13 @@ public class CreateAccountController {
 
     @FXML
     protected void onCreateAccountClick() throws IOException {
-        createAccount();
-        Stage stage = (Stage) createAccountButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-        stage.setScene(scene);
+        if(!emptyFields()) {
+            createAccount();
+            Stage stage = (Stage) createAccountButton.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+            stage.setScene(scene);
+        }
     }
 
     private void createAccount() {
@@ -44,6 +46,17 @@ public class CreateAccountController {
         String email = emailField.getText();
         String password = passwordField.getText();
         ownerDAO.addOwner(new Owner(firstName, lastName, email, password));
+    }
+
+    private boolean emptyFields() {
+        boolean emptyFirstName = firstNameField.getText().trim().isEmpty();
+        boolean emptyLastName = lastNameField.getText().trim().isEmpty();
+        boolean emptyEmail = emailField.getText().trim().isEmpty();
+        boolean emptyPassword = passwordField.getText().trim().isEmpty();
+        if(emptyFirstName || emptyLastName || emptyEmail || emptyPassword) {
+            return true;
+        }
+        return false;
     }
 }
 

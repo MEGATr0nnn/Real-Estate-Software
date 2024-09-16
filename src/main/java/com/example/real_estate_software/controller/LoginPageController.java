@@ -30,7 +30,7 @@ public class LoginPageController {
     @FXML
     protected void onSignInClick() throws IOException {
         if(checkExists()){
-            Stage stage = (Stage) signUpButton.getScene().getWindow();
+            Stage stage = (Stage) signInButton.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main-view.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
             stage.setScene(scene);
@@ -39,7 +39,7 @@ public class LoginPageController {
 
     @FXML
     protected void onSignUpClick() throws IOException{
-        Stage stage = (Stage) signInButton.getScene().getWindow();
+        Stage stage = (Stage) signUpButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CreateAccount.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
         stage.setScene(scene);
@@ -52,6 +52,7 @@ public class LoginPageController {
         for(Owner owner : owners) {
             if(owner.getEmail().equals(email) && owner.getPassword().equals(password)) {
                 owner.setConnection(true);
+                ownerDAO.updateOwner(owner);
                 return true;
             }
         }
