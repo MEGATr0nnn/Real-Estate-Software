@@ -35,7 +35,6 @@ public class MainController {
     protected void onEditClick() {
         Owner currentOwner = ownerDAO.getOwner(true);
         if(!emptyFields()) {
-            //Owner currentOwner = ownerDAO.getOwner(true);
             currentOwner.setFirstName(firstNameField.getText());
             currentOwner.setLastName(lastNameField.getText());
             currentOwner.setEmail(emailField.getText());
