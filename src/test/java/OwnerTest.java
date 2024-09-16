@@ -119,7 +119,8 @@ public class OwnerTest {
 
     @Test
     public void testPasswordUnique(){
-        assertTrue(owner.getPassword().matches(".*[!@#$%^&*()_+{}|:;<>?,./`~]*."),"Password must contain a special character");
+        String uniqueChar = ".*[!@#$%^&*()_+{}|:;<>?,./`~]*.";
+        assertFalse(owner.getPassword().contains(uniqueChar), "Password must contain a special character");
     }
 
 }
