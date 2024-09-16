@@ -6,12 +6,22 @@ public class Owner {
     private String lastName;
     private String email;
     private String password;
+    private boolean connection;
 
     public Owner(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        connection = true;
+    }
+
+    public Owner(String firstName, String lastName, String email, String password, boolean connection) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.connection = connection;
     }
 
     public int getId() {
@@ -52,5 +62,13 @@ public class Owner {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean getConnection() {
+        return connection;
+    }
+
+    public void setConnection(boolean connection) {
+        this.connection = connection;
     }
 }

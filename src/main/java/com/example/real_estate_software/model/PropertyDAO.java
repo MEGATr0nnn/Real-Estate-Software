@@ -3,11 +3,11 @@ package com.example.real_estate_software.model;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class SqlitePropertyDAO {
+public class PropertyDAO {
     private Connection connection;
 
-    public SqlitePropertyDAO(){
-        connection = SqliteConnection.getInstance();
+    public PropertyDAO(){
+        connection = DatabaseConnection.getInstance();
     }
 
     public void create_Table() {
