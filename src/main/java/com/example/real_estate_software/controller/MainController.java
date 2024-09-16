@@ -33,14 +33,19 @@ public class MainController {
 
     @FXML
     protected void onEditClick() {
+        Owner currentOwner = ownerDAO.getOwner(true);
         if(!emptyFields()) {
-            Owner currentOwner = ownerDAO.getOwner(true);
+            //Owner currentOwner = ownerDAO.getOwner(true);
             currentOwner.setFirstName(firstNameField.getText());
             currentOwner.setLastName(lastNameField.getText());
             currentOwner.setEmail(emailField.getText());
             currentOwner.setPassword(passwordField.getText());
             ownerDAO.updateOwner(currentOwner);
         }
+        firstNameField.setText(currentOwner.getFirstName());
+        lastNameField.setText(currentOwner.getLastName());
+        emailField.setText(currentOwner.getEmail());
+        passwordField.setText(currentOwner.getPassword());
     }
 
     @FXML
