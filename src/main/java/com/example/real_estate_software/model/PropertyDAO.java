@@ -54,7 +54,7 @@ public class PropertyDAO {
     }
 
     public void update_Property() {
-        //temp
+        //temporary
     }
 
     public void delete_Property() {
