@@ -102,7 +102,7 @@ public class OwnerTest {
 
     @Test
     public void testPasswordCapital(){
-        boolean containsCapital = owner.getPassword().matches(".*[A-Z]*.");
+        boolean containsCapital = owner3.getPassword().matches(".*[A-Z]*.");
         assertTrue(containsCapital, "Password must contain a Capital Letter");
     }
 
@@ -122,6 +122,5 @@ public class OwnerTest {
         String uniqueChar = ".*[!@#$%^&*()_+{}|:;<>?,./`~]*.";
         assertFalse(owner.getPassword().contains(uniqueChar), "Password must contain a special character");
     }
-
 }
 
