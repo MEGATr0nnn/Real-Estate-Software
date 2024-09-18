@@ -8,6 +8,7 @@ public class Owner {
     private String password;
     private boolean connection;
 
+
     public Owner(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;

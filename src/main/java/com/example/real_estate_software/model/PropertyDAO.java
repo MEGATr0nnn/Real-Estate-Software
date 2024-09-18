@@ -1,12 +1,11 @@
 package com.example.real_estate_software.model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class PropertyDAO {
     private Connection connection;
+
+    //call owner as an argument then pass its ID
 
     public PropertyDAO(){
         connection = DatabaseConnection.getInstance();
@@ -35,7 +34,7 @@ public class PropertyDAO {
     }
 
     public void insert_New_Property(Property property) {
-        //need to include setting the counter for the prim key
+        //need to include setting the id of the owner its associated with for the prim key
         try{
             PreparedStatement statement = connection.prepareStatement("INSERT INTO properties "
                     + "(address, tenanted, number_Tenants, num_Beds, num_Baths, num_Carspaces, weekly_Rent, weekly_Utilities) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
@@ -47,18 +46,45 @@ public class PropertyDAO {
             statement.setInt(6, property.getNum_Car());
             statement.setInt(7, property.getRent());
             statement.setInt(8, property.getUtilities());
+            ResultSet generated_Keys = statement.getGeneratedKeys();
+            if (generated_Keys.next()){
+                property.setId(generated_Keys.getInt(1));
+            }
         }
         catch (Exception ex){
             System.err.println(ex);
         }
     }
 
-    public void update_Property() {
-        //temporary
+    public void update_Property(Property property) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("UPDATE properties SET"
+                    + "address = ?, tenanted = ?, number_Tenants = ?, num_Beds = ?, num_Baths = ?, num_Carspaces = ?, weekly_Rent = ?, weekly_Utilities = ? WHERE id = ?");
+            statement.setString(1, property.getAddress());
+            statement.setBoolean(2, property.getTenanted());
+            statement.setInt(3, property.getNum_Tenants());
+            statement.setInt(4, property.getNum_Beds());
+            statement.setInt(5, property.getNum_Bath());
+            statement.setInt(6, property.getNum_Car());
+            statement.setInt(7, property.getRent());
+            statement.setInt(8, property.getUtilities());
+            statement.setInt(9, property.getId());
+            statement.executeUpdate();
+        }
+        catch (Exception ex){
+            System.err.println(ex);
+        }
     }
 
-    public void delete_Property() {
-        //temp
+    public void delete_Property(Property property) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM properties WHERE id = ?");
+            statement.setInt(1, property.getId());
+            statement.executeUpdate();
+        }
+        catch (Exception ex){
+            System.err.println(ex);
+        }
     }
 
     public void close(){
