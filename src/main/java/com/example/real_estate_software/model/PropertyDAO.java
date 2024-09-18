@@ -76,6 +76,7 @@ public class PropertyDAO {
         }
     }
 
+
     public void delete_Property(Property property) {
         try {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM properties WHERE id = ?");
