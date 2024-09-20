@@ -1,6 +1,5 @@
 package com.example.real_estate_software.controller;
 
-
 import com.example.real_estate_software.HelloApplication;
 import com.example.real_estate_software.model.Owner;
 import com.example.real_estate_software.model.OwnerDAO;
@@ -34,8 +33,8 @@ public class CreateAccountController {
         if(!emptyFields()) {
             createAccount();
             Stage stage = (Stage) createAccountButton.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dash-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
         }
     }
@@ -58,5 +57,6 @@ public class CreateAccountController {
         }
         return false;
     }
+
 }
 
