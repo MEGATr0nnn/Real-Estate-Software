@@ -22,7 +22,7 @@ public class AccountController {
     private TextField passwordField;
     @FXML
     private Button backButton;
-    private OwnerDAO ownerDAO;
+    private final OwnerDAO ownerDAO;
 
     public AccountController() {
         ownerDAO = new OwnerDAO();
@@ -47,7 +47,7 @@ public class AccountController {
     @FXML
     protected void onBackClick () throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dash-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
     }
@@ -57,10 +57,7 @@ public class AccountController {
         boolean emptyLastName = lastNameField.getText().trim().isEmpty();
         boolean emptyEmail = emailField.getText().trim().isEmpty();
         boolean emptyPassword = passwordField.getText().trim().isEmpty();
-        if(emptyFirstName || emptyLastName || emptyEmail || emptyPassword) {
-            return true;
-        }
-        return false;
+        return emptyFirstName || emptyLastName || emptyEmail || emptyPassword;
     }
 
 }

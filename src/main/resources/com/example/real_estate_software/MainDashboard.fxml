@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<?import javafx.scene.control.Button?>
+<BorderPane fx:id="dashPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_software.controller.DashController">
+    <center>
+        <Accordion prefHeight="257.0" prefWidth="432.0" BorderPane.alignment="CENTER">
+            <panes>
+                <TitledPane animated="false" prefHeight="163.0" prefWidth="600.0" text="untitled 1">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+                    <Button fx:id="propertyDashboard" text="Property Dashboard" layoutX="10" layoutY="10"
+                            onAction="#onPropertyClick"/>
+
+                </TitledPane>
+                <TitledPane animated="false" text="untitled 2">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+                </TitledPane>
+                <TitledPane animated="false" text="untitled 3">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+                </TitledPane>
+            </panes>
+        </Accordion>
+    </center>
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <Menu mnemonicParsing="false" text="Menu">
+                <MenuItem mnemonicParsing="false" text="Close"/>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Account">
+                <MenuItem mnemonicParsing="false" text="Edit" onAction="#onEditClick"/>
+                <MenuItem mnemonicParsing="false" text="Delete" onAction="#onDeleteClick"/>
+                <MenuItem mnemonicParsing="false" text="Sign Out" onAction="#onSignOutClick"/>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Add new property">
+                <MenuItem mnemonicParsing="false" text="About"/>
+            </Menu>
+        </MenuBar>
+    </top>
+    <right>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TextField layoutX="7.0" layoutY="2.0" prefHeight="26.0" prefWidth="187.0"
+                       text="Welcome to your dashboard"/>
+            <Pagination layoutX="1.0" layoutY="28.0" pageCount="5" prefHeight="386.0" prefWidth="204.0"/>
+        </AnchorPane>
+    </right>
+</BorderPane>

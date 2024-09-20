@@ -21,7 +21,7 @@ public class LoginPageController {
     private TextField emailField;
     @FXML
     private TextField passwordField;
-    private OwnerDAO ownerDAO;
+    private final OwnerDAO ownerDAO;
 
     public LoginPageController() {
         ownerDAO = new OwnerDAO();
@@ -31,7 +31,7 @@ public class LoginPageController {
     protected void onSignInClick() throws IOException {
         if(checkExists()){
             Stage stage = (Stage) signInButton.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dash-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
         }
