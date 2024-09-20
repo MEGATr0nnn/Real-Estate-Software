@@ -1,0 +1,7 @@
+# Week 5 Tutorial Meeting Notes
+- Create Atomic User Stories for each Minimum Requirement
+- Create a UML Diagram for all classes
+- Create a Database Flow Diagram (DFD)
+- Assign the Story Points for each User Story 
+- Group User Stories into the core features and assign to group members
+- Apply MOSCOW to User Stories
