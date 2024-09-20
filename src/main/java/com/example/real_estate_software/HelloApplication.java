@@ -18,7 +18,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         if(signedIn()) {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dash-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle(TITLE);
             stage.setScene(scene);
