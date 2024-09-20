@@ -32,14 +32,12 @@
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <Menu mnemonicParsing="false" text="Account">
-                <MenuItem mnemonicParsing="false" text="Edit" onAction="#onEditClick"/>
-                <MenuItem mnemonicParsing="false" text="Delete" onAction="#onDeleteClick"/>
-                <MenuItem mnemonicParsing="false" text="Sign Out" onAction="#onSignOutClick"/>
+                <MenuItem mnemonicParsing="false" text="Edit" onAction="#onEditAccountClick"/>
+                <MenuItem mnemonicParsing="false" text="Sign Out" onAction="#onSignOutAccountClick"/>
             </Menu>
             <Menu mnemonicParsing="false" text="Property">
-                <MenuItem mnemonicParsing="false" text="Add"/>
-                <MenuItem mnemonicParsing="false" text="Edit"/>
-                <MenuItem mnemonicParsing="false" text="Delete"/>
+                <MenuItem mnemonicParsing="false" text="Add" onAction="#onAddPropertyClick"/>
+                <MenuItem mnemonicParsing="false" text="Edit" onAction="#onEditPropertyClick"/>
             </Menu>
         </MenuBar>
     </top>

@@ -5,38 +5,37 @@ package com.example.real_estate_software.model;
 public class Property {
     private int id;
     private String address;
+    private boolean tenanted;
+    private int num_Tenants;
     private int num_Beds;
     private int num_Bath;
     private int num_Car;
-    private boolean tenanted;
-    private int num_Tenants;
     private int rent;
     private int utilities;
-    private boolean connection;
 
-    public Property(String address, int num_Beds, int num_Bath, int num_Car, boolean tenanted, int num_Tenants, int rent, int utilities){
+    public Property(String address,int num_Tenants, int num_Beds, int num_Bath, int num_Car, int rent, int utilities){
         this.address = address;
+        this.tenanted = false;
+        this.num_Tenants = num_Tenants;
         this.num_Beds = num_Beds;
         this.num_Bath = num_Bath;
         this.num_Car = num_Car;
-        this.tenanted = tenanted;
-        this.num_Tenants = num_Tenants;
         this.rent = rent;
         this.utilities = utilities;
     }
 
     //is this duplicate really needed? can i simplify down to one constructior?
-    public Property(String address, int num_Beds, int num_Bath, int num_Car, boolean tenanted, int num_Tenants, int rent, int utilities, boolean connection){
+    public Property(String address, boolean tenanted, int num_Tenants, int num_Beds, int num_Bath, int num_Car, int rent, int utilities){
         this.address = address;
+        this.tenanted = tenanted;
+        this.num_Tenants = num_Tenants;
         this.num_Beds = num_Beds;
         this.num_Bath = num_Bath;
         this.num_Car = num_Car;
-        this.tenanted = tenanted;
-        this.num_Tenants = num_Tenants;
         this.rent = rent;
         this.utilities = utilities;
-        this.connection = connection;
     }
+
     //need to integrate owner with this in DAO
 
     public int getId() {return id;}
@@ -44,6 +43,12 @@ public class Property {
 
     public String getAddress() {return address;}
     public void setAddress(String address) {this.address = address;}
+
+    public boolean getTenanted(){return tenanted;}
+    public void setTenanted (boolean tenanted) {this.tenanted = tenanted;}
+
+    public int getNum_Tenants() {return num_Tenants;}
+    public void setNum_Tenants(int num_Tenants) {this.num_Tenants = num_Tenants;}
 
     public int getNum_Beds() {return num_Beds;}
     public void setNum_Beds(int num_Beds) {this.num_Beds = num_Beds;}
@@ -54,18 +59,10 @@ public class Property {
     public int getNum_Car() {return num_Car;}
     public void setNum_Car(int num_Car) {this.num_Car = num_Car;}
 
-    public boolean getTenanted(){return tenanted;}
-    public void setTenanted (boolean tenanted) {this.tenanted = tenanted;}
-
-    public int getNum_Tenants() {return num_Tenants;}
-    public void setNum_Tenants(int num_Tenants) {this.num_Tenants = num_Tenants;}
-
     public int getRent() {return rent;}
     public void setRent(int rent) {this.rent = rent;}
 
     public int getUtilities() {return utilities;}
     public void setUtilities(int utilities) {this.utilities = utilities;}
 
-    public boolean getConnection() {return connection;}
-    public void setConnection(boolean connection) {this.connection = connection;}
 }

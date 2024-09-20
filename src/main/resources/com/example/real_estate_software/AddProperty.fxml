@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_software.controller.AddPropertyController">
+    <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#add8ffa2" height="300.0" layoutX="44.0" layoutY="59.0" stroke="BLACK" strokeType="INSIDE" width="500.0" />
+    <Text layoutX="121.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
+    <TextField fx:id="addressField" layoutX="346.0" layoutY="80.0" />
+    <Text layoutX="121.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tenants" />
+    <TextField fx:id="tenantField" layoutX="346.0" layoutY="116.0" />
+    <Text layoutX="121.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beds" />
+    <TextField fx:id="bedsField" layoutX="348.0" layoutY="152.0" />
+    <Text layoutX="120.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Baths" />
+    <TextField fx:id="bathsField" layoutX="348.0" layoutY="188.0" />
+    <Text layoutX="120.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cars" />
+    <TextField fx:id="carsField" layoutX="346.0" layoutY="224.0" />
+    <Text layoutX="121.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent" />
+    <TextField fx:id="rentField" layoutX="348.0" layoutY="260.0" />
+    <Text layoutX="120.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Utilities" />
+    <TextField fx:id="utilitiesField" layoutX="348.0" layoutY="296.0" />
+    <Text layoutX="186.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Page" textAlignment="CENTER">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Text>
+    <Button fx:id="addButton"  layoutX="204.0" layoutY="328.0" mnemonicParsing="false"  text="Add Property" onAction="#onAddClick"/>
+    <Button fx:id="backButton"  layoutX="304.0" layoutY="328.0" mnemonicParsing="false"  text="Go Back" onAction="#onBackClick"/>
+</Pane>

@@ -3,6 +3,7 @@ package com.example.real_estate_software.controller;
 import com.example.real_estate_software.HelloApplication;
 import com.example.real_estate_software.model.Owner;
 import com.example.real_estate_software.model.OwnerDAO;
+import com.example.real_estate_software.model.PropertyDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,31 +18,23 @@ public class MainDashboardController {
     @FXML
     private Parent dashPage;
     private OwnerDAO ownerDAO;
+    private PropertyDAO propertyDAO;
 
     public MainDashboardController() {
         ownerDAO = new OwnerDAO();
+        propertyDAO = new PropertyDAO();
     }
 
     @FXML
-    protected void onEditClick() throws IOException {
+    protected void onEditAccountClick() throws IOException {
         Stage stage = (Stage) dashPage.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditAccount.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setScene(scene);
-    }
-
-    @FXML
-    protected void onDeleteClick() throws IOException {
-        Owner currentOwner = ownerDAO.getOwner(true);
-        ownerDAO.deleteOwner(currentOwner);
-        Stage stage = (Stage) dashPage.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
         stage.setScene(scene);
     }
 
     @FXML
-    protected void onSignOutClick() throws IOException {
+    protected void onSignOutAccountClick() throws IOException {
         List<Owner> owners = ownerDAO.getAllOwners();
         for(Owner owner : owners) {
             if(owner.getConnection()) {
@@ -55,7 +48,21 @@ public class MainDashboardController {
         }
     }
 
+    @FXML
+    protected void onAddPropertyClick() throws IOException {
+        Stage stage = (Stage) dashPage.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AddProperty.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
+    }
 
+    @FXML
+    protected void onEditPropertyClick() throws IOException {
+        Stage stage = (Stage) dashPage.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditProperty.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
+    }
 
     @FXML
     protected void onPropertyClick() throws IOException {
