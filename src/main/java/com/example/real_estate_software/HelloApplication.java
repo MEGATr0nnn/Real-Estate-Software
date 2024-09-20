@@ -25,7 +25,7 @@ public class HelloApplication extends Application {
             stage.show();
         }
         else {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), WIDTH, HEIGHT);
             stage.setTitle(TITLE);
             stage.setScene(scene);

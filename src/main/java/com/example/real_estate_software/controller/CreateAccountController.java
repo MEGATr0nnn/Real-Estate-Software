@@ -22,7 +22,7 @@ public class CreateAccountController {
     private TextField emailField;
     @FXML
     private TextField passwordField;
-    private final OwnerDAO ownerDAO;
+    private OwnerDAO ownerDAO;
 
     public CreateAccountController() {
         ownerDAO = new OwnerDAO();

@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-public class AccountController {
+public class EditAccountController {
     @FXML
     private TextField firstNameField;
     @FXML
@@ -22,9 +22,9 @@ public class AccountController {
     private TextField passwordField;
     @FXML
     private Button backButton;
-    private final OwnerDAO ownerDAO;
+    private OwnerDAO ownerDAO;
 
-    public AccountController() {
+    public EditAccountController() {
         ownerDAO = new OwnerDAO();
     }
 

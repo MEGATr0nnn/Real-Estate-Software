@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
-public class LoginPageController {
+public class SignInController {
     @FXML
     private Button signUpButton;
     @FXML
@@ -21,9 +21,9 @@ public class LoginPageController {
     private TextField emailField;
     @FXML
     private TextField passwordField;
-    private final OwnerDAO ownerDAO;
+    private OwnerDAO ownerDAO;
 
-    public LoginPageController() {
+    public SignInController() {
         ownerDAO = new OwnerDAO();
     }
 
