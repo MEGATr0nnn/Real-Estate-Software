@@ -12,6 +12,7 @@ public class Property {
     private int num_Tenants;
     private int rent;
     private int utilities;
+    private boolean connection;
 
     public Property(String address, int num_Beds, int num_Bath, int num_Car, boolean tenanted, int num_Tenants, int rent, int utilities){
         this.address = address;
@@ -23,8 +24,20 @@ public class Property {
         this.rent = rent;
         this.utilities = utilities;
     }
-    //need to integrate owner with this
-    //public int getOwnerId() {return owner.}
+
+    //is this duplicate really needed? can i simplify down to one constructior?
+    public Property(String address, int num_Beds, int num_Bath, int num_Car, boolean tenanted, int num_Tenants, int rent, int utilities, boolean connection){
+        this.address = address;
+        this.num_Beds = num_Beds;
+        this.num_Bath = num_Bath;
+        this.num_Car = num_Car;
+        this.tenanted = tenanted;
+        this.num_Tenants = num_Tenants;
+        this.rent = rent;
+        this.utilities = utilities;
+        this.connection = connection;
+    }
+    //need to integrate owner with this in DAO
 
     public int getId() {return id;}
     public void setId(int id) {this.id = id;}
@@ -52,4 +65,7 @@ public class Property {
 
     public int getUtilities() {return utilities;}
     public void setUtilities(int utilities) {this.utilities = utilities;}
+
+    public boolean getConnection() {return connection;}
+    public void setConnection(boolean connection) {this.connection = connection;}
 }
