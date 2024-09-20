@@ -31,6 +31,13 @@ public class PropertyDashboardController {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
     }
+
+    public void onRentClick() throws IOException {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Rent.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+    }
 }
 
 

@@ -18,15 +18,15 @@
          </font>
       </Text>
       <Text layoutX="271.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADDRESS" />
-      <Button layoutX="14.0" layoutY="15.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id = "backButton" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" text="Back" onAction="#onBackClick"/>
       <TextField layoutX="37.0" layoutY="134.0" text="Tenant First Name" />
       <TextField layoutX="37.0" layoutY="177.0" prefHeight="26.0" prefWidth="158.0" text="Tenant Last Name" />
       <TextField layoutX="37.0" layoutY="220.0" text="Tenant Email Address" />
-      <Button layoutX="73.0" layoutY="301.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="53.0" text="Save" />
+      <Button fx:id = "saveButton" layoutX="73.0" layoutY="301.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="53.0" text="Save" />
       <TextField layoutX="37.0" layoutY="262.0" text="Tenant Phone Number" />
    <ImageView fitHeight="149.0" fitWidth="148.0" layoutX="312.0" layoutY="134.0" pickOnBounds="true"
               preserveRatio="true">
       <Image url="@images/Profile Icon.jpg"/>
    </ImageView>
-      <Button layoutX="348.0" layoutY="301.0" mnemonicParsing="false" text="Add Image" />
+      <Button fx:id = "addImageButton" layoutX="348.0" layoutY="301.0" mnemonicParsing="false" text="Add Image" onAction="#onAddImageClick"/>
 </Pane>

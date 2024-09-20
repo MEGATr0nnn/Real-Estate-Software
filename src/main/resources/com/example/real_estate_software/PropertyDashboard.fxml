@@ -18,7 +18,7 @@
    </Text>
    <Button fx:id = "addTenant" layoutX="489.0" layoutY="225.0" mnemonicParsing="false" text="Add Tenant" onAction="#onTenantClick"/>
    <Text layoutX="271.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADDRESS"/>
-   <Button fx:id = "assignRent" layoutX="489.0" layoutY="264.0" mnemonicParsing="false" text="Assign Rent"/>
+   <Button fx:id = "assignRent" layoutX="489.0" layoutY="264.0" mnemonicParsing="false" text="Assign Rent" onAction="#onRentClick"/>
    <Button fx:id = "utilities" layoutX="489.0" layoutY="305.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="Utilities"/>
    <Button fx:id = "maintenanceRequest" layoutX="385.0" layoutY="346.0" mnemonicParsing="false" prefWidth="185.0"
            text="Property Maintenance Request"/>
