@@ -26,6 +26,7 @@ public class PropertyDAO {
                     + "num_Carspaces INTEGER NOT NULL"
                     + "weekly_Rent INTEGER NOT NULL"
                     + "weekly_Utilities INTEGER"
+                    + "connection VARCHAR NOT NULL"
                     + ")";
             statement.execute(query);
         }
@@ -36,9 +37,10 @@ public class PropertyDAO {
 
     public void insert_New_Property(Property property, Owner owner) {
         //need to include setting the id of the owner its associated with for the foreign key
+        //fix this to be in the right order for inserting into the table eventually
         try{
             PreparedStatement statement = connection.prepareStatement("INSERT INTO properties "
-                    + "(address, tenanted, number_Tenants, num_Beds, num_Baths, num_Carspaces, weekly_Rent, weekly_Utilities, owner_Id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    + "(address, tenanted, number_Tenants, num_Beds, num_Baths, num_Carspaces, weekly_Rent, weekly_Utilities, owner_Id, connection) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             statement.setString(1, property.getAddress());
             statement.setBoolean(2, property.getTenanted());
             statement.setInt(3, property.getNum_Tenants());
@@ -48,6 +50,7 @@ public class PropertyDAO {
             statement.setInt(7, property.getRent());
             statement.setInt(8, property.getUtilities());
             statement.setInt(9, owner.getId());
+            statement.setBoolean(10, property.getConnection());
             ResultSet generated_Keys = statement.getGeneratedKeys();
             if (generated_Keys.next()){
                 property.setId(generated_Keys.getInt(1));
@@ -61,7 +64,7 @@ public class PropertyDAO {
     public void update_Property(Property property) {
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE properties SET"
-                    + "address = ?, tenanted = ?, number_Tenants = ?, num_Beds = ?, num_Baths = ?, num_Carspaces = ?, weekly_Rent = ?, weekly_Utilities = ? WHERE id = ?");
+                    + "address = ?, tenanted = ?, number_Tenants = ?, num_Beds = ?, num_Baths = ?, num_Carspaces = ?, weekly_Rent = ?, weekly_Utilities = ?, connection = ?, WHERE id = ?");
             statement.setString(1, property.getAddress());
             statement.setBoolean(2, property.getTenanted());
             statement.setInt(3, property.getNum_Tenants());
@@ -70,7 +73,8 @@ public class PropertyDAO {
             statement.setInt(6, property.getNum_Car());
             statement.setInt(7, property.getRent());
             statement.setInt(8, property.getUtilities());
-            statement.setInt(9, property.getId());
+            statement.setBoolean(9, property.getConnection());
+            statement.setInt(10, property.getId());
             statement.executeUpdate();
         }
         catch (Exception ex){
