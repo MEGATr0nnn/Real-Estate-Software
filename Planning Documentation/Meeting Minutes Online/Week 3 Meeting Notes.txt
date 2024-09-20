@@ -1,0 +1,67 @@
+Meeting Minutes:
+Week 3
+
+CAB302 Tutorial 
+Weekly meetings Tuesdays from 11:00am to 12:00pm
+Strengths
+
+Harry:
+-	Effective team coordinator 
+-	Backend 
+-	C#, good at OOP 
+-	Code documentation 
+-	Code skeleton and planning of what to code and have structure 
+-	Fast at developing code
+
+Vuyo 
+-	Front-end development 
+-	Python and C#
+-	Backend-end (Front-end is a bit better)
+-	Idea generation 
+-	Research 
+
+Steven 
+-	Knowledge in this subject
+-	Strong commitment towards the problem at hand 
+-	Back-end and data analysis 
+-	Database modelling 
+-	All rounder
+
+Shanthu 
+-	Algorithms and complexity 
+-	C# and OOP
+-	Working hard 
+-	Time management 
+-	Communication
+-	Asking questions
+
+Weaknesses 
+
+Harry
+-	Sometimes leaving work to the last minute
+-	Driving thoughts and ideas (ensuring others can communicate=)
+-	Not amazing at complex algorithms 
+-	Testing 
+
+Vuyo 
+-	Structure and planning
+-	Meeting deadlines
+-	Obsolete tech
+-	Testing
+
+Steven 
+-	Communication 
+-	Testing
+-	In person availability 
+
+Shanthu 
+-	Testing 
+-	Front-end
+
+Project Preferences
+1.	Home inventory manager 
+2.	Real Estate Management Portfolio 
+3.	Sign language learning app 
+4.	Outback weather tracker 
+ 
+
