@@ -10,9 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.util.List;
 
-public class MainController {
+public class AccountController {
     @FXML
     private TextField firstNameField;
     @FXML
@@ -22,12 +21,10 @@ public class MainController {
     @FXML
     private TextField passwordField;
     @FXML
-    private Button deleteButton;
-    @FXML
-    private Button logOutButton;
+    private Button backButton;
     private OwnerDAO ownerDAO;
 
-    public MainController() {
+    public AccountController() {
         ownerDAO = new OwnerDAO();
     }
 
@@ -48,28 +45,11 @@ public class MainController {
     }
 
     @FXML
-    protected void onDeleteClick() throws IOException {
-        Owner currentOwner = ownerDAO.getOwner(true);
-        ownerDAO.deleteOwner(currentOwner);
-        Stage stage = (Stage) deleteButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+    protected void onBackClick () throws IOException {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dash-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
-    }
-
-    @FXML
-    protected void onLogOutClick() throws IOException {
-        List<Owner> owners = ownerDAO.getAllOwners();
-        for(Owner owner : owners) {
-            if(owner.getConnection()) {
-                owner.setConnection(false);
-                ownerDAO.updateOwner(owner);
-                Stage stage = (Stage) logOutButton.getScene().getWindow();
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
-                Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-                stage.setScene(scene);
-            }
-        }
     }
 
     private boolean emptyFields() {
@@ -82,4 +62,5 @@ public class MainController {
         }
         return false;
     }
+
 }

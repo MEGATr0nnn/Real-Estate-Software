@@ -1,0 +1,101 @@
+Here are the acceptance criteria for each user story:
+
+### Contracted Properties
+
+1. **User Story:** *As an Owner, I want to view a list of all contracted properties so that I can manage and review the contracts for each property.*
+   - **Acceptance Criteria:**
+     - The dashboard displays a list of all contracted properties.
+     - Each property in the list shows the contract start and end dates.
+     - The list is updated in real-time as new contracts are added or existing ones are modified.
+
+2. **User Story:** *As an Owner, I want to view the contract details of individual properties so that I can ensure all terms are being met.*
+   - **Acceptance Criteria:**
+     - Clicking on a property in the contracted properties list opens a detailed view of the contract.
+     - The detailed view includes information such as rent amount, lease duration, tenant details, and special clauses.
+     - The contract details can be exported as a PDF document.
+
+3. **User Story:** *As an Owner, I want to filter properties to show only those under active contracts so that I can focus on properties that are currently generating revenue.*
+   - **Acceptance Criteria:**
+     - The dashboard includes a filter option to display only properties with active contracts.
+     - Properties with expired or upcoming contracts are excluded from the filtered view.
+     - The filter can be toggled on or off by the user.
+
+### Approximate Valuation
+
+1. **User Story:** *As an Owner, I want to see the approximate valuation of each property so that I can assess the value of my investments.*
+   - **Acceptance Criteria:**
+     - The dashboard displays the approximate valuation of each property next to its name.
+     - Valuations are updated at least monthly or when significant changes occur.
+     - Valuation data can be viewed in both list format and on a graph for trend analysis.
+
+2. **User Story:** *As an Owner, I want to compare the valuation of different properties in my portfolio so that I can make informed decisions about potential sales or improvements.*
+   - **Acceptance Criteria:**
+     - The system allows users to select multiple properties and compare their valuations side by side.
+     - The comparison includes historical valuation data for trend analysis.
+     - The comparison view can be exported as a report.
+
+3. **User Story:** *As an Owner, I want to receive updates when the valuation of a property changes significantly so that I can adjust my strategy accordingly.*
+   - **Acceptance Criteria:**
+     - Users receive email or SMS notifications when a property's valuation changes by a user-defined threshold (e.g., 5%).
+     - Notifications include a summary of the change and a link to view more details.
+     - Users can customize the notification settings, including the frequency and threshold for alerts.
+
+### Vacancy Status
+
+1. **User Story:** *As an Owner, I want to view whether each property is vacant or occupied so that I can understand the occupancy rates and potential revenue gaps.*
+   - **Acceptance Criteria:**
+     - The dashboard displays the occupancy status (vacant or occupied) for each property.
+     - The occupancy status is updated in real-time as tenants move in or out.
+     - The occupancy rate is shown as a percentage for the entire portfolio.
+
+2. **User Story:** *As an Owner, I want to be notified when a property becomes vacant so that I can take immediate steps to find new tenants.*
+   - **Acceptance Criteria:**
+     - Users receive notifications (email, SMS, or app alerts) when a property becomes vacant.
+     - The notification includes details of the property and the date it became vacant.
+     - Users can customize notification settings, including preferred methods and frequency.
+
+3. **User Story:** *As an Owner, I want to track the duration of vacancies for each property so that I can identify and address potential issues affecting occupancy.*
+   - **Acceptance Criteria:**
+     - The system tracks and displays the duration of vacancies for each property.
+     - A report is available that shows the average vacancy duration over a selected period.
+     - Alerts are sent if a property's vacancy duration exceeds a user-defined threshold (e.g., 30 days).
+
+### Property Specifications
+
+1. **User Story:** *As an Owner, I want to view the detailed specifications of each property, such as the number of bedrooms and bathrooms, so that I can accurately market and maintain my properties.*
+   - **Acceptance Criteria:**
+     - The dashboard provides a detailed view of each property's specifications, including the number of bedrooms, bathrooms, square footage, and any special features.
+     - Specifications can be edited and updated by authorized users.
+     - Specifications are searchable and filterable within the dashboard.
+
+2. **User Story:** *As an Owner, I want to access specifications for each property in my portfolio so that I can ensure they meet tenant needs and market demands.*
+   - **Acceptance Criteria:**
+     - Users can access a list of all properties with their specifications in a summary view.
+     - The summary view includes options to sort and filter properties based on specifications (e.g., by number of bedrooms).
+     - The summary can be exported as a CSV or PDF file for offline analysis.
+
+3. **User Story:** *As an Owner, I want to review property specifications when planning renovations or improvements so that I can enhance the property's value and appeal.*
+   - **Acceptance Criteria:**
+     - The system provides a renovation planning tool that includes current property specifications.
+     - Users can input potential improvements and see projected impacts on property value and marketability.
+     - The system allows saving and comparing different renovation scenarios.
+
+### Revenue from Rent
+
+1. **User Story:** *As an Owner, I want to view the rent revenue generated by each property so that I can assess the financial performance of my investments.*
+   - **Acceptance Criteria:**
+     - The dashboard displays the monthly and annual rent revenue for each property.
+     - Rent revenue data can be viewed in both list format and graphically for trend analysis.
+     - Users can filter and sort revenue data by property, date range, or other criteria.
+
+2. **User Story:** *As an Owner, I want to see the rental income per tenant so that I can ensure all payments are being made correctly.*
+   - **Acceptance Criteria:**
+     - The system provides a breakdown of rental income by tenant for each property.
+     - Users can view payment history, including missed or late payments, for each tenant.
+     - An alert system notifies users of any discrepancies or overdue payments.
+
+3. **User Story:** *As an Owner, I want to compare total revenue across different properties so that I can identify the most profitable investments in my portfolio.*
+   - **Acceptance Criteria:**
+     - The system allows users to compare total revenue across multiple properties in a side-by-side view.
+     - Revenue comparison includes historical data for trend analysis.
+     - The comparison report can be exported and shared with other stakeholders.
