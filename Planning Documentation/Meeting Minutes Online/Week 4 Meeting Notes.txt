@@ -1,0 +1,37 @@
+Notes from 19-08-2024 Meeting at 1830.
+
+All group members present.
+
+ANNOUNCEMENTS
+FILL IN STUDENT INFORMATION ON GITHUB
+
+Github Link to Repo
+https://github.com/MEGATr0nnn/Team-Toast
+
+Target Audience: 
+Independent property owners providing accommodation to renters.
+
+Project Overview
+Management platform for landlords to manage their contracted properties (start date of lease, end date of lease), bond management, rent, utilities (if multiple rent eligible people live in the same unit/house/apartment), property maintenance requests, managing car spots/car fees (if not all units are eligible), property valuation log. 
+
+Minimum Requirements:
+GUI: 
+Home page, with all properties listed
+login/logout
+account management
+property adding page
+property edit page
+property view page
+
+Authentication System
+ability to verify inputted data, and match it to currently held data in database if correct yay if not fuck off
+if not logged in, create new account, it must satisfy variables ie valid email, valid password (does it need special characters)
+
+Database
+landlord information
+property information
+tenant information
+contract information (potential for system to say hey there's no contract but i have property and tenant info, let me pre pop and send blank form to sign) MUST BE ABLE TO UPLOAD PDF
+
+Data Retrieval System
+ability to accurately get data from db and place it in the corresponding property

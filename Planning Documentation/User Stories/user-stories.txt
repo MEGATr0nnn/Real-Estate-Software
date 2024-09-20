@@ -1,0 +1,85 @@
+User Stories 
+
+
+LOGIN / SIGNUP PAGE
+1. As a owner I want to log-in to my account so that I can continue looking at my current properties.
+GIVEN - The owner has an account and is on the authentication page
+WHEN - The owner clicks login button
+THEN - The app will display a page to enter login details
+
+2. As a owner I want to log-out of my account so that my account secured can be kept secured.
+GIVEN - The owner is logged in and on the settings dashboard
+WHEN - The owner clicks logout button
+THEN - The owner will return to the authentication page
+
+3. As a owner I want to create an account so that I can use the real estate management system.
+GIVEN - The owner is on the authentication page
+WHEN - The owner click signup button as owner
+THEN - The app will display a page to fill in account details
+
+4. As a owner I want to edit my account so that my outdated details can be changed.
+GIVEN - The owner is logged in and on the settings dashboard
+WHEN - The owner clicks the edit button
+THEN - The dashboard will reload to show editable text fields.
+
+5. As a owner I want to delete my account so that my data can never be compromised.
+GIVEN - The owner is logged in and on the settings dashboard
+WHEN - The owner clicks the delete account button
+THEN - The app will display a message and return to authentication page.
+
+6. As a tenant I want to log-in to my account so that I can see my current vacancy.
+GIVEN - The tenant has an account and is on the authentication page
+WHEN - The tenant clicks login button
+THEN - The app will display a page to enter login details
+
+7. As a tenant I want to log-out of my account so that I can return at a later time.
+GIVEN - The tenant is logged in and on the settings dashboard
+WHEN - The tenant clicks logout button
+THEN - The tenant will return to the authentication page
+
+8. As a tenant I want to create an account so that I can see available vacancies.
+GIVEN - The tenant is on the authentication page
+WHEN - The tenant click signup button as tenant
+THEN - The app will display a page to fill in account details
+
+9. As a tenant I want to edit my account so that I can change an error that was made.
+GIVEN - The tenant is logged in and on the settings dashboard
+WHEN - The tenant clicks the edit button
+THEN - The dashboard will reload to show editable text fields.
+
+10. As a tenant I want to delete my account so that I can use a different management system.
+GIVEN - The tenant is logged in and on the settings dashboard
+WHEN - The tenant clicks the delete account button
+THEN - The app will display a message and return to authentication page.
+
+11. As a tenant I want to change my account to owner so that I can start to manage my properties.
+GIVEN - The tenant is logged in and on the settings dashboard
+WHEN - The tenant clicks the upgrade account button
+THEN - The app will change tenant user into owner
+
+
+EDIT PROPERTY PAGE
+12. As a owner I want to edit the details of my property so that it is not incorrectly listed.
+GIVEN - The owner selects a property and is on the property page
+WHEN - The owner selects the edit button
+THEN - The page will reload to show editable text fields.
+
+13. As a owner I want to delete my listed property so that I remove it from my properties listing. 
+GIVEN - The owner selects a property and is on the property page
+WHEN - The owner selects the delete property button
+THEN - The app will return to the property dashboard 
+
+14. As a owner I want to transfer my property so that I can show change of ownership.
+GIVEN - The owner selects a property and is on the property page
+WHEN - The owner selects the transfer property button
+THEN - The app will display a message and place the property in pending until 	the other owner accepts
+
+15. As a owner I want to assign tenants to my property so that I can see my property as being rented.
+GIVEN - The owner selects a property and is on the property page
+WHEN - The owner selects the assign tenants button
+THEN - The app will show a searchable list of all tenants
+
+16. As a owner I want to remove tenants from my property so that I can see my property as being open.
+GIVEN - The owner selects a property and is on the property page
+WHEN - The owner selects the remove tenant button
+THEN - The property page will reload to show new changes
