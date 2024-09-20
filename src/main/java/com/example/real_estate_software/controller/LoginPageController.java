@@ -31,8 +31,8 @@ public class LoginPageController {
     protected void onSignInClick() throws IOException {
         if(checkExists()){
             Stage stage = (Stage) signInButton.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dash-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
         }
     }
@@ -58,4 +58,5 @@ public class LoginPageController {
         }
         return false;
     }
+
 }
