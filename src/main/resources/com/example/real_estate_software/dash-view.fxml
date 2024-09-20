@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="dashPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_software.controller.DashController">
     <center>
         <Accordion prefHeight="257.0" prefWidth="432.0" BorderPane.alignment="CENTER">
             <panes>
@@ -38,12 +37,14 @@
             <menus>
                 <Menu mnemonicParsing="false" text="Menu">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Close" />
+                        <MenuItem mnemonicParsing="false" text="Close"/>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Account">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Delete" />
+                        <MenuItem mnemonicParsing="false" text="Edit" onAction="#onEditClick"/>
+                        <MenuItem mnemonicParsing="false" text="Delete" onAction="#onDeleteClick" />
+                        <MenuItem mnemonicParsing="false" text="Sign Out" onAction="#onSignOutClick"/>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Add new property">
