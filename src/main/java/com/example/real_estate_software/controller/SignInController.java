@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
-public class LoginPageController {
+public class SignInController {
     @FXML
     private Button signUpButton;
     @FXML
@@ -23,7 +23,7 @@ public class LoginPageController {
     private TextField passwordField;
     private OwnerDAO ownerDAO;
 
-    public LoginPageController() {
+    public SignInController() {
         ownerDAO = new OwnerDAO();
     }
 
@@ -31,8 +31,8 @@ public class LoginPageController {
     protected void onSignInClick() throws IOException {
         if(checkExists()){
             Stage stage = (Stage) signInButton.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
         }
     }
@@ -58,4 +58,5 @@ public class LoginPageController {
         }
         return false;
     }
+
 }
