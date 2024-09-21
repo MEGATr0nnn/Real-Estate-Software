@@ -22,7 +22,7 @@ public class CreateAccountController {
     private TextField emailField;
     @FXML
     private TextField passwordField;
-    private OwnerDAO ownerDAO;
+    private final OwnerDAO ownerDAO;
 
     public CreateAccountController() {
         ownerDAO = new OwnerDAO();
@@ -33,7 +33,7 @@ public class CreateAccountController {
         if(!emptyFields()) {
             createAccount();
             Stage stage = (Stage) createAccountButton.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dash-view-final.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
         }
