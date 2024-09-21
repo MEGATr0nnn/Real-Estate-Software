@@ -18,14 +18,14 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         if(signedIn()) {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), WIDTH, HEIGHT);
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle(TITLE);
             stage.setScene(scene);
             stage.show();
         }
         else {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), WIDTH, HEIGHT);
             stage.setTitle(TITLE);
             stage.setScene(scene);
