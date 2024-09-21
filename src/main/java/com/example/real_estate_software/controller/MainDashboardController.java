@@ -16,7 +16,7 @@ public class MainDashboardController {
     public Button propertyDashboard;
     @FXML
     private Parent dashPage;
-    private OwnerDAO ownerDAO;
+    private final OwnerDAO ownerDAO;
 
     public MainDashboardController() {
         ownerDAO = new OwnerDAO();
@@ -54,8 +54,6 @@ public class MainDashboardController {
             }
         }
     }
-
-
 
     @FXML
     protected void onPropertyClick() throws IOException {
