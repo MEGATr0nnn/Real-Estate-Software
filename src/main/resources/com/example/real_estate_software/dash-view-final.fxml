@@ -11,14 +11,18 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.GridPane?>
+
 
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0"
             prefWidth="780.0" styleClass="parent" xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.real_estate_software.controller.MainDashboardController">
+
    <Pane prefHeight="580.0" prefWidth="75.0" styleClass="sidebar" AnchorPane.leftAnchor="0.0">
-      <HBox alignment="CENTER" layoutY="94.0" prefHeight="65.0" prefWidth="75.0">
+
+   <HBox alignment="CENTER" layoutY="94.0" prefHeight="65.0" prefWidth="75.0">
          <padding>
             <Insets left="8.0" right="12.0"/>
          </padding>
@@ -30,13 +34,17 @@
          </HBox>
       </HBox>
 
-      <HBox alignment="CENTER" layoutX="4.0" layoutY="159.0" prefHeight="65.0" prefWidth="64.0"
-            styleClass="fontawesomeicon">
+      <HBox alignment="CENTER" layoutX="4.0" layoutY="159.0" prefHeight="65.0" prefWidth="64.0">
          <padding>
             <Insets left="8.0" right="12.0"/>
          </padding>
-         <FontIcon iconLiteral="fas-inbox" iconSize="24" styleClass="fontawesomeicon"/>
+         <Button fx:id="editButton" styleClass="icon-button" onAction="#handleEditClick">
+            <graphic>
+               <FontIcon iconLiteral="far-edit" iconSize="24" styleClass="fontawesomeicon"/>
+            </graphic>
+         </Button>
       </HBox>
+
 
       <HBox alignment="CENTER" layoutX="4.0" layoutY="224.0" prefHeight="65.0" prefWidth="75.0">
          <padding>
@@ -45,19 +53,30 @@
          <FontIcon iconLiteral="fas-cogs" iconSize="24" styleClass="fontawesomeicon"/>
       </HBox>
 
+
       <HBox alignment="CENTER" layoutX="4.0" layoutY="289.0" prefHeight="65.0" prefWidth="75.0">
          <padding>
             <Insets left="8.0" right="12.0"/>
          </padding>
-         <FontIcon iconLiteral="fas-chart-bar" iconSize="24" styleClass="fontawesomeicon"/>
+         <Button fx:id="viewStatsButton" text="View Stats" onAction="#handleViewStatsClick">
+            <graphic>
+               <FontIcon iconLiteral="fas-chart-bar" iconSize="24" styleClass="fontawesomeicon"/>
+            </graphic>
+         </Button>
       </HBox>
+
 
       <HBox alignment="CENTER" layoutX="4.0" layoutY="450.0" prefHeight="65.0" prefWidth="75.0">
          <padding>
             <Insets left="8.0" right="12.0"/>
          </padding>
-         <FontIcon iconLiteral="fas-sign-out-alt" iconSize="24" styleClass="fontawesomeicon"/>
+         <Button fx:id="signOutButton" styleClass="icon-button" onAction="#handleSignOutClick">
+            <graphic>
+               <FontIcon iconLiteral="fas-sign-out-alt" iconSize="24" styleClass="fontawesomeicon"/>
+            </graphic>
+         </Button>
       </HBox>
+
 
       <Label layoutX="4.0" layoutY="5.0" styleClass="HOME" text="ESTATE" textFill="#c6baba">
          <font>
@@ -102,330 +121,18 @@
       </font>
    </Label>
 
-   <Button layoutX="215.0" layoutY="73.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="166.0"
-           styleClass="add-button" text="ADD NEW PROPERTY" textFill="#549cc9">
+   <Button fx:id="addPropertyButton" layoutX="215.0" layoutY="73.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="166.0"
+           styleClass="add-button" text="ADD NEW PROPERTY" textFill="#549cc9" onAction="#handleAddPropertyClick">
       <font>
          <Font size="8.0"/>
       </font>
    </Button>
 
+
    <FontIcon iconLiteral="fas-plus" layoutX="225.0" layoutY="93.0"/>
 
-   <!-- First Box -->
-   <AnchorPane layoutX="92.0" layoutY="117.0" prefHeight="200.0" prefWidth="208.0" style="-fx-background-color: white;">
-      <effect>
-         <DropShadow blurType="ONE_PASS_BOX">
-            <color>
-               <Color red="0.789" green="0.789" blue="0.789"/>
-            </color>
-         </DropShadow>
-      </effect>
-      <Pane prefHeight="44.0" prefWidth="227.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0"
-            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" onMouseClicked="#onPropertyClick">
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.842" green="0.819" blue="0.819"/>
-               </color>
-            </DropShadow>
-         </effect>
-         <Circle fill="DODGERBLUE" layoutX="47.0" layoutY="44.0" radius="22.0" stroke="BLACK"
-                 strokeType="INSIDE"/>
-         <Label layoutX="123.0" layoutY="19.0" styleClass="propertyID-label" text="Property ID"
-                textFill="#8a8a8a">
-            <font>
-               <Font name="Geneva" size="13.0"/>
-            </font>
-            <padding>
-               <Insets bottom="5.0" left="5.0" right="5.0"/>
-            </padding>
-         </Label>
-      </Pane>
-      <Label layoutX="10.0" layoutY="65.0" styleClass="no-rooms-label" text="No. rooms" textFill="#7c7c7c">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="100.0" styleClass="property-address-label" text="Property address">
-         <font>
-            <Font name="System Bold" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="125.0" styleClass="tenant-label" text="Main tenant" textFill="#8a8a8a">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="150.0" styleClass="rent-label" text="Current rent" textFill="#8a8a8a">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-   </AnchorPane>
+   <GridPane fx:id="propertyGrid" layoutX="92.0" layoutY="117.0" hgap="15.0" vgap="15.0">
 
-
-   <AnchorPane layoutX="323.0" layoutY="117.0" prefHeight="200.0" prefWidth="208.0"
-               style="-fx-background-color: white;">
-      <effect>
-         <DropShadow blurType="ONE_PASS_BOX">
-            <color>
-               <Color red="0.789" green="0.789" blue="0.789"/>
-            </color>
-         </DropShadow>
-      </effect>
-      <Pane prefHeight="44.0" prefWidth="227.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0"
-            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.842" green="0.819" blue="0.819"/>
-               </color>
-            </DropShadow>
-         </effect>
-         <Circle fill="DODGERBLUE" layoutX="47.0" layoutY="44.0" radius="22.0" stroke="BLACK"
-                 strokeType="INSIDE"/>
-         <Label layoutX="123.0" layoutY="19.0" styleClass="propertyID-label" text="Property ID"
-                textFill="#8a8a8a">
-            <font>
-               <Font name="Geneva" size="13.0"/>
-            </font>
-            <padding>
-               <Insets bottom="5.0" left="5.0" right="5.0"/>
-            </padding>
-         </Label>
-      </Pane>
-      <Label layoutX="10.0" layoutY="65.0" styleClass="no-rooms-label" text="No. rooms" textFill="#7c7c7c">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="100.0" styleClass="property-address-label" text="Property address">
-         <font>
-            <Font name="System Bold" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="125.0" styleClass="tenant-label" text="Main tenant" textFill="#8a8a8a">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="150.0" styleClass="rent-label" text="Current rent" textFill="#8a8a8a">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-   </AnchorPane>
-
-   <!-- Third Box -->
-   <AnchorPane layoutX="559.0" layoutY="117.0" prefHeight="200.0" prefWidth="208.0"
-               style="-fx-background-color: white;">
-      <effect>
-         <DropShadow blurType="ONE_PASS_BOX">
-            <color>
-               <Color red="0.789" green="0.789" blue="0.789"/>
-            </color>
-         </DropShadow>
-      </effect>
-      <Pane prefHeight="44.0" prefWidth="227.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0"
-            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.842" green="0.819" blue="0.819"/>
-               </color>
-            </DropShadow>
-         </effect>
-         <Circle fill="DODGERBLUE" layoutX="47.0" layoutY="44.0" radius="22.0" stroke="BLACK"
-                 strokeType="INSIDE"/>
-         <Label layoutX="123.0" layoutY="19.0" styleClass="propertyID-label" text="Property ID"
-                textFill="#8a8a8a">
-            <font>
-               <Font name="Geneva" size="13.0"/>
-            </font>
-            <padding>
-               <Insets bottom="5.0" left="5.0" right="5.0"/>
-            </padding>
-         </Label>
-      </Pane>
-      <Label layoutX="10.0" layoutY="65.0" styleClass="no-rooms-label" text="No. rooms" textFill="#7c7c7c">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="100.0" styleClass="property-address-label" text="Property address">
-         <font>
-            <Font name="System Bold" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="125.0" styleClass="tenant-label" text="Main tenant" textFill="#8a8a8a">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="150.0" styleClass="rent-label" text="Current rent" textFill="#8a8a8a">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-   </AnchorPane>
-
-   <!-- Fourth Box -->
-   <AnchorPane layoutX="92.0" layoutY="340.0" prefHeight="200.0" prefWidth="208.0" style="-fx-background-color: white;">
-      <effect>
-         <DropShadow blurType="ONE_PASS_BOX">
-            <color>
-               <Color red="0.789" green="0.789" blue="0.789"/>
-            </color>
-         </DropShadow>
-      </effect>
-      <Pane prefHeight="44.0" prefWidth="227.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0"
-            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.842" green="0.819" blue="0.819"/>
-               </color>
-            </DropShadow>
-         </effect>
-         <Circle fill="DODGERBLUE" layoutX="47.0" layoutY="44.0" radius="22.0" stroke="BLACK"
-                 strokeType="INSIDE"/>
-         <Label layoutX="123.0" layoutY="19.0" styleClass="propertyID-label" text="Property ID"
-                textFill="#8a8a8a">
-            <font>
-               <Font name="Geneva" size="13.0"/>
-            </font>
-            <padding>
-               <Insets bottom="5.0" left="5.0" right="5.0"/>
-            </padding>
-         </Label>
-      </Pane>
-      <Label layoutX="10.0" layoutY="65.0" styleClass="no-rooms-label" text="No. rooms" textFill="#7c7c7c">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="100.0" styleClass="property-address-label" text="Property address">
-         <font>
-            <Font name="System Bold" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="125.0" styleClass="tenant-label" text="Main tenant" textFill="#8a8a8a">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="150.0" styleClass="rent-label" text="Current rent" textFill="#8a8a8a">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-   </AnchorPane>
-
-   <!-- Fifth Box -->
-   <AnchorPane layoutX="323.0" layoutY="340.0" prefHeight="200.0" prefWidth="208.0"
-               style="-fx-background-color: white;">
-      <effect>
-         <DropShadow blurType="ONE_PASS_BOX">
-            <color>
-               <Color red="0.789" green="0.789" blue="0.789"/>
-            </color>
-         </DropShadow>
-      </effect>
-      <Pane prefHeight="44.0" prefWidth="227.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0"
-            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.842" green="0.819" blue="0.819"/>
-               </color>
-            </DropShadow>
-         </effect>
-         <Circle fill="DODGERBLUE" layoutX="47.0" layoutY="44.0" radius="22.0" stroke="BLACK"
-                 strokeType="INSIDE"/>
-         <Label layoutX="123.0" layoutY="19.0" styleClass="propertyID-label" text="Property ID"
-                textFill="#8a8a8a">
-            <font>
-               <Font name="Geneva" size="13.0"/>
-            </font>
-            <padding>
-               <Insets bottom="5.0" left="5.0" right="5.0"/>
-            </padding>
-         </Label>
-      </Pane>
-      <Label layoutX="10.0" layoutY="65.0" styleClass="no-rooms-label" text="No. rooms" textFill="#7c7c7c">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="100.0" styleClass="property-address-label" text="Property address">
-         <font>
-            <Font name="System Bold" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="125.0" styleClass="tenant-label" text="Main tenant" textFill="#8a8a8a">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="150.0" styleClass="rent-label" text="Current rent" textFill="#8a8a8a">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-   </AnchorPane>
-
-   <!-- Sixth Box -->
-   <AnchorPane layoutX="559.0" layoutY="340.0" prefHeight="200.0" prefWidth="208.0"
-               style="-fx-background-color: white;">
-      <effect>
-         <DropShadow blurType="ONE_PASS_BOX">
-            <color>
-               <Color red="0.789" green="0.789" blue="0.789"/>
-            </color>
-         </DropShadow>
-      </effect>
-      <Pane prefHeight="44.0" prefWidth="227.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0"
-            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.842" green="0.819" blue="0.819"/>
-               </color>
-            </DropShadow>
-         </effect>
-         <Circle fill="DODGERBLUE" layoutX="47.0" layoutY="44.0" radius="22.0" stroke="BLACK"
-                 strokeType="INSIDE"/>
-         <Label layoutX="123.0" layoutY="19.0" styleClass="propertyID-label" text="Property ID"
-                textFill="#8a8a8a">
-            <font>
-               <Font name="Geneva" size="13.0"/>
-            </font>
-            <padding>
-               <Insets bottom="5.0" left="5.0" right="5.0"/>
-            </padding>
-         </Label>
-      </Pane>
-      <Label layoutX="10.0" layoutY="65.0" styleClass="no-rooms-label" text="No. rooms" textFill="#7c7c7c">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="100.0" styleClass="property-address-label" text="Property address">
-         <font>
-            <Font name="System Bold" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="125.0" styleClass="tenant-label" text="Main tenant" textFill="#8a8a8a">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-      <Label layoutX="10.0" layoutY="150.0" styleClass="rent-label" text="Current rent" textFill="#8a8a8a">
-         <font>
-            <Font name="Geneva" size="13.0"/>
-         </font>
-      </Label>
-   </AnchorPane>
-
+   </GridPane>
 </AnchorPane>
 
