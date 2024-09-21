@@ -48,7 +48,7 @@
                   <Insets left="8.0" right="12.0" />
                </padding>
                <children>
-                  <FontIcon iconLiteral="fas-cogs" iconSize="24" styleClass="fontawesomeicon sidebar-btn" />
+                  <FontIcon iconLiteral="fas-cogs" iconSize="24" styleClass="fontawesomeicon" />
                </children>
             </HBox>
 
@@ -57,7 +57,7 @@
                   <Insets left="8.0" right="12.0" />
                </padding>
                <children>
-                  <FontIcon iconLiteral="fas-chart-bar" iconSize="24" styleClass="fontawesomeicon sidebar-btn" />
+                  <FontIcon iconLiteral="fas-chart-bar" iconSize="24" styleClass="fontawesomeicon" />
                </children>
             </HBox>
 
@@ -180,9 +180,7 @@
          </children>
       </AnchorPane>
 
-      <!-- Repeat the other 5 boxes with slightly different layout positions -->
 
-      <!-- Second Box -->
       <AnchorPane layoutX="323.0" layoutY="117.0" prefHeight="200.0" prefWidth="208.0" style="-fx-background-color: white;">
          <effect>
             <DropShadow blurType="ONE_PASS_BOX">
