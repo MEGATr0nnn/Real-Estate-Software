@@ -33,4 +33,5 @@ public class PropertyTest {
         property.setNum_Bath(10);
         assertEquals(10, property.getNum_Bath());
     }
+
 }
