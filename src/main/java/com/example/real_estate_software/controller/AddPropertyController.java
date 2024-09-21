@@ -44,10 +44,7 @@ public class AddPropertyController {
     protected void onAddClick() throws IOException {
         if(!emptyFields()) {
             addProperty();
-            Stage stage = (Stage) addButton.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            stage.setScene(scene);
+            clearFields();
         }
     }
 
@@ -69,6 +66,16 @@ public class AddPropertyController {
         int rent = Integer.parseInt(rentField.getText());
         int utilities = Integer.parseInt(utilitiesField.getText());
         propertyDAO.insert_New_Property(new Property(address, tenants, beds, baths, cars, rent, utilities), currentOwner);
+    }
+
+    private void clearFields() {
+        addressField.clear();
+        tenantField.clear();
+        bedsField.clear();
+        bathsField.clear();
+        carsField.clear();
+        rentField.clear();
+        utilitiesField.clear();
     }
 
     private boolean emptyFields() {
