@@ -1,0 +1,42 @@
+.parent{
+    -fx-background-color:#F5F5F7;
+}
+.sidebar{
+    -fx-background-color:black;
+}
+.HOME{
+    -fx-text-fill:silver;
+}
+.fontawesomeicon{
+    -fx-fill:grey;
+}
+.noti-num{
+    -fx-background-color:#F02E54;
+    -fx-background-radius:100%;
+    -fx-text-fill:white;
+}
+.add-button{
+-fx-font-size:10px;
+-fx-background-radius:6px;
+}
+
+.no-rooms-label{
+    -fx-text-fill:#7c7c7c;
+}
+
+.property-address-label{
+    -fx-text-fill:black;
+    -fx-font-weight: bold;
+}
+
+.tenant-label{
+    -fx-text-fill:#7c7c7c;
+}
+
+.rent-label{
+    -fx-text-fill:#7c7c7c;
+}
+
+.propertyID-label{
+     -fx-text-fill:#7c7c7c;
+ }
