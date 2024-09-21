@@ -19,7 +19,7 @@
     <TextField fx:id="emailField" layoutX="348.0" layoutY="206.0" />
     <Text layoutX="120.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
     <TextField fx:id="passwordField" layoutX="346.0" layoutY="242.0" />
-    <Text layoutX="186.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Page" textAlignment="CENTER">
+    <Text layoutX="186.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Account" textAlignment="CENTER">
         <font>
             <Font size="24.0" />
         </font>

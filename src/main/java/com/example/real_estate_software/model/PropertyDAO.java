@@ -66,8 +66,8 @@ public class PropertyDAO {
 
     public void update_Property(Property property) {
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE properties SET"
-                    + "address = ?, tenanted = ?, number_Tenants = ?, num_Beds = ?, num_Baths = ?, num_Carspaces = ?, weekly_Rent = ?, weekly_Utilities = ?, WHERE property_Id = ?");
+            PreparedStatement statement = connection.prepareStatement("UPDATE properties SET "
+                    + "address = ?, tenanted = ?, number_Tenants = ?, num_Beds = ?, num_Baths = ?, num_Carspaces = ?, weekly_Rent = ?, weekly_Utilities = ? WHERE property_Id = ?");
             statement.setString(1, property.getAddress());
             statement.setBoolean(2, property.getTenanted());
             statement.setInt(3, property.getNum_Tenants());
@@ -128,7 +128,7 @@ public class PropertyDAO {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM properties WHERE owner_Id = ?");
             statement.setInt(1, owner.getId());
             ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()){
+            while (resultSet.next()){
                 int id = resultSet.getInt("property_Id");
                 String address = resultSet.getString("address");
                 boolean tenanted = resultSet.getBoolean("tenanted");
@@ -141,7 +141,6 @@ public class PropertyDAO {
                 Property property = new Property(address, tenanted, num_Tenants, num_Beds, num_Baths, num_Carspaces, weekly_Rent, weekly_Utilities);
                 property.setId(id);
                 properties.add(property);
-
             }
         }
         catch (Exception ex){

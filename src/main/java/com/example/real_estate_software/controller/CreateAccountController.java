@@ -15,6 +15,8 @@ public class CreateAccountController {
     @FXML
     private Button createAccountButton;
     @FXML
+    private Button backButton;
+    @FXML
     private TextField firstNameField;
     @FXML
     private TextField lastNameField;
@@ -37,6 +39,14 @@ public class CreateAccountController {
             Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
         }
+    }
+
+    @FXML
+    protected void onBackClick () throws IOException {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
     }
 
     private void createAccount() {

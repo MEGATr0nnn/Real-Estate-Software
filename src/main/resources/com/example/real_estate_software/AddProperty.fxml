@@ -25,7 +25,7 @@
     <TextField fx:id="rentField" layoutX="348.0" layoutY="260.0" />
     <Text layoutX="120.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Utilities" />
     <TextField fx:id="utilitiesField" layoutX="348.0" layoutY="296.0" />
-    <Text layoutX="186.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Page" textAlignment="CENTER">
+    <Text layoutX="186.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Property" textAlignment="CENTER">
         <font>
             <Font size="24.0" />
         </font>

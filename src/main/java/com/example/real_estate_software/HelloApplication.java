@@ -11,8 +11,6 @@ import java.util.List;
 
 public class HelloApplication extends Application {
     public static final String TITLE = "Real Estate Software";
-    public static final int WIDTH = 600;
-    public static final int HEIGHT = 400;
     private static OwnerDAO ownerDAO;
 
     @Override
@@ -26,7 +24,7 @@ public class HelloApplication extends Application {
         }
         else {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), WIDTH, HEIGHT);
+            Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle(TITLE);
             stage.setScene(scene);
             stage.show();

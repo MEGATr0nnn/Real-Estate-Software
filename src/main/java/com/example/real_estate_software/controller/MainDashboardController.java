@@ -29,7 +29,7 @@ public class MainDashboardController {
     protected void onEditAccountClick() throws IOException {
         Stage stage = (Stage) dashPage.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditAccount.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
     }
 
@@ -42,7 +42,7 @@ public class MainDashboardController {
                 ownerDAO.updateOwner(owner);
                 Stage stage = (Stage) dashPage.getScene().getWindow();
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
-                Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+                Scene scene = new Scene(fxmlLoader.load());
                 stage.setScene(scene);
             }
         }
@@ -52,7 +52,7 @@ public class MainDashboardController {
     protected void onAddPropertyClick() throws IOException {
         Stage stage = (Stage) dashPage.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AddProperty.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
     }
 
@@ -60,7 +60,7 @@ public class MainDashboardController {
     protected void onEditPropertyClick() throws IOException {
         Stage stage = (Stage) dashPage.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditProperty.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
     }
 
