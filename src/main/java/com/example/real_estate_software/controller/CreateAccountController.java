@@ -12,9 +12,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class CreateAccountController {
-    public Button backButton;
     @FXML
     private Button createAccountButton;
+    @FXML
+    private Button backButton;
     @FXML
     private TextField firstNameField;
     @FXML
@@ -38,10 +39,18 @@ public class CreateAccountController {
         if(!emptyFields()) {
             createAccount();
             Stage stage = (Stage) createAccountButton.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dash-view-final.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
         }
+    }
+
+    @FXML
+    protected void onBackClick () throws IOException {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
     }
 
     private void createAccount() {
@@ -59,18 +68,5 @@ public class CreateAccountController {
         boolean emptyPassword = passwordField.getText().trim().isEmpty();
         return emptyFirstName || emptyLastName || emptyEmail || emptyPassword;
     }
-
-    /**
-     * Button action for when the user wants to revert back to the Property Dashboard page
-     */
-    @FXML
-    protected void onBackClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
-        Stage stage = (Stage) createAccountButton.getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setScene(scene);
-
-    }
-
 }
 

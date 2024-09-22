@@ -12,24 +12,21 @@ import java.util.Objects;
 
 public class HelloApplication extends Application {
     public static final String TITLE = "Real Estate Software";
-    public static final int WIDTH = 600;
-    public static final int HEIGHT = 400;
     private static OwnerDAO ownerDAO;
 
     @Override
     public void start(Stage stage) throws IOException {
         if(signedIn()) {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/dashboard.css")).toExternalForm());
-
             stage.setTitle(TITLE);
             stage.setScene(scene);
             stage.show();
         }
         else {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), WIDTH, HEIGHT);
+            Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle(TITLE);
             stage.setScene(scene);
             stage.show();
@@ -39,7 +36,7 @@ public class HelloApplication extends Application {
     private boolean signedIn() {
         List<Owner> owners = ownerDAO.getAllOwners();
         for(Owner owner : owners) {
-            if(owner.getConnection()) {
+            if(owner.getSignedIn()) {
                 return true;
             }
         }

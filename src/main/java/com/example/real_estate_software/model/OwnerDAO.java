@@ -24,7 +24,7 @@ public class OwnerDAO {
                     + "lastName VARCHAR NOT NULL,"
                     + "email VARCHAR NOT NULL,"
                     + "password VARCHAR NOT NULL,"
-                    + "connection VARCHAR NOT NULL"
+                    + "signedIn BOOLEAN NOT NULL"
                     + ")";
             statement.execute(query);
         } catch (Exception e) {
@@ -34,12 +34,12 @@ public class OwnerDAO {
 
     public void addOwner(Owner owner) {
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO owners (firstName, lastName, email, password, connection) VALUES (?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO owners (firstName, lastName, email, password, signedIn) VALUES (?, ?, ?, ?, ?)");
             statement.setString(1, owner.getFirstName());
             statement.setString(2, owner.getLastName());
             statement.setString(3, owner.getEmail());
             statement.setString(4, owner.getPassword());
-            statement.setBoolean(5, owner.getConnection());
+            statement.setBoolean(5, owner.getSignedIn());
             statement.executeUpdate();
             ResultSet generatedKeys = statement.getGeneratedKeys();
             if (generatedKeys.next()) {
@@ -52,12 +52,12 @@ public class OwnerDAO {
 
     public void updateOwner(Owner owner) {
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE owners SET firstName = ?, lastName = ?, email = ?, password = ?, connection = ? WHERE id = ?");
+            PreparedStatement statement = connection.prepareStatement("UPDATE owners SET firstName = ?, lastName = ?, email = ?, password = ?, signedIn = ? WHERE id = ?");
             statement.setString(1, owner.getFirstName());
             statement.setString(2, owner.getLastName());
             statement.setString(3, owner.getEmail());
             statement.setString(4, owner.getPassword());
-            statement.setBoolean(5, owner.getConnection());
+            statement.setBoolean(5, owner.getSignedIn());
             statement.setInt(6, owner.getId());
             statement.executeUpdate();
         } catch (Exception e) {
@@ -75,10 +75,10 @@ public class OwnerDAO {
         }
     }
 
-    public Owner getOwner(boolean connected) {
+    public Owner getOwner(boolean signedIn) {
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM owners WHERE connection = ?");
-            statement.setBoolean(1, connected);
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM owners WHERE signedIn = ?");
+            statement.setBoolean(1, signedIn);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 int id = resultSet.getInt("id");
@@ -86,8 +86,8 @@ public class OwnerDAO {
                 String lastName = resultSet.getString("lastName");
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
-                boolean connection = resultSet.getBoolean("connection");
-                Owner owner = new Owner(firstName, lastName, email, password, connection);
+                signedIn = resultSet.getBoolean("signedIn");
+                Owner owner = new Owner(firstName, lastName, email, password, signedIn);
                 owner.setId(id);
                 return owner;
             }
@@ -109,8 +109,8 @@ public class OwnerDAO {
                 String lastName = resultSet.getString("lastName");
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
-                boolean connection = resultSet.getBoolean("connection");
-                Owner owner = new Owner(firstName, lastName, email, password, connection);
+                boolean signedIn = resultSet.getBoolean("signedIn");
+                Owner owner = new Owner(firstName, lastName, email, password, signedIn);
                 owner.setId(id);
                 owners.add(owner);
             }

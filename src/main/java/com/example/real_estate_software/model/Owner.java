@@ -6,7 +6,7 @@ public class Owner {
     private String lastName;
     private String email;
     private String password;
-    private boolean connection;
+    private boolean signedIn;
 
 
     public Owner(String firstName, String lastName, String email, String password) {
@@ -14,15 +14,15 @@ public class Owner {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        connection = true;
+        signedIn = true;
     }
 
-    public Owner(String firstName, String lastName, String email, String password, boolean connection) {
+    public Owner(String firstName, String lastName, String email, String password, boolean signedIn) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.connection = connection;
+        this.signedIn = signedIn;
     }
 
     public int getId() {
@@ -65,11 +65,11 @@ public class Owner {
         this.password = password;
     }
 
-    public boolean getConnection() {
-        return connection;
+    public boolean getSignedIn() {
+        return signedIn;
     }
 
-    public void setConnection(boolean connection) {
-        this.connection = connection;
+    public void setSignedIn(boolean signedIn) {
+        this.signedIn = signedIn;
     }
 }
