@@ -1,7 +1,9 @@
 package com.example.real_estate_software.model;
 
-/*This is the Property class that holds all the information regarding each property,
-* it is used to set property info that is then saved into the DB*/
+/**
+ This is the Property class that holds all the information regarding each property,
+ it is used to set property info that is then saved into the DB
+ **/
 public class Property {
     private int id;
     private String address;
@@ -14,6 +16,9 @@ public class Property {
     private boolean has_Tenants;
     private boolean is_Selected;
 
+    /**
+     property constructor
+     **/
     public Property(String address, int num_Tenants, int num_Beds, int num_Baths, int num_Cars, int rent, int utilities){
         this.address = address;
         this.num_Tenants = num_Tenants;
@@ -26,6 +31,9 @@ public class Property {
         is_Selected = false;
     }
 
+    /**
+     property constructor overload
+     **/
     public Property(String address, int num_Tenants, int num_Beds, int num_Baths, int num_Cars, int rent, int utilities, boolean has_Tenants){
         this.address = address;
         this.num_Tenants = num_Tenants;
@@ -38,7 +46,9 @@ public class Property {
         is_Selected = false;
     }
 
-    //is this duplicate really needed? can I simplify down to one constructor?
+    /**
+     property constructor overload
+     **/
     public Property(String address, int num_Tenants, int num_Beds, int num_Baths, int num_Cars, int rent, int utilities, boolean has_Tenants, boolean is_Selected){
         this.address = address;
         this.num_Tenants = num_Tenants;
@@ -51,7 +61,6 @@ public class Property {
         this.is_Selected = is_Selected;
     }
 
-    //need to integrate owner with this in DAO
     public int getId() {return id;}
     public void setId(int id) {this.id = id;}
 
