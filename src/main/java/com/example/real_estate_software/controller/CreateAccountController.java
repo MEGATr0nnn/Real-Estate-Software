@@ -10,10 +10,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.Objects;
 
 public class CreateAccountController {
     @FXML
     private Button createAccountButton;
+    @FXML
+    private Button backButton;
     @FXML
     private TextField firstNameField;
     @FXML
@@ -28,15 +31,28 @@ public class CreateAccountController {
         ownerDAO = new OwnerDAO();
     }
 
+    /**
+     * Button action for when the user signs in
+     * User will then be directed to the Main Dashboard upon successful login
+     */
     @FXML
     protected void onCreateAccountClick() throws IOException {
         if(!emptyFields()) {
             createAccount();
             Stage stage = (Stage) createAccountButton.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dash-view-final.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/dashboard.css")).toExternalForm());
             stage.setScene(scene);
         }
+    }
+
+    @FXML
+    protected void onBackClick () throws IOException {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
     }
 
     private void createAccount() {
@@ -54,6 +70,5 @@ public class CreateAccountController {
         boolean emptyPassword = passwordField.getText().trim().isEmpty();
         return emptyFirstName || emptyLastName || emptyEmail || emptyPassword;
     }
-
 }
 

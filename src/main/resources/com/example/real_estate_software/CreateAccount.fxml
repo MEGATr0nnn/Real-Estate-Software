@@ -22,5 +22,6 @@
             <Font size="24.0" />
         </font>
     </Text>
-    <Button fx:id="createAccountButton" layoutX="254.0" layoutY="298.0" mnemonicParsing="false" text="Create New Account" onAction="#onCreateAccountClick"/>
+    <Button fx:id="createAccountButton" layoutX="144.0" layoutY="298.0" mnemonicParsing="false" text="Create New Account" onAction="#onCreateAccountClick"/>
+    <Button fx:id="backButton" layoutX="364.0" layoutY="298.0" mnemonicParsing="false" text="Go Back" onAction="#onBackClick"/>
 </Pane>

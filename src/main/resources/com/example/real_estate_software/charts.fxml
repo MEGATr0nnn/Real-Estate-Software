@@ -8,9 +8,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.Button?>
 <ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.real_estate_software.controller.ChartController"
-            fitToWidth="true" fitToHeight="false" prefHeight="600.0" prefWidth="800.0">
+            fitToWidth="true" prefHeight="600.0" prefWidth="800.0">
     <VBox spacing="20">
 
         <HBox spacing="20">
@@ -32,14 +33,17 @@
                         <CategoryAxis label="Property" />
                     </xAxis>
                     <yAxis>
-                        <NumberAxis lowerBound="0" upperBound="7" tickUnit="1" label="Number of Tenants" />
+                        <NumberAxis upperBound="7" tickUnit="1" label="Number of Tenants" />
                     </yAxis>
                 </BarChart>
+
+                <Button fx:id = "backButton" layoutX="14.0" layoutY="55.0" mnemonicParsing="false" text="Back" onAction="#handleBackButtonClick"/>
             </VBox>
 
 
             <PieChart fx:id="propertyPieChart" prefHeight="400.0" prefWidth="300.0" />
              </HBox>
+
 
     </VBox>
 </ScrollPane>

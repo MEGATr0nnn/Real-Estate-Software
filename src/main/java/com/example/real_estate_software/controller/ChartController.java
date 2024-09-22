@@ -28,6 +28,8 @@ import javafx.stage.Stage;
 import com.example.real_estate_software.HelloApplication; // Ensure this import is correct
 
 import java.io.IOException;
+import java.util.Objects;
+
 public class ChartController {
 
     @FXML
@@ -58,7 +60,7 @@ public class ChartController {
     }
 
     private void loadBarChartData(Owner owner) {
-        List<Property> properties = propertyDAO.getAllProperties(owner);
+        List<Property> properties = propertyDAO.get_OwnerProperties(owner);
 
         // Create a new series for total rent values
         XYChart.Series<String, Number> rentSeries = new XYChart.Series<>();
@@ -83,13 +85,13 @@ public class ChartController {
     }
 
     private void loadPieChartData(Owner owner) {
-        List<Property> properties = propertyDAO.getAllProperties(owner);
+        List<Property> properties = propertyDAO.get_OwnerProperties(owner);
 
         int tenantedProperties = 0;
         int nonTenantedProperties = 0;
 
         for (Property property : properties) {
-            if (property.getTenanted()) {
+            if (property.getHas_Tenants()) {
                 tenantedProperties++;
             } else {
                 nonTenantedProperties++;
@@ -107,12 +109,13 @@ public class ChartController {
     private void handleBackButtonClick() {
         try {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view-dash-final.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
             Parent dashboardView = fxmlLoader.load();
 
 
             Stage stage = (Stage) backButton.getScene().getWindow();
             Scene scene = new Scene(dashboardView);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/dashboard.css")).toExternalForm());
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();

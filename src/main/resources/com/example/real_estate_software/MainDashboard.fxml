@@ -1,53 +1,154 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Accordion?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Pagination?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<BorderPane fx:id="dashPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_software.controller.MainDashboardController">
-    <center>
-        <Accordion prefHeight="257.0" prefWidth="432.0" BorderPane.alignment="CENTER">
-            <panes>
-                <TitledPane animated="false" prefHeight="163.0" prefWidth="600.0" text="untitled 1">
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
-                    <Button fx:id="propertyDashboard" text="Property Dashboard" layoutX="10" layoutY="10"
-                            onAction="#onPropertyClick"/>
-                </TitledPane>
-                <TitledPane animated="false" text="untitled 2">
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
-                </TitledPane>
-                <TitledPane animated="false" text="untitled 3">
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
-                </TitledPane>
-            </panes>
-        </Accordion>
-    </center>
-    <top>
-        <MenuBar BorderPane.alignment="CENTER">
-            <Menu mnemonicParsing="false" text="Account">
-                <MenuItem mnemonicParsing="false" text="Edit" onAction="#onEditClick"/>
-                <MenuItem mnemonicParsing="false" text="Delete" onAction="#onDeleteClick"/>
-                <MenuItem mnemonicParsing="false" text="Sign Out" onAction="#onSignOutClick"/>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Property">
-                <MenuItem mnemonicParsing="false" text="Add"/>
-                <MenuItem mnemonicParsing="false" text="Edit"/>
-                <MenuItem mnemonicParsing="false" text="Delete"/>
-            </Menu>
-        </MenuBar>
-    </top>
-    <right>
-        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <TextField layoutX="7.0" layoutY="2.0" prefHeight="26.0" prefWidth="187.0"
-                       text="Welcome to your dashboard"/>
-            <Pagination layoutX="1.0" layoutY="28.0" pageCount="5" prefHeight="386.0" prefWidth="204.0"/>
-        </AnchorPane>
-    </right>
-</BorderPane>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.GridPane?>
+
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0"
+            prefWidth="780.0" styleClass="parent" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.real_estate_software.controller.MainDashboardController">
+
+   <Pane prefHeight="580.0" prefWidth="75.0" styleClass="sidebar" AnchorPane.leftAnchor="0.0">
+
+   <HBox alignment="CENTER" layoutY="94.0" prefHeight="65.0" prefWidth="75.0">
+         <padding>
+            <Insets left="8.0" right="12.0"/>
+         </padding>
+         <HBox alignment="CENTER" prefHeight="65.0" prefWidth="75.0">
+            <padding>
+               <Insets left="8.0" right="12.0"/>
+            </padding>
+            <FontIcon iconLiteral="fas-home" iconSize="24" styleClass="fontawesomeicon"/>
+         </HBox>
+      </HBox>
+
+      <HBox alignment="CENTER" layoutX="4.0" layoutY="159.0" prefHeight="65.0" prefWidth="64.0">
+         <padding>
+            <Insets left="8.0" right="12.0"/>
+         </padding>
+         <Button fx:id="editButton" styleClass="icon-button" onAction="#handleEditClick">
+            <graphic>
+               <FontIcon iconLiteral="far-edit" iconSize="24" styleClass="fontawesomeicon"/>
+            </graphic>
+         </Button>
+      </HBox>
+
+
+      <HBox alignment="CENTER" layoutX="4.0" layoutY="224.0" prefHeight="65.0" prefWidth="75.0">
+         <padding>
+            <Insets left="8.0" right="12.0"/>
+         </padding>
+         <Button fx:id="settingsButton" styleClass="icon-button" onAction="#handleSettingsClick">
+            <graphic>
+               <FontIcon iconLiteral="fas-cogs" iconSize="24" styleClass="fontawesomeicon"/>
+            </graphic>
+         </Button>
+      </HBox>
+
+
+
+      <HBox alignment="CENTER" layoutX="4.0" layoutY="289.0" prefHeight="65.0" prefWidth="75.0">
+         <padding>
+            <Insets left="8.0" right="12.0"/>
+         </padding>
+         <Button fx:id="viewStatsButton" onAction="#handleViewStatsClick">
+            <graphic>
+               <FontIcon iconLiteral="fas-chart-bar" iconSize="24" styleClass="fontawesomeicon"/>
+            </graphic>
+         </Button>
+      </HBox>
+
+
+
+      <HBox alignment="CENTER" layoutX="4.0" layoutY="450.0" prefHeight="65.0" prefWidth="75.0">
+         <padding>
+            <Insets left="8.0" right="12.0"/>
+         </padding>
+         <Button fx:id="signOutButton" styleClass="icon-button" onAction="#handleSignOutClick">
+            <graphic>
+               <FontIcon iconLiteral="fas-sign-out-alt" iconSize="24" styleClass="fontawesomeicon"/>
+            </graphic>
+         </Button>
+      </HBox>
+
+
+      <Label layoutX="4.0" layoutY="5.0" styleClass="HOME" text="ESTATE" textFill="#c6baba">
+         <font>
+            <Font name="Hoefler Text Black" size="14.0"/>
+         </font>
+      </Label>
+   </Pane>
+   <HBox spacing="15" alignment="CENTER_RIGHT" prefHeight="65.0" prefWidth="705.0"
+         AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+
+      <!-- Search Button -->
+      <Button fx:id="searchButton" styleClass="icon-button" onAction="#handleSearchClick">
+         <graphic>
+            <FontIcon iconLiteral="fas-search" iconSize="12" styleClass="fontawesomeicon"/>
+         </graphic>
+      </Button>
+
+      <!-- Bell Button with Notification -->
+      <Button fx:id="notificationsButton" styleClass="icon-button" onAction="#handleNotificationsClick">
+         <graphic>
+            <FontIcon iconLiteral="fas-bell" iconSize="12" styleClass="fontawesomeicon"/>
+         </graphic>
+      </Button>
+
+
+      <!-- Settings Button -->
+      <Button fx:id="settingsTopButton" styleClass="icon-button" onAction="#handleSettingsTopClick">
+         <graphic>
+            <FontIcon iconLiteral="fas-cog" iconSize="12" styleClass="fontawesomeicon"/>
+         </graphic>
+      </Button>
+
+      <!-- Question Circle Button -->
+      <Button fx:id="helpButton" styleClass="icon-button" onAction="#handleHelpClick">
+         <graphic>
+            <FontIcon iconLiteral="fas-question-circle" iconSize="12" styleClass="fontawesomeicon"/>
+         </graphic>
+      </Button>
+
+      <!-- Plus Button -->
+      <Button fx:id="plusButton" styleClass="icon-button" onAction="#handlePlusClick">
+         <graphic>
+            <FontIcon iconLiteral="fas-plus" iconSize="12" styleClass="fontawesomeicon"/>
+         </graphic>
+      </Button>
+
+   </HBox>
+
+   <Button fx:id="addPropertyButton" layoutX="215.0" layoutY="73.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="166.0"
+           styleClass="add-button" text="ADD NEW PROPERTY" textFill="#549cc9" onAction="#handleAddPropertyClick">
+      <font>
+         <Font size="8.0"/>
+      </font>
+   </Button>
+
+
+   <FontIcon iconLiteral="fas-plus" layoutX="225.0" layoutY="93.0"/>
+
+   <GridPane fx:id="propertyGrid" layoutX="92.0" layoutY="117.0" hgap="15.0" vgap="15.0">
+
+
+   </GridPane>
+   <Label layoutX="81.0" layoutY="23.0" text="Properties">
+      <font>
+         <Font name="Bodoni 72 Book" size="24.0"/>
+      </font>
+   </Label>
+</AnchorPane>
+
