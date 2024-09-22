@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -26,9 +27,6 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.control.Label;
 import javafx.collections.ObservableList;
-
-
-
 import java.io.IOException;
 import java.util.List;
 
@@ -52,8 +50,6 @@ public class MainDashboardController {
     private Button editButton;
     @FXML
     private Button viewStatsButton;
-    @FXML
-    private Parent dashPage;
     private final OwnerDAO ownerDAO;
     private final PropertyDAO propertyDAO;
 
@@ -145,7 +141,43 @@ public class MainDashboardController {
 
         box.getChildren().addAll(innerPane, roomsLabel, addressLabel, tenantsLabel, rentLabel);
 
+        // Set click event to open property details page
+        box.setOnMouseClicked(event -> {
+            try {
+                loadPropertyDetailsPage(property);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
         return box;
+    }
+
+    private void loadPropertyDetailsPage(Property property) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/real_estate_software/PropertyDashboard.fxml"));
+
+        // Load the FXML file and print the type of the loaded root element
+        Object root = loader.load();
+        System.out.println("Root element type: " + root.getClass().getName());
+
+        if (!(root instanceof AnchorPane)) {
+            throw new IllegalStateException("Root element is not of type AnchorPane");
+        }
+
+        // Cast to AnchorPane as per your FXML
+        AnchorPane propertyPage = (AnchorPane) root;
+
+        // Get the PropertyDashboardController
+        PropertyDashboardController controller = loader.getController();
+
+        // Pass the selected property to the controller's setProperty() method
+        controller.setProperty(property);
+
+        // Show the new scene
+        Stage stage = (Stage) propertyGrid.getScene().getWindow();
+        Scene scene = new Scene(propertyPage);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -184,14 +216,6 @@ public class MainDashboardController {
         stage.setScene(scene);
     }
 
-    @FXML
-    protected void onPropertyClick() throws IOException {
-        Stage stage = (Stage) propertyDashboard.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PropertyDashboard.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setScene(scene);
-    }
-
     private Owner getCurrentOwner() {
         return ownerDAO.getOwner(true);
     }
@@ -209,22 +233,47 @@ public class MainDashboardController {
     }
 
     @FXML
-    protected void handleSearchClick(ActionEvent event) {
+    protected void handleSearchClick() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Coming Soon");
+        alert.setHeaderText(null);
+        alert.setContentText("The Search page is not yet implemented.");
+        alert.showAndWait();
     }
 
     @FXML
-    protected void handleNotificationsClick(ActionEvent event) {
+    protected void handleNotificationsClick() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Coming Soon");
+        alert.setHeaderText(null);
+        alert.setContentText("The Notifications page is not yet implemented.");
+        alert.showAndWait();
     }
 
     @FXML
-    protected void handleSettingsTopClick(ActionEvent event) {
+    protected void handleSettingsTopClick() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Coming Soon");
+        alert.setHeaderText(null);
+        alert.setContentText("The settings page is not yet implemented.");
+        alert.showAndWait();
     }
 
     @FXML
-    protected void handleHelpClick(ActionEvent event) {
+    protected void handleHelpClick() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Coming Soon");
+        alert.setHeaderText(null);
+        alert.setContentText("The Help page is not yet implemented.");
+        alert.showAndWait();
     }
 
     @FXML
-    protected void handlePlusClick(ActionEvent event) {
+    protected void handlePlusClick() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Coming Soon");
+        alert.setHeaderText(null);
+        alert.setContentText("The Add Property page is not yet implemented.");
+        alert.showAndWait();
     }
 }
