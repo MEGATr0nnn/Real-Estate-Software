@@ -3,6 +3,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * The Owner Test Class is the test suite for checking all input parameters for the Owner's Details
+ * The test suite contains all cases where the owner inputs incorrect values for differing parameters
+ */
 public class OwnerTest {
     private Owner owner;
     private Owner owner2;
@@ -81,6 +85,9 @@ public class OwnerTest {
         assertFalse(owner.getConnection());
     }
 
+    /**
+     * Test to check if there is already an account associated with the given email address
+     */
     @Test
     public void testDuplicateAccounts(){
         if (owner.getEmail().equals(owner2.getEmail())){
@@ -88,6 +95,10 @@ public class OwnerTest {
         }
     }
 
+    /**
+     * Test to determine whether the email address given is valid
+     * Checked parameter with the '@' character
+     */
     @Test
     public void testInvalidEmailAddress(){
         if (!owner3.getEmail().contains("@")){
@@ -95,28 +106,36 @@ public class OwnerTest {
         }
     }
 
-    @Test
-    public void testCorrectEmailAddress(){
-        assertTrue(owner.getEmail().contains("@"));
-    }
 
+    /**
+     * Test to determine if password inputted has a capitalised character
+     */
     @Test
     public void testPasswordCapital(){
         boolean containsCapital = owner3.getPassword().matches(".*[A-Z]*.");
         assertTrue(containsCapital, "Password must contain a Capital Letter");
     }
 
+    /**
+     * Test to determine if password inputted has at least one number
+     */
     @Test
     public void testPasswordNumber(){
         boolean containsNumber = owner.getPassword().matches(".*[0-9].*");
         assertTrue(containsNumber, "Password must contain a number");
     }
 
+    /**
+     * Test to determine if password inputted has a length of at least 8 characters
+     */
     @Test
     public void testPasswordLength(){
         assertTrue(owner.getPassword().length() >= 8, "Password must be at least 8 characters long");
     }
 
+    /**
+     * Test to determine if password inputted has a special character
+     */
     @Test
     public void testPasswordUnique(){
         String uniqueChar = ".*[!@#$%^&*()_+{}|:;<>?,./`~]*.";

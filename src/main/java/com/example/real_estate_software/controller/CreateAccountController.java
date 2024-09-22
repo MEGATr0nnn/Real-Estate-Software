@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class CreateAccountController {
+    public Button backButton;
     @FXML
     private Button createAccountButton;
     @FXML
@@ -28,6 +29,10 @@ public class CreateAccountController {
         ownerDAO = new OwnerDAO();
     }
 
+    /**
+     * Button action for when the user signs in
+     * User will then be directed to the Main Dashboard upon successful login
+     */
     @FXML
     protected void onCreateAccountClick() throws IOException {
         if(!emptyFields()) {
@@ -53,6 +58,18 @@ public class CreateAccountController {
         boolean emptyEmail = emailField.getText().trim().isEmpty();
         boolean emptyPassword = passwordField.getText().trim().isEmpty();
         return emptyFirstName || emptyLastName || emptyEmail || emptyPassword;
+    }
+
+    /**
+     * Button action for when the user wants to revert back to the Property Dashboard page
+     */
+    @FXML
+    protected void onBackClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
+        Stage stage = (Stage) createAccountButton.getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+
     }
 
 }

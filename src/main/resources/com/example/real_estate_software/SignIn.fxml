@@ -8,8 +8,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
+<!-- The Create Account FXML was created in Scenebuilder which allows the Owner to sign in to the application with the saved log in details-->
 
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.control.PasswordField?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_software.controller.SignInController">
     <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="160.0" layoutY="33.0" text="My Home Manager">
         <font>
@@ -17,7 +19,7 @@
         </font>
     </Label>
     <TextField fx:id="emailField" layoutX="220.0" layoutY="220.0" promptText="Email" />
-    <TextField fx:id="passwordField" layoutX="220.0" layoutY="258.0" promptText="Password" />
+    <PasswordField fx:id="passwordField" layoutX="220.0" layoutY="258.0" promptText="Password" />
     <Button fx:id="signInButton" layoutX="237.0" layoutY="320.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Sign In" onAction="#onSignInClick" />
     <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="85.0" pickOnBounds="true"
                preserveRatio="true">

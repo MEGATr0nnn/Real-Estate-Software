@@ -6,20 +6,12 @@ import com.example.real_estate_software.model.Property;
 import com.example.real_estate_software.model.PropertyDAO;
 import javafx.fxml.FXML;
 
-
-import com.example.real_estate_software.model.Owner;
-import com.example.real_estate_software.model.OwnerDAO;
-import com.example.real_estate_software.model.Property;
-import com.example.real_estate_software.model.PropertyDAO;
-import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 
 import java.util.List;
 
-
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -42,8 +34,8 @@ public class ChartController {
     @FXML
     private Button backButton;
 
-    private PropertyDAO propertyDAO;
-    private OwnerDAO ownerDAO;
+    private final PropertyDAO propertyDAO;
+    private final OwnerDAO ownerDAO;
 
     public ChartController() {
         propertyDAO = new PropertyDAO();
@@ -96,7 +88,6 @@ public class ChartController {
             }
         }
 
-
         PieChart.Data tenantedSlice = new PieChart.Data("Tenanted", tenantedProperties);
         PieChart.Data nonTenantedSlice = new PieChart.Data("Non-Tenanted", nonTenantedProperties);
 
@@ -117,5 +108,16 @@ public class ChartController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Button action to revert back to the Property Dashboard page
+     */
+    @FXML
+    protected void onBackClick () throws IOException {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dash-view-final.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
     }
 }
