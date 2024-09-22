@@ -28,6 +28,7 @@ public class PropertyDAO {
                     + "weekly_Rent INTEGER NOT NULL,"
                     + "weekly_Utilities INTEGER NOT NULL,"
                     + "has_tenants BOOLEAN NOT NULL,"
+                    + "is_Selected BOOLEAN NOT NULL,"
                     + "FOREIGN KEY (owner_Id) REFERENCES owners(id)"
                     + ")";
             statement.execute(query);
@@ -42,7 +43,7 @@ public class PropertyDAO {
         //fix this to be in the right order for inserting into the table eventually
         try{
             PreparedStatement statement = connection.prepareStatement("INSERT INTO properties "
-                    + "(owner_Id, address, num_Tenants, num_Beds, num_Baths, num_Cars, weekly_Rent, weekly_Utilities, has_Tenants) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    + "(owner_Id, address, num_Tenants, num_Beds, num_Baths, num_Cars, weekly_Rent, weekly_Utilities, has_Tenants, is_Selected) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             statement.setInt(1, owner.getId());
             statement.setString(2, property.getAddress());
             statement.setInt(3, property.getNum_Tenants());
@@ -52,6 +53,7 @@ public class PropertyDAO {
             statement.setInt(7, property.getRent());
             statement.setInt(8, property.getUtilities());
             statement.setBoolean(9, property.getHas_Tenants());
+            statement.setBoolean(10, property.getIs_Selected());
             statement.executeUpdate();
             ResultSet generated_Keys = statement.getGeneratedKeys();
             if (generated_Keys.next()){
@@ -66,7 +68,7 @@ public class PropertyDAO {
     public void update_Property(Property property) {
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE properties SET "
-                    + "address = ?, num_Tenants = ?, num_Beds = ?, num_Baths = ?, num_Cars = ?, weekly_Rent = ?, weekly_Utilities = ?, has_Tenants = ? WHERE property_Id = ?");
+                    + "address = ?, num_Tenants = ?, num_Beds = ?, num_Baths = ?, num_Cars = ?, weekly_Rent = ?, weekly_Utilities = ?, has_Tenants = ?, is_Selected = ? WHERE property_Id = ?");
             statement.setString(1, property.getAddress());
             statement.setInt(2, property.getNum_Tenants());
             statement.setInt(3, property.getNum_Beds());
@@ -75,7 +77,8 @@ public class PropertyDAO {
             statement.setInt(6, property.getRent());
             statement.setInt(7, property.getUtilities());
             statement.setBoolean(8, property.getHas_Tenants());
-            statement.setInt(9, property.getId());
+            statement.setBoolean(9, property.getIs_Selected());
+            statement.setInt(10, property.getId());
             statement.executeUpdate();
         }
         catch (Exception ex){
@@ -94,10 +97,10 @@ public class PropertyDAO {
         }
     }
 
-    public Property get_Property (Property property, Owner owner){
+    public Property get_Property (boolean is_Selected, Owner owner){
         try{
-           PreparedStatement statement = connection.prepareStatement("SELECT * FROM properties WHERE property_Id = ? AND owner_Id = ?");
-           statement.setInt(1, property.getId());
+           PreparedStatement statement = connection.prepareStatement("SELECT * FROM properties WHERE is_Selected = ? AND owner_Id = ?");
+           statement.setBoolean(1, is_Selected);
            statement.setInt(2, owner.getId());
            ResultSet resultSet = statement.executeQuery(); //execute the search query
            if (resultSet.next()){ //keep returning results till null
@@ -110,7 +113,8 @@ public class PropertyDAO {
                int weekly_Rent = resultSet.getInt("weekly_Rent");
                int weekly_Utilities = resultSet.getInt("weekly_Utilities");
                boolean has_Tenants = resultSet.getBoolean("has_Tenants");
-               property = new Property(address, num_Tenants, num_Beds, num_Baths, num_Cars, weekly_Rent, weekly_Utilities, has_Tenants);
+               is_Selected = resultSet.getBoolean("is_Selected");
+               Property property = new Property(address, num_Tenants, num_Beds, num_Baths, num_Cars, weekly_Rent, weekly_Utilities, has_Tenants, is_Selected);
                property.setId(id);
                return property;
            }
@@ -137,7 +141,8 @@ public class PropertyDAO {
                 int weekly_Rent = resultSet.getInt("weekly_Rent");
                 int weekly_Utilities = resultSet.getInt("weekly_Utilities");
                 boolean has_Tenants = resultSet.getBoolean("has_Tenants");
-                Property property = new Property(address, num_Tenants, num_Beds, num_Baths, num_Cars, weekly_Rent, weekly_Utilities, has_Tenants);
+                boolean is_Selected = resultSet.getBoolean("is_Selected");
+                Property property = new Property(address, num_Tenants, num_Beds, num_Baths, num_Cars, weekly_Rent, weekly_Utilities, has_Tenants, is_Selected);
                 property.setId(id);
                 properties.add(property);
             }

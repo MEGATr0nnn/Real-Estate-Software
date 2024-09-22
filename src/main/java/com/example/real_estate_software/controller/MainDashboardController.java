@@ -154,11 +154,15 @@ public class MainDashboardController {
     }
 
     private void loadPropertyDetailsPage(Property property) throws IOException {
+
+        // Used new select column from database
+        property.setIs_Selected(true);
+        propertyDAO.update_Property(property);
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/real_estate_software/PropertyDashboard.fxml"));
 
         // Load the FXML file and print the type of the loaded root element
         Object root = loader.load();
-        System.out.println("Root element type: " + root.getClass().getName());
 
         if (!(root instanceof AnchorPane)) {
             throw new IllegalStateException("Root element is not of type AnchorPane");
@@ -166,12 +170,6 @@ public class MainDashboardController {
 
         // Cast to AnchorPane as per your FXML
         AnchorPane propertyPage = (AnchorPane) root;
-
-        // Get the PropertyDashboardController
-        PropertyDashboardController controller = loader.getController();
-
-        // Pass the selected property to the controller's setProperty() method
-        controller.setProperty(property);
 
         // Show the new scene
         Stage stage = (Stage) propertyGrid.getScene().getWindow();

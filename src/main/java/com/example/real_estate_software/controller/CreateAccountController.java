@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.Objects;
 
 public class CreateAccountController {
     @FXML
@@ -41,6 +42,7 @@ public class CreateAccountController {
             Stage stage = (Stage) createAccountButton.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/dashboard.css")).toExternalForm());
             stage.setScene(scene);
         }
     }
