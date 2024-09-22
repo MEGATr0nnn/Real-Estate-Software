@@ -50,20 +50,26 @@
          <padding>
             <Insets left="8.0" right="12.0"/>
          </padding>
-         <FontIcon iconLiteral="fas-cogs" iconSize="24" styleClass="fontawesomeicon"/>
+         <Button fx:id="settingsButton" styleClass="icon-button" onAction="#handleSettingsClick">
+            <graphic>
+               <FontIcon iconLiteral="fas-cogs" iconSize="24" styleClass="fontawesomeicon"/>
+            </graphic>
+         </Button>
       </HBox>
+
 
 
       <HBox alignment="CENTER" layoutX="4.0" layoutY="289.0" prefHeight="65.0" prefWidth="75.0">
          <padding>
             <Insets left="8.0" right="12.0"/>
          </padding>
-         <Button fx:id="viewStatsButton" text="View Stats" onAction="#handleViewStatsClick">
+         <Button fx:id="viewStatsButton" onAction="#handleViewStatsClick">
             <graphic>
                <FontIcon iconLiteral="fas-chart-bar" iconSize="24" styleClass="fontawesomeicon"/>
             </graphic>
          </Button>
       </HBox>
+
 
 
       <HBox alignment="CENTER" layoutX="4.0" layoutY="450.0" prefHeight="65.0" prefWidth="75.0">
@@ -84,42 +90,46 @@
          </font>
       </Label>
    </Pane>
+   <HBox spacing="15" alignment="CENTER_RIGHT" prefHeight="65.0" prefWidth="705.0"
+         AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
 
-   <Pane layoutX="75.0" prefHeight="65.0" prefWidth="705.0" styleClass="parent" AnchorPane.leftAnchor="75.0">
-      <FontIcon iconLiteral="fas-question-circle" layoutX="650.0" layoutY="39.0" iconSize="20"
-                styleClass="fontawesomeicon"/>
-      <FontIcon iconLiteral="fas-cog" layoutX="625.0" layoutY="39.0" iconSize="20" styleClass="fontawesomeicon"/>
-      <FontIcon iconLiteral="fas-bell" layoutX="600.0" layoutY="39.0" iconSize="20" styleClass="fontawesomeicon"/>
-      <FontIcon iconLiteral="fas-search" layoutX="550.0" layoutY="39.0" iconSize="20" styleClass="fontawesomeicon"/>
+      <!-- Search Button -->
+      <Button fx:id="searchButton" styleClass="icon-button" onAction="#handleSearchClick">
+         <graphic>
+            <FontIcon iconLiteral="fas-search" iconSize="12" styleClass="fontawesomeicon"/>
+         </graphic>
+      </Button>
 
-      <AnchorPane layoutX="606.0" layoutY="16.0">
-         <Label alignment="CENTER" prefHeight="15.0" prefWidth="15.0" styleClass="noti-num" text="88">
-            <font>
-               <Font name="System Bold" size="10.0"/>
-            </font>
-         </Label>
-      </AnchorPane>
+      <!-- Bell Button with Notification -->
+      <Button fx:id="notificationsButton" styleClass="icon-button" onAction="#handleNotificationsClick">
+         <graphic>
+            <FontIcon iconLiteral="fas-bell" iconSize="12" styleClass="fontawesomeicon"/>
+         </graphic>
+      </Button>
 
-      <FontIcon iconLiteral="fas-plus" layoutX="575.0" layoutY="39.0" styleClass="fontawesomeicon"/>
-      <Label layoutX="81.0" layoutY="23.0" text="Properties">
-         <font>
-            <Font name="Bodoni 72 Book" size="19.0"/>
-         </font>
-      </Label>
 
-      <HBox alignment="CENTER" layoutX="26.0" layoutY="-1.0" prefHeight="65.0" prefWidth="44.0">
-         <padding>
-            <Insets left="8.0" right="12.0"/>
-         </padding>
-         <FontIcon iconLiteral="fas-tachometer-alt" iconSize="24" styleClass="fontawesomeicon"/>
-      </HBox>
-   </Pane>
+      <!-- Settings Button -->
+      <Button fx:id="settingsTopButton" styleClass="icon-button" onAction="#handleSettingsTopClick">
+         <graphic>
+            <FontIcon iconLiteral="fas-cog" iconSize="12" styleClass="fontawesomeicon"/>
+         </graphic>
+      </Button>
 
-   <Label layoutX="92.0" layoutY="80.0" text="ALL PROPERTIES">
-      <font>
-         <Font name="Charter Bold" size="13.0"/>
-      </font>
-   </Label>
+      <!-- Question Circle Button -->
+      <Button fx:id="helpButton" styleClass="icon-button" onAction="#handleHelpClick">
+         <graphic>
+            <FontIcon iconLiteral="fas-question-circle" iconSize="12" styleClass="fontawesomeicon"/>
+         </graphic>
+      </Button>
+
+      <!-- Plus Button -->
+      <Button fx:id="plusButton" styleClass="icon-button" onAction="#handlePlusClick">
+         <graphic>
+            <FontIcon iconLiteral="fas-plus" iconSize="12" styleClass="fontawesomeicon"/>
+         </graphic>
+      </Button>
+
+   </HBox>
 
    <Button fx:id="addPropertyButton" layoutX="215.0" layoutY="73.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="166.0"
            styleClass="add-button" text="ADD NEW PROPERTY" textFill="#549cc9" onAction="#handleAddPropertyClick">
@@ -133,6 +143,12 @@
 
    <GridPane fx:id="propertyGrid" layoutX="92.0" layoutY="117.0" hgap="15.0" vgap="15.0">
 
+
    </GridPane>
+   <Label layoutX="81.0" layoutY="23.0" text="Properties">
+      <font>
+         <Font name="Bodoni 72 Book" size="24.0"/>
+      </font>
+   </Label>
 </AnchorPane>
 
