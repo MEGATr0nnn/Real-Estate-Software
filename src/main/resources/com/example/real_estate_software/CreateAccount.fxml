@@ -17,11 +17,10 @@
     <TextField fx:id="emailField" layoutX="348.0" layoutY="206.0" />
     <Text layoutX="120.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
     <TextField fx:id="passwordField" layoutX="346.0" layoutY="242.0" />
-    <Text layoutX="186.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Account" textAlignment="CENTER">
+    <Text layoutX="186.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Account" textAlignment="CENTER">
         <font>
             <Font size="24.0" />
         </font>
     </Text>
-    <Button fx:id="createAccountButton" layoutX="144.0" layoutY="298.0" mnemonicParsing="false" text="Create New Account" onAction="#onCreateAccountClick"/>
-    <Button fx:id="backButton" layoutX="364.0" layoutY="298.0" mnemonicParsing="false" text="Go Back" onAction="#onBackClick"/>
+    <Button fx:id="createAccountButton" layoutX="254.0" layoutY="298.0" mnemonicParsing="false" text="Create New Account" onAction="#onCreateAccountClick"/>
 </Pane>
