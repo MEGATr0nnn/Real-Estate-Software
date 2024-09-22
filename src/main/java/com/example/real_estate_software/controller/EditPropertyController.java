@@ -61,6 +61,7 @@ public class EditPropertyController {
             selectedProperty.setNum_Cars(Integer.parseInt(carsField.getText()));
             selectedProperty.setRent(Integer.parseInt(rentField.getText()));
             selectedProperty.setUtilities(Integer.parseInt(utilitiesField.getText()));
+            selectedProperty.setHas_Tenants(selectedProperty.checkHas_Tenants());
             propertyDAO.update_Property(selectedProperty);
             displayProperties();
             clearFields();
