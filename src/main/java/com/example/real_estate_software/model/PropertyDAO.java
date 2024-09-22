@@ -4,18 +4,22 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+Property DAO for DB property data
+ **/
 public class PropertyDAO {
     private Connection connection;
 
-    //call owner as an argument then pass its ID
     public PropertyDAO(){
         connection = DatabaseConnection.getInstance();
         create_Table_Property();
     }
 
+    /**
+    Creates table in DB
+     **/
     public void create_Table_Property() {
         try{
-            //this still needs to be edited so that the tenant primary key is pulled
             Statement statement = connection.createStatement();
             String query = "CREATE TABLE IF NOT EXISTS properties ("
                     + "property_Id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -38,9 +42,10 @@ public class PropertyDAO {
         }
     }
 
+    /**
+     inserts new comments into DB
+     **/
     public void insert_New_Property(Property property, Owner owner) {
-        //need to include setting the id of the owner it's associated with for the foreign key
-        //fix this to be in the right order for inserting into the table eventually
         try{
             PreparedStatement statement = connection.prepareStatement("INSERT INTO properties "
                     + "(owner_Id, address, num_Tenants, num_Beds, num_Baths, num_Cars, weekly_Rent, weekly_Utilities, has_Tenants, is_Selected) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -65,6 +70,9 @@ public class PropertyDAO {
         }
     }
 
+    /**
+     Updates DB from current property ie property A1 is now updated to be property A1.1 with new data
+     **/
     public void update_Property(Property property) {
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE properties SET "
@@ -86,6 +94,9 @@ public class PropertyDAO {
         }
     }
 
+    /**
+     Deletes property info from DB
+     **/
     public void delete_Property(Property property) {
         try {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM properties WHERE property_Id = ?");
@@ -97,6 +108,9 @@ public class PropertyDAO {
         }
     }
 
+    /**
+     Gets data of a specific property from the id of the property and the owners id
+     **/
     public Property get_Property (boolean is_Selected, Owner owner){
         try{
            PreparedStatement statement = connection.prepareStatement("SELECT * FROM properties WHERE is_Selected = ? AND owner_Id = ?");
@@ -125,6 +139,10 @@ public class PropertyDAO {
         return null;
     }
 
+    /**
+     Returns a list of properties based of the id of the current owner, this means that your only getting the
+     data of the properties associated with your user
+     **/
     public List<Property> get_OwnerProperties(Owner owner) {
         List<Property> properties = new ArrayList<>();
         try{

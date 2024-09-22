@@ -65,6 +65,10 @@ public class MainDashboardController {
         loadProperties(currentOwner);
     }
 
+    /**
+     loads properties of current owner
+     **/
+    //make sure this only gets current owner properties
     private void loadProperties(Owner owner) {
         List<Property> properties = propertyDAO.get_OwnerProperties(owner);
         int column = 0;
