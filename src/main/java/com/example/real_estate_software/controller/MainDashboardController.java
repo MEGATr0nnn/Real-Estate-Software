@@ -5,6 +5,7 @@ import com.example.real_estate_software.model.Owner;
 import com.example.real_estate_software.model.OwnerDAO;
 import com.example.real_estate_software.model.Property;
 import com.example.real_estate_software.model.PropertyDAO;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -149,7 +150,7 @@ public class MainDashboardController {
 
     @FXML
     protected void handleSettingsClick() throws IOException {
-        Stage stage = (Stage) editButton.getScene().getWindow();
+        Stage stage = (Stage) settingsButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditAccount.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
@@ -169,7 +170,7 @@ public class MainDashboardController {
     @FXML
     protected void handleEditClick() throws IOException {
         // Load the EditProperty.fxml when the edit button is clicked
-        Stage stage = (Stage) dashPage.getScene().getWindow();
+        Stage stage = (Stage) editButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditProperty.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
@@ -207,6 +208,23 @@ public class MainDashboardController {
         stage.show();
     }
 
+    @FXML
+    protected void handleSearchClick(ActionEvent event) {
+    }
 
+    @FXML
+    protected void handleNotificationsClick(ActionEvent event) {
+    }
 
+    @FXML
+    protected void handleSettingsTopClick(ActionEvent event) {
+    }
+
+    @FXML
+    protected void handleHelpClick(ActionEvent event) {
+    }
+
+    @FXML
+    protected void handlePlusClick(ActionEvent event) {
+    }
 }

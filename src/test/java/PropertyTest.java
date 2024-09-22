@@ -11,9 +11,9 @@ public class PropertyTest {
 
     @BeforeEach
     public void setUp(){
-        property = new Property("123 wallaby way", 2, 1, 2, false, 0, 200, 0);
-        property2 = new Property("123 harrison lane", 4, 2, 2, true, 2, 400, 0);
-        property3 = new Property("123 diddy way", 2, 1, 2, true, 2, 200, 100);
+        property = new Property("123 wallaby way", 2, 1, 2, 0, 200, 0, false);
+        property2 = new Property("123 harrison lane", 4, 2, 2, 2, 400, 0, true);
+        property3 = new Property("123 diddy way", 2, 1, 2, 2, 200, 100, true);
     }
 
     @Test
@@ -30,8 +30,8 @@ public class PropertyTest {
 
     @Test
     public void test_Set_Num_Baths(){
-        property.setNum_Bath(10);
-        assertEquals(10, property.getNum_Bath());
+        property.setNum_Baths(10);
+        assertEquals(10, property.getNum_Baths());
     }
 
 }

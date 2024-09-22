@@ -66,7 +66,7 @@ public class PropertyDAO {
     public void update_Property(Property property) {
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE properties SET "
-                    + "address = ?, num_Tenants = ?, num_Beds = ?, num_Baths = ?, num_Car = ?, weekly_Rent = ?, weekly_Utilities = ?, has_Tenants = ? WHERE property_Id = ?");
+                    + "address = ?, num_Tenants = ?, num_Beds = ?, num_Baths = ?, num_Cars = ?, weekly_Rent = ?, weekly_Utilities = ?, has_Tenants = ? WHERE property_Id = ?");
             statement.setString(1, property.getAddress());
             statement.setInt(2, property.getNum_Tenants());
             statement.setInt(3, property.getNum_Beds());

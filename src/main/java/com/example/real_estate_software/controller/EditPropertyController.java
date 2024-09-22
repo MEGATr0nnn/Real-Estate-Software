@@ -70,9 +70,11 @@ public class EditPropertyController {
     @FXML
     protected void onDeleteClick() {
         Property selectedProperty = propertyListView.getSelectionModel().getSelectedItem();
-        propertyDAO.delete_Property(selectedProperty);
-        displayProperties();
-        clearFields();
+        if(selectedProperty != null) {
+            propertyDAO.delete_Property(selectedProperty);
+            displayProperties();
+            clearFields();
+        }
     }
 
     @FXML
