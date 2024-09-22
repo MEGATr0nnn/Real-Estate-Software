@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class CreateAccountController {
+    public Button backButton;
     @FXML
     private Button createAccountButton;
     @FXML
@@ -53,6 +54,15 @@ public class CreateAccountController {
         boolean emptyEmail = emailField.getText().trim().isEmpty();
         boolean emptyPassword = passwordField.getText().trim().isEmpty();
         return emptyFirstName || emptyLastName || emptyEmail || emptyPassword;
+    }
+
+    @FXML
+    protected void onBackClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
+        Stage stage = (Stage) createAccountButton.getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+
     }
 
 }
