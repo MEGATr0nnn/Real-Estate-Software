@@ -72,13 +72,13 @@ public class OwnerTest {
 
     @Test
     public void testGetConnection() {
-        assertTrue(owner.getConnection());
+        assertTrue(owner.getSignedIn());
     }
 
     @Test
     public void testSetConnection() {
-        owner.setConnection(false);
-        assertFalse(owner.getConnection());
+        owner.setSignedIn(false);
+        assertFalse(owner.getSignedIn());
     }
 
     @Test

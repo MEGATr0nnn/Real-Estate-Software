@@ -57,8 +57,8 @@ public class EditPropertyController {
             selectedProperty.setAddress(addressField.getText());
             selectedProperty.setNum_Tenants(Integer.parseInt(tenantField.getText()));
             selectedProperty.setNum_Beds(Integer.parseInt(bedsField.getText()));
-            selectedProperty.setNum_Bath(Integer.parseInt(bathsField.getText()));
-            selectedProperty.setNum_Car(Integer.parseInt(carsField.getText()));
+            selectedProperty.setNum_Baths(Integer.parseInt(bathsField.getText()));
+            selectedProperty.setNum_Cars(Integer.parseInt(carsField.getText()));
             selectedProperty.setRent(Integer.parseInt(rentField.getText()));
             selectedProperty.setUtilities(Integer.parseInt(utilitiesField.getText()));
             propertyDAO.update_Property(selectedProperty);
@@ -119,8 +119,8 @@ public class EditPropertyController {
         addressField.setText(property.getAddress());
         tenantField.setText(String.valueOf(property.getNum_Tenants()));
         bedsField.setText(String.valueOf(property.getNum_Beds()));
-        bathsField.setText(String.valueOf(property.getNum_Bath()));
-        carsField.setText(String.valueOf(property.getNum_Car()));
+        bathsField.setText(String.valueOf(property.getNum_Baths()));
+        carsField.setText(String.valueOf(property.getNum_Cars()));
         rentField.setText(String.valueOf(property.getRent()));
         utilitiesField.setText(String.valueOf(property.getUtilities()));
     }

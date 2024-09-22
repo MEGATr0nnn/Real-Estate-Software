@@ -44,8 +44,8 @@ public class MainDashboardController {
     protected void onSignOutClick() throws IOException {
         List<Owner> owners = ownerDAO.getAllOwners();
         for(Owner owner : owners) {
-            if(owner.getConnection()) {
-                owner.setConnection(false);
+            if(owner.getSignedIn()) {
+                owner.setSignedIn(false);
                 ownerDAO.updateOwner(owner);
                 Stage stage = (Stage) dashPage.getScene().getWindow();
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));

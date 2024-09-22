@@ -17,10 +17,9 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         if(signedIn()) {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dash-view-final.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/dashboard.css")).toExternalForm());
-
             stage.setTitle(TITLE);
             stage.setScene(scene);
             stage.show();
@@ -37,7 +36,7 @@ public class HelloApplication extends Application {
     private boolean signedIn() {
         List<Owner> owners = ownerDAO.getAllOwners();
         for(Owner owner : owners) {
-            if(owner.getConnection()) {
+            if(owner.getSignedIn()) {
                 return true;
             }
         }

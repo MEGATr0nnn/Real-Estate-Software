@@ -7,11 +7,6 @@ import com.example.real_estate_software.model.PropertyDAO;
 import javafx.fxml.FXML;
 
 
-import com.example.real_estate_software.model.Owner;
-import com.example.real_estate_software.model.OwnerDAO;
-import com.example.real_estate_software.model.Property;
-import com.example.real_estate_software.model.PropertyDAO;
-import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
@@ -19,7 +14,6 @@ import javafx.scene.chart.XYChart;
 import java.util.List;
 
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -89,7 +83,7 @@ public class ChartController {
         int nonTenantedProperties = 0;
 
         for (Property property : properties) {
-            if (property.getTenanted()) {
+            if (property.getHas_Tenants()) {
                 tenantedProperties++;
             } else {
                 nonTenantedProperties++;

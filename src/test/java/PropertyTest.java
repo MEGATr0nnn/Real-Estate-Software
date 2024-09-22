@@ -1,4 +1,3 @@
-import com.example.real_estate_software.model.Owner;
 import com.example.real_estate_software.model.Property;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,8 +29,8 @@ public class PropertyTest {
 
     @Test
     public void test_Set_Num_Baths(){
-        property.setNum_Bath(10);
-        assertEquals(10, property.getNum_Bath());
+        property.setNum_Baths(10);
+        assertEquals(10, property.getNum_Baths());
     }
 
 }

@@ -51,7 +51,7 @@ public class SignInController {
         List<Owner> owners = ownerDAO.getAllOwners();
         for(Owner owner : owners) {
             if(owner.getEmail().equals(email) && owner.getPassword().equals(password)) {
-                owner.setConnection(true);
+                owner.setSignedIn(true);
                 ownerDAO.updateOwner(owner);
                 return true;
             }
