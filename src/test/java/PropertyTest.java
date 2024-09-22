@@ -17,8 +17,8 @@ public class PropertyTest {
 
     @Test
     public void testGetAddress(){
-        property.setAddress("constitution");
-        assertEquals("constitution", property.getAddress());
+        property.setAddress("spongebob");
+        assertEquals("spongebob", property.getAddress());
     }
 
     /**
