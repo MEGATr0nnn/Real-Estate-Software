@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-public class AccountController {
+public class EditAccountController {
     @FXML
     private TextField firstNameField;
     @FXML
@@ -22,9 +22,9 @@ public class AccountController {
     private TextField passwordField;
     @FXML
     private Button backButton;
-    private final OwnerDAO ownerDAO;
+    private OwnerDAO ownerDAO;
 
-    public AccountController() {
+    public EditAccountController() {
         ownerDAO = new OwnerDAO();
     }
 
@@ -47,7 +47,7 @@ public class AccountController {
     @FXML
     protected void onBackClick () throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dash-view-final.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
     }
