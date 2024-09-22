@@ -21,6 +21,9 @@ public class PropertyTest {
         assertEquals("constitution", property.getAddress());
     }
 
+    /**
+     Just quick tests to see if the get sets work
+     **/
     @Test
     public void testSetNumBeds(){
         property.setNum_Beds(3);

@@ -71,7 +71,7 @@ public class PropertyDAO {
     }
 
     /**
-     Updates DB
+     Updates DB from current property ie property A1 is now updated to be property A1.1 with new data
      **/
     public void update_Property(Property property) {
         try {
