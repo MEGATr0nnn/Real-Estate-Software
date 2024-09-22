@@ -5,6 +5,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<!-- The Property Dashboard FXML was created in Scenebuilder which allows the Owner to manage an individual property-->
+<!-- The owner will be able to view all statistical data regarding the number of tenants, total rental income, bond amount -->
+<!-- Owner can also assign a car spot to the property and additional rent for this as well as showcases the property value -->
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
       prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"

@@ -16,6 +16,9 @@ public class PropertyDashboardController {
     public Button assignRent;
     public Button addTenant;
 
+    /**
+     * Button action for when the user wants to revert back to the Property Dashboard page
+     */
     @FXML
     protected void onBackClick() throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
@@ -24,6 +27,9 @@ public class PropertyDashboardController {
         stage.setScene(scene);
     }
 
+    /**
+     * Button action for when the owner wants to add a new tenant to the associated property
+     */
     @FXML
     protected void onTenantClick() throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
@@ -32,6 +38,9 @@ public class PropertyDashboardController {
         stage.setScene(scene);
     }
 
+    /**
+     * Button action for when the owner wants to assign rent to the tenants associated with the property
+     */
     public void onRentClick() throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Rent.fxml"));

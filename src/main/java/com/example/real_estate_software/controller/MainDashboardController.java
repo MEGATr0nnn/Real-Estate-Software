@@ -17,14 +17,10 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.scene.effect.BlurType;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.StrokeType;
-import javafx.scene.control.Label;
-import javafx.collections.ObservableList;
+
 
 
 
@@ -89,8 +85,8 @@ public class MainDashboardController {
         System.out.println("Properties found: " + properties.size());  // Debugging: see how many properties are fetched
         int column = 0;
         int row = 0;
-        for (int i = 0; i < properties.size(); i++) {
-            AnchorPane propertyBox = createPropertyBox(properties.get(i));
+        for (Property property : properties) {
+            AnchorPane propertyBox = createPropertyBox(property);
 
 
             propertyGrid.add(propertyBox, column, row);
@@ -172,8 +168,6 @@ public class MainDashboardController {
 
         return box;
     }
-
-
 
 
     @FXML

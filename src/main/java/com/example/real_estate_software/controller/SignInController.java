@@ -27,6 +27,10 @@ public class SignInController {
         ownerDAO = new OwnerDAO();
     }
 
+    /**
+     * Button action for Owner to sign in with pre-existing account associated with the Application
+     * Upon pressing the button, the user will be directed to the Main Dashboard
+     */
     @FXML
     protected void onSignInClick() throws IOException {
         if(checkExists()){
@@ -37,6 +41,10 @@ public class SignInController {
         }
     }
 
+    /**
+     * Button action for Owner to create a new account associated with the Application
+     * Upon pressing the button, the user will be directed to the Create Account page
+     */
     @FXML
     protected void onSignUpClick() throws IOException{
         Stage stage = (Stage) signUpButton.getScene().getWindow();

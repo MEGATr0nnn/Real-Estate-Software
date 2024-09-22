@@ -29,6 +29,10 @@ public class CreateAccountController {
         ownerDAO = new OwnerDAO();
     }
 
+    /**
+     * Button action for when the user signs in
+     * User will then be directed to the Main Dashboard upon successful login
+     */
     @FXML
     protected void onCreateAccountClick() throws IOException {
         if(!emptyFields()) {
@@ -56,6 +60,9 @@ public class CreateAccountController {
         return emptyFirstName || emptyLastName || emptyEmail || emptyPassword;
     }
 
+    /**
+     * Button action for when the user wants to revert back to the Property Dashboard page
+     */
     @FXML
     protected void onBackClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
