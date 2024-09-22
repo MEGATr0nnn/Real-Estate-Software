@@ -28,6 +28,8 @@ import javafx.stage.Stage;
 import com.example.real_estate_software.HelloApplication; // Ensure this import is correct
 
 import java.io.IOException;
+import java.util.Objects;
+
 public class ChartController {
 
     @FXML
@@ -113,6 +115,7 @@ public class ChartController {
 
             Stage stage = (Stage) backButton.getScene().getWindow();
             Scene scene = new Scene(dashboardView);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/dashboard.css")).toExternalForm());
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();

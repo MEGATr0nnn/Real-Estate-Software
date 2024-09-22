@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 public class EditAccountController {
     @FXML
@@ -68,6 +69,7 @@ public class EditAccountController {
         Stage stage = (Stage) backButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/dashboard.css")).toExternalForm());
         stage.setScene(scene);
     }
 
