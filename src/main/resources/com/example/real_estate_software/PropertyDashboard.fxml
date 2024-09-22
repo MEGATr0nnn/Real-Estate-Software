@@ -4,11 +4,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.AnchorPane?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-      prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.real_estate_software.controller.PropertyDashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.real_estate_software.controller.PropertyDashboardController">
 
    <Text layoutX="484.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome NAME"/>
    <Text layoutX="199.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Dashboard">
@@ -17,15 +18,17 @@
       </font>
    </Text>
    <Button fx:id = "addTenant" layoutX="489.0" layoutY="225.0" mnemonicParsing="false" text="Add Tenant" onAction="#onTenantClick"/>
-   <Text layoutX="271.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADDRESS"/>
+
    <Button fx:id = "assignRent" layoutX="489.0" layoutY="264.0" mnemonicParsing="false" text="Assign Rent" onAction="#onRentClick"/>
    <Button fx:id = "utilities" layoutX="489.0" layoutY="305.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="Utilities"/>
    <Button fx:id = "maintenanceRequest" layoutX="385.0" layoutY="346.0" mnemonicParsing="false" prefWidth="185.0"
            text="Property Maintenance Request"/>
-   <Text layoutX="14.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Rental Income"/>
-   <Text layoutX="14.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Vacant Rooms"/>
+   <Text fx:id="totalRentalIncomeText" layoutX="14.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Rental Income"/>
+   <Text fx:id="vacantRoomsText" layoutX="14.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Vacant Rooms"/>
    <Button fx:id = "backButton" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" text="Back" onAction="#onBackClick"/>
-   <Text layoutX="235.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROPERTY VALUATION"/>
-   <Text layoutX="14.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Spot"/>
-   <Text layoutX="14.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Bond Amount"/>
-</Pane>
+   <Text fx:id="propertyValuationText" layoutX= "235.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROPERTY VALUATION"/>
+   <Text fx:id="carSpotText" layoutX="14.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Spot"/>
+   <Text fx:id="bondAmountText" layoutX="14.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Bond Amount"/>
+   <Text fx:id="addressText" layoutX="271.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADDRESS"/>
+
+</AnchorPane>
