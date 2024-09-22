@@ -21,7 +21,7 @@ public class Property {
         this.num_Cars = num_Cars;
         this.rent = rent;
         this.utilities = utilities;
-        has_Tenants = false;
+        has_Tenants = checkHas_Tenants();
     }
 
     //is this duplicate really needed? can I simplify down to one constructor?
@@ -64,4 +64,7 @@ public class Property {
     public boolean getHas_Tenants() {return has_Tenants;}
     public void setHas_Tenants(boolean has_Tenants) {this.has_Tenants = has_Tenants;}
 
+    public boolean checkHas_Tenants() {
+        return num_Tenants > 0;
+    }
 }
