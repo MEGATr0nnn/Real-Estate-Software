@@ -1,0 +1,574 @@
+commit 40feb00c6513f659d4ffcd1adfa0a6de6a034db4
+Merge: db28264 71b54d9
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Sun Sep 22 12:56:41 2024 +1000
+
+    Merge branch 'main' into Add-Property
+    
+    # Conflicts:
+    #       database.db
+    #       src/main/java/com/example/real_estate_software/controller/MainDashboardController.java
+    #       src/main/resources/com/example/real_estate_software/PropertyDashboard.fxml
+
+commit db2826422ff3fed653657f3275f4db257d4bbed5
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Sun Sep 22 12:50:19 2024 +1000
+
+    Multiple minor fixes as well as added code comments for all methods, classes and pages that I have create for the project so far. Fixed textfield for password entry to passwordfield. Fixed majority of warnings (18/28 Warnings resolved)
+
+commit 71b54d9e66561d213aac8b959ad19b53385d8438
+Merge: ba3f534 9604a55
+Author: Vuyo Manyepe <134632874+v-xero123@users.noreply.github.com>
+Date:   Sun Sep 22 12:11:28 2024 +1000
+
+    Merge pull request #9 from MEGATr0nnn/main-dashboard-updated
+    
+    dashboard with click on properties to individual property page
+
+commit 9604a551c0758f7238a919f80306f630a5dd25f6
+Author: Vuyo <manyepev19@gmail.com>
+Date:   Sun Sep 22 12:06:46 2024 +1000
+
+    dashboard with click on properties to individual property page
+
+commit 7056d116fc94eca4386418dbc5cee15e95d0b52a
+Merge: 81cabfa ba3f534
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Sun Sep 22 11:01:41 2024 +1000
+
+    Merge branch 'main' into Add-Property
+    
+    # Conflicts:
+    #       database.db
+
+commit 81cabfa32f6a1767aa1cff3b5436297baa5a09cf
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Sun Sep 22 11:00:31 2024 +1000
+
+    Minor fixes
+
+commit ba3f53483ff79d03f0646ee202f04220cc998b46
+Merge: fbf9647 b739bff
+Author: Vuyo Manyepe <134632874+v-xero123@users.noreply.github.com>
+Date:   Sun Sep 22 09:32:48 2024 +1000
+
+    Merge pull request #8 from MEGATr0nnn/main-dashboard-updated
+    
+    Main dashboard updated
+
+commit b739bff56adcd28514e60325b4b3e4b3314fce0b
+Author: Vuyo <manyepev19@gmail.com>
+Date:   Sun Sep 22 09:28:37 2024 +1000
+
+    dashboard-with stylesheet
+
+commit fbf96476a450806f29fd940ba0ac9864bf288d79
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Sun Sep 22 09:15:55 2024 +1000
+
+    added testing for property and DAO
+
+commit 4bcff520f24e632ef1cb0fe919d75eb16b372e10
+Merge: 845a118 08eb756
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Sun Sep 22 09:15:33 2024 +1000
+
+    Merge remote-tracking branch 'origin/main'
+
+commit eed097052c85aa06675fcea5d7f68a4f3b35b043
+Author: Vuyo <manyepev19@gmail.com>
+Date:   Sun Sep 22 01:48:14 2024 +1000
+
+    dashboard-with stylesheet
+
+commit cf5ffbc5c25732cd686e301ab2e366bc7128c72a
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Sat Sep 21 11:18:50 2024 +1000
+
+    Fixed sequence flow from pages. Tried adding functionality for icons, minimal progress. Resolved all warnings (31 Warnings)
+
+commit 6ee3b46565eeb4be2e6c750f722e3a08e77aad81
+Author: Vuyo <manyepev19@gmail.com>
+Date:   Sat Sep 21 10:21:04 2024 +1000
+
+    dashboard-with stylesheet
+
+commit 019219dd254695c352fa8284462ef1978eccf828
+Author: Vuyo <manyepev19@gmail.com>
+Date:   Sat Sep 21 10:14:51 2024 +1000
+
+    dashboard-with stylesheet
+
+commit 03a1f30754a0f73b2d6d112a89aebaebc64b0c34
+Merge: 0ef489d 08eb756
+Author: Vuyo <manyepev19@gmail.com>
+Date:   Fri Sep 20 23:51:07 2024 +1000
+
+    Merge remote-tracking branch 'origin/main' into main-dashboard-updated
+
+commit 08eb756c232114aea2de529aef9f3287bf1e04c5
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Fri Sep 20 18:02:47 2024 +1000
+
+    Fixed file names
+
+commit fb5a361191ebc23640e62dc3059d4c074e5c943a
+Merge: 7449923 d3be8fc
+Author: ShanthuJayamaha <166670548+ShanthuJayamaha@users.noreply.github.com>
+Date:   Fri Sep 20 17:11:56 2024 +1000
+
+    Merge pull request #6 from MEGATr0nnn/Add-Property
+    
+    Added Rent Page and functionality. Need to now find a way to get the …
+
+commit d3be8fc8f1c3702d0ee6f8444dc3d8d4b13df30d
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Fri Sep 20 17:11:24 2024 +1000
+
+    Added Rent Page and functionality. Need to now find a way to get the number of tenants from the Property Dashboard and only create that number of Renters on the Rent page
+
+commit 7449923944afed72459b406a2e1a0f3016fb887c
+Merge: 4c14ac1 12f3744
+Author: ShanthuJayamaha <166670548+ShanthuJayamaha@users.noreply.github.com>
+Date:   Fri Sep 20 16:40:47 2024 +1000
+
+    Merge pull request #5 from MEGATr0nnn/authentication
+    
+    Added new pages for Adding a Tenant and Property Dashboard
+
+commit 12f3744f0fb276051e6ad2e42fe6f900166e2959
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Fri Sep 20 16:36:39 2024 +1000
+
+    Added page for Adding a Tenant as well as added the functionality for PropertyDashboard.fxml (front end and actions with user input). Fixed warnings accordingly.
+
+commit 44a33be93684bb3bc01578d04e308f6688f4fb16
+Merge: 535e99c 4040751
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Fri Sep 20 15:49:55 2024 +1000
+
+    Merge branch 'main' into authentication
+    
+    # Conflicts:
+    #       database.db
+
+commit 535e99caf5dad543c67be54c692d9d1f40549716
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Fri Sep 20 15:49:41 2024 +1000
+
+    Added new page for Property Dashboard, currently integrating it with the Main Dashboard
+
+commit 4040751b5a7e6747090226f71952e234876c4705
+Merge: 1e4182b 4c14ac1
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Fri Sep 20 15:44:57 2024 +1000
+
+    Merge remote-tracking branch 'origin/main'
+
+commit 4c14ac16b17cb2989b24517f217b57c9f9c32611
+Merge: f435519 6d12804
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Fri Sep 20 14:29:59 2024 +1000
+
+    Merge branch 'refs/heads/account-page'
+    
+    # Conflicts:
+    #       database.db
+
+commit 6d12804f7d5fe423350c8a92f6f278b213f0950d
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Fri Sep 20 14:23:59 2024 +1000
+
+    Integrated new dashboard
+
+commit 845a11823b603d69d6af46fca15bc60c06bd6db3
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Fri Sep 20 13:46:38 2024 +1000
+
+    added testing for property and DAO
+
+commit f435519f4c59f4625480e91cc6e7e08327a8fb6e
+Merge: ec7ce52 6f06f67
+Author: Harrison Mega <129484890+MEGATr0nnn@users.noreply.github.com>
+Date:   Fri Sep 20 13:30:21 2024 +1000
+
+    Merge pull request #4 from MEGATr0nnn/databaseproperty2
+    
+    Databaseproperty2
+
+commit 6f06f679a67fc6ec006ed63258a6beba55565ee0
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Fri Sep 20 13:29:39 2024 +1000
+
+    added in the project planning documentation
+
+commit 24805f9dfa54b64a555c3ca393cbf6cf30e52b84
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Fri Sep 20 13:26:29 2024 +1000
+
+    fixed minor error merging property to main
+
+commit 75ad4db5251f6e7df1a9cdc6a1355222e1fcc394
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Fri Sep 20 13:00:52 2024 +1000
+
+    fixed minor error with null return
+
+commit 0eed1e2f90a8db5ed2becedb9d356189feef7e13
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Fri Sep 20 12:59:31 2024 +1000
+
+    pretty much finished property DAO
+
+commit ec7d485e95a72068e7344255d87444e2544db9a7
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Wed Sep 18 15:21:58 2024 +1000
+
+    new branch with updates
+
+commit bb1f02a9d0087364b9c5da4e0d2811b99cda914d
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Wed Sep 18 15:21:40 2024 +1000
+
+    new branch with updates
+
+commit 86d5a3d6a443e860dcbe09a9e86a67b299c75854
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Tue Sep 17 11:34:39 2024 +1000
+
+    new branch with updated MAIN
+
+commit f07b5e0ca648ea188aedc21f10f69a651a19f131
+Merge: ec7ce52 7f57c10
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Tue Sep 17 11:33:13 2024 +1000
+
+    Merge branch 'refs/heads/database-property' into databaseproperty2
+
+commit 1e4182bc936206226fa972dd089c0aea01de9e45
+Merge: 0a6303c ec7ce52
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Tue Sep 17 11:24:33 2024 +1000
+
+    Merge remote-tracking branch 'origin/main'
+
+commit ec7ce52f9ead6dd1b46eb611ef18b2311d02bad4
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Tue Sep 17 11:22:11 2024 +1000
+
+    Added database
+
+commit 1bb7ec8f3f4d15ff658ff86e9c1af12229c41c38
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Tue Sep 17 11:17:07 2024 +1000
+
+    Added sql driver to pom
+
+commit 0a6303cfee8c4c8dbee551201e21749c0ff6e925
+Merge: 175ad3b d21664d
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Tue Sep 17 11:14:28 2024 +1000
+
+    Merge remote-tracking branch 'origin/main'
+
+commit 0ef489d7c0922c53127e8892971019032645f276
+Merge: 828cdf5 d21664d
+Author: Vuyo <manyepev19@gmail.com>
+Date:   Tue Sep 17 11:08:13 2024 +1000
+
+    Merge remote-tracking branch 'origin/main'
+
+commit d21664dae9264262d3607fd08b88e82abf8ef24c
+Merge: 88f9ddf 3b8eb5d
+Author: StevenHujbert <93692688+StevenHujbert@users.noreply.github.com>
+Date:   Tue Sep 17 11:00:47 2024 +1000
+
+    Merge pull request #3 from MEGATr0nnn/main-dashboard
+    
+    dashboard-current
+
+commit 828cdf5ef83fa4d6dbc6b7674bded2a792a6e403
+Merge: d4218ea 88f9ddf
+Author: Vuyo <manyepev19@gmail.com>
+Date:   Tue Sep 17 10:54:18 2024 +1000
+
+    Merge remote-tracking branch 'origin/main'
+
+commit 3b8eb5d7cf1501412f8e9156295e3ae764bec8f3
+Author: Vuyo <manyepev19@gmail.com>
+Date:   Tue Sep 17 10:53:01 2024 +1000
+
+    dashboard-current
+
+commit 83c5d550d24e1a8e831c85fdf18c7da928291324
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Tue Sep 17 10:44:29 2024 +1000
+
+    Delete database
+
+commit d79a05e1fe4da252949a655c3c09cb8ab044b105
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Tue Sep 17 10:43:13 2024 +1000
+
+    Fixed merge
+
+commit 7f57c1031cc1ed2f89e371ce411f0301e7233f4d
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Tue Sep 17 10:36:13 2024 +1000
+
+    finished insert new property command
+
+commit 5b1bed7a478ef0085d7137232de10cc13a610fbc
+Merge: 455c4a2 8fb057b
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Tue Sep 17 10:22:35 2024 +1000
+
+    Merge branch 'refs/heads/authentication' into main-dashboard
+    
+    # Conflicts:
+    #       src/main/java/com/example/real_estate_software/controller/DashController.java
+    #       src/main/resources/com/example/real_estate_software/main-view.fxml
+
+commit 455c4a204496b1378da5e653cd84df830e0fb23f
+Author: Vuyo <manyepev19@gmail.com>
+Date:   Tue Sep 17 10:09:30 2024 +1000
+
+    dashboard-current
+
+commit c77fcd80ca10f29c4014368ea8cdff82269c6a02
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Tue Sep 17 10:06:09 2024 +1000
+
+    Inserted create property table
+
+commit 8fb057b56166ab8807b7d2553aa8aa79e18b63ec
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Tue Sep 17 10:03:24 2024 +1000
+
+    Fixed logic for testPasswordCapital test case
+
+commit 4223420fc34ca78e6d82244dad2eb5bfe1dacb2d
+Author: Vuyo <manyepev19@gmail.com>
+Date:   Tue Sep 17 09:56:13 2024 +1000
+
+    dashboard-current
+
+commit 31bb3141f5c3f217f93fdf81501795ef2e8f65f8
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Tue Sep 17 09:48:02 2024 +1000
+
+    Added test data into the database and pushing to github. Seeing if a pull will store my created data information
+
+commit 88f9ddfbd432c56010106f3a020bf34461876d02
+Author: Harrison Mega <129484890+MEGATr0nnn@users.noreply.github.com>
+Date:   Tue Sep 17 09:43:19 2024 +1000
+
+    Update pom.xml
+    
+    edited pom.xml to include java version explicitly refrenced
+
+commit dc23c80f677d80033a34c093a97ae895c54de162
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Tue Sep 17 09:29:48 2024 +1000
+
+    Fixed Maven for Java 21
+
+commit 6edf9e3fe0e551f3444863c69eb7c830d466d4cb
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Tue Sep 17 09:26:09 2024 +1000
+
+    Update pom.xml
+
+commit 8a6c59fb132fd49f47150c58b48a7e8264765253
+Merge: a3a7bed 1a82817
+Author: StevenHujbert <93692688+StevenHujbert@users.noreply.github.com>
+Date:   Tue Sep 17 09:23:09 2024 +1000
+
+    Merge pull request #2 from MEGATr0nnn/authentication
+    
+    Authentication
+
+commit a3a7bed8e6210f80dfd13aa490bf983874bb8b2a
+Author: StevenHujbert <93692688+StevenHujbert@users.noreply.github.com>
+Date:   Tue Sep 17 09:13:33 2024 +1000
+
+    Update maven.yml
+
+commit 1a8281769d42435a6679ee31d2fd11dabe3b1274
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Tue Sep 17 09:07:31 2024 +1000
+
+    Added Database Test
+
+commit edbc65e2d7da80721b6e34a61996b99cf6a6b971
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Tue Sep 17 09:01:47 2024 +1000
+
+    Updated edit account
+
+commit d0f38fc00c550261d91817706a5a494e75e46547
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Tue Sep 17 08:32:06 2024 +1000
+
+    Fixed image
+
+commit 377c54ffb59d83bcaa964446527d3fcc3315e1a4
+Merge: 509b908 715b74d
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Mon Sep 16 21:03:12 2024 +1000
+
+    Merge branch 'refs/heads/edit-delete-account' into authentication
+
+commit 715b74dd8e8a5d8ff7ff19ba12370bb4cf34d99e
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Mon Sep 16 21:02:30 2024 +1000
+
+    Removed database
+
+commit ee00f74a953751f3eb4c7f8863f9c1b547d6607d
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Mon Sep 16 20:57:11 2024 +1000
+
+    Added edit and delete account
+
+commit 509b9082680264f07f4ac156a1b41332329e38ca
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Mon Sep 16 20:43:59 2024 +1000
+
+    Fixed logic for last test case
+
+commit 9cd0091f679f35f762689e72d6a4ada03c7cd8ee
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Mon Sep 16 20:35:04 2024 +1000
+
+    Added new tests for passwords and for duplicate accounts, additionally fixed the test suite by exporting exports com.example.real_estate_software.model; to module-info.java. Additional miscellaneous test cases added
+
+commit 4a66121714b7300537ebf00b3a074c42c291c75b
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Mon Sep 16 19:07:51 2024 +1000
+
+    Add owner test
+
+commit 7633eca47b38ed808e6a05687ad8c6d193323be0
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Mon Sep 16 17:05:26 2024 +1000
+
+    Added logOut
+
+commit eb844c3483ed8c523f5df7724d99297b7b3b7677
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Mon Sep 16 15:02:18 2024 +1000
+
+    Added signIn and signUp
+
+commit 7310d0a0909ef9c4aa7f1465412fb1bb41d91c40
+Merge: b32497f 491b828
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Mon Sep 16 13:36:28 2024 +1000
+
+    Merge branch 'refs/heads/database' into authentication
+
+commit 491b828f8c19238294e20ac5489741c081b71b01
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Mon Sep 16 13:32:10 2024 +1000
+
+    Updated Database files
+
+commit b32497f5197646e9b21953c7246b2b8869ead886
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Tue Sep 10 11:23:17 2024 +1000
+
+    Added frontend functionality for Login and Sign up page.
+
+commit b6b4590a61f2a316e1fdca9482562032ab290b40
+Merge: f30e292 168fb60
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Tue Sep 10 10:56:44 2024 +1000
+
+    Merge branch 'refs/heads/database-property' into database
+
+commit f30e29276d811f796c65c53652eaeac47d0c84cf
+Merge: b1b23cd 3fa87c8
+Author: Harrison Mega <129484890+MEGATr0nnn@users.noreply.github.com>
+Date:   Tue Sep 10 10:53:59 2024 +1000
+
+    Merge pull request #1 from MEGATr0nnn/database-property
+    
+    Created Property backend
+
+commit 168fb6034319a5d188912fe172fb1bc7496695e2
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Tue Sep 10 10:44:22 2024 +1000
+
+    Created Property backend
+
+commit b1b23cd221b3e119fed6c6640fdcec807738a420
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Tue Sep 10 10:32:39 2024 +1000
+
+    Added SQL Owner table
+
+commit 3fa87c825534033a5d0b8e316558720a956b5ec2
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Tue Sep 10 10:30:07 2024 +1000
+
+    Created Property backend
+
+commit 191b6a1dcf87619d501feb5da5ec1e663885adef
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Tue Sep 10 09:49:38 2024 +1000
+
+    Added database
+
+commit d4218ea4a620485cac78a27194ca03f715d88e4c
+Merge: d325675 916b735
+Author: Vuyo <manyepev19@gmail.com>
+Date:   Tue Sep 10 09:46:55 2024 +1000
+
+    Merge remote-tracking branch 'origin/authentication'
+
+commit 175ad3b64d5a7e8e4d55b6153febb7fff6e4a767
+Author: Shanthu Jayamaha <shanthu.jayamaha001@gmail.com>
+Date:   Tue Sep 10 09:34:49 2024 +1000
+
+    Testing
+
+commit d325675ca2636173ec2e385b89c9cc42ac7b4f54
+Author: Harrison Mega <129484890+MEGATr0nnn@users.noreply.github.com>
+Date:   Tue Sep 10 09:19:24 2024 +1000
+
+    Create maven.yml
+    
+    Introduced Workflow
+
+commit 5935391a940efd087ae7344da9673f9100b7ac20
+Author: Harrison Mega <129484890+MEGATr0nnn@users.noreply.github.com>
+Date:   Tue Sep 10 09:15:28 2024 +1000
+
+    Create README.md
+    
+    created readme
+
+commit 916b7353b56a19a3f4dde8fc89205f9a4a3550eb
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Tue Sep 10 09:06:34 2024 +1000
+
+    Added input fields
+
+commit ff0d816093d150a198f32fe5c09af01e70b7cf01
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Tue Sep 10 08:50:57 2024 +1000
+
+    Added authentication traversal
+
+commit 7f4da8adb50a13d79d327c3db8cfc89dd9905bdf
+Author: StevenHujbert <steven_hujbert@hotmail.com>
+Date:   Mon Sep 9 22:37:31 2024 +1000
+
+    Update Project Structure
+
+commit b76f8423b3db588742a676f62c3cbde2a2a69ae4
+Author: MEGATr0nnn <harrison.mega@outlook.com>
+Date:   Tue Sep 3 11:11:09 2024 +1000
+
+    test
