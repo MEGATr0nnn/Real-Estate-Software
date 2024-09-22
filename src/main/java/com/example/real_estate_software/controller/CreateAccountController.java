@@ -35,7 +35,7 @@ public class CreateAccountController {
         if(!emptyFields()) {
             createAccount();
             Stage stage = (Stage) createAccountButton.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dash-view-final.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
         }

@@ -52,7 +52,7 @@ public class ChartController {
     }
 
     private void loadBarChartData(Owner owner) {
-        List<Property> properties = propertyDAO.getAllProperties(owner);
+        List<Property> properties = propertyDAO.get_OwnerProperties(owner);
 
         // Create a new series for total rent values
         XYChart.Series<String, Number> rentSeries = new XYChart.Series<>();
@@ -77,7 +77,7 @@ public class ChartController {
     }
 
     private void loadPieChartData(Owner owner) {
-        List<Property> properties = propertyDAO.getAllProperties(owner);
+        List<Property> properties = propertyDAO.get_OwnerProperties(owner);
 
         int tenantedProperties = 0;
         int nonTenantedProperties = 0;

@@ -31,7 +31,7 @@ public class SignInController {
     protected void onSignInClick() throws IOException {
         if(checkExists()){
             Stage stage = (Stage) signInButton.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dash-view-final.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
         }

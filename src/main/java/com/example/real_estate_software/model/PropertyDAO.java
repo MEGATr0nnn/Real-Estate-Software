@@ -38,7 +38,7 @@ public class PropertyDAO {
     }
 
     public void insert_New_Property(Property property, Owner owner) {
-        //need to include setting the id of the owner its associated with for the foreign key
+        //need to include setting the id of the owner it's associated with for the foreign key
         //fix this to be in the right order for inserting into the table eventually
         try{
             PreparedStatement statement = connection.prepareStatement("INSERT INTO properties "
@@ -130,10 +130,10 @@ public class PropertyDAO {
             while (resultSet.next()){
                 int id = resultSet.getInt("property_Id");
                 String address = resultSet.getString("address");
-                int num_Tenants = resultSet.getInt("number_Tenants");
+                int num_Tenants = resultSet.getInt("num_Tenants");
                 int num_Beds = resultSet.getInt("num_Beds");
                 int num_Baths = resultSet.getInt("num_Baths");
-                int num_Cars = resultSet.getInt("num_Carspaces");
+                int num_Cars = resultSet.getInt("num_Cars");
                 int weekly_Rent = resultSet.getInt("weekly_Rent");
                 int weekly_Utilities = resultSet.getInt("weekly_Utilities");
                 boolean has_Tenants = resultSet.getBoolean("has_Tenants");

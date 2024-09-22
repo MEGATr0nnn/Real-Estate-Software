@@ -43,7 +43,7 @@ public class PropertyDashboardController {
         addressText.setText(property.getAddress());
         totalRentalIncomeText.setText("Total Rental Income: $" + calculateTotalRentalIncome(property));
         vacantRoomsText.setText("Number of Vacant Rooms: " + calculateVacantRooms(property));
-        carSpotText.setText("Car Spot: " + property.getNum_Car());
+        carSpotText.setText("Car Spot: " + property.getNum_Cars());
         bondAmountText.setText("Total Bond Amount: $" + calculateBondAmount(property));
         propertyValuationText.setText("Property Valuation: $" + calculatePropertyValuation(property));
 
@@ -72,7 +72,7 @@ public class PropertyDashboardController {
     @FXML
     protected void onBackClick() throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dash-view-final.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
     }

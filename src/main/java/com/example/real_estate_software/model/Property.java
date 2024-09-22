@@ -24,7 +24,7 @@ public class Property {
         has_Tenants = false;
     }
 
-    //is this duplicate really needed? can i simplify down to one constructior?
+    //is this duplicate really needed? can I simplify down to one constructor?
     public Property(String address, int num_Tenants, int num_Beds, int num_Baths, int num_Cars, int rent, int utilities, boolean has_Tenants){
         this.address = address;
         this.num_Tenants = num_Tenants;

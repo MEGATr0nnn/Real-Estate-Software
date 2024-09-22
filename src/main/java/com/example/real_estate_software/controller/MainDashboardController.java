@@ -34,12 +34,13 @@ import java.util.List;
 public class MainDashboardController {
     @FXML
     private AnchorPane propertyContainer;
-
     public Button propertyDashboard;
     @FXML
     private Button cogsButton;
     @FXML
     private Button barChartButton;
+    @FXML
+    private Button settingsButton;
     @FXML
     private Button signOutButton;
     @FXML
@@ -50,7 +51,6 @@ public class MainDashboardController {
     private Button editButton;
     @FXML
     private Button viewStatsButton;
-
     @FXML
     private Parent dashPage;
     private final OwnerDAO ownerDAO;
@@ -63,40 +63,22 @@ public class MainDashboardController {
 
     @FXML
     public void initialize() {
-
         propertyDAO.create_Table_Property();
-
         Owner currentOwner = getCurrentOwner();
-
-        System.out.println("Inserting default properties for owner: " + currentOwner.getId());  // Debug output
-
-
-        if (propertyDAO.getAllProperties(currentOwner).isEmpty()) {
-            System.out.println("No properties found, inserting default test properties...");
-            propertyDAO.insertDefaultTestProperties(currentOwner);
-        }
-
-
         loadProperties(currentOwner);
     }
 
-
-    private void insertTestProperties(Owner owner) {
-        propertyDAO.insertDefaultTestProperties(owner);
-    }
     private void loadProperties(Owner owner) {
-        List<Property> properties = propertyDAO.getAllProperties(owner);
-        System.out.println("Properties found: " + properties.size());  // Debugging: see how many properties are fetched
+        List<Property> properties = propertyDAO.get_OwnerProperties(owner);
         int column = 0;
         int row = 0;
-        for (int i = 0; i < properties.size(); i++) {
-            AnchorPane propertyBox = createPropertyBox(properties.get(i));
-
+        for(Property property : properties) {
+            AnchorPane propertyBox = createPropertyBox(property);
 
             propertyGrid.add(propertyBox, column, row);
 
-
             column++;
+
             if (column == 3) {
                 column = 0;
                 row++;
@@ -111,7 +93,6 @@ public class MainDashboardController {
         box.setPrefSize(208, 200);
         box.setStyle("-fx-background-color: white;");
 
-
         DropShadow dropShadow = new DropShadow();
         dropShadow.setBlurType(BlurType.ONE_PASS_BOX);
         dropShadow.setColor(Color.rgb(202, 202, 202));
@@ -124,24 +105,20 @@ public class MainDashboardController {
         AnchorPane.setRightAnchor(innerPane, 0.0);
         AnchorPane.setTopAnchor(innerPane, 0.0);
 
-
         DropShadow innerShadow = new DropShadow();
         innerShadow.setColor(Color.rgb(215, 209, 209));
         innerPane.setEffect(innerShadow);
-
 
         Circle iconCircle = new Circle(47.0, 44.0, 22.0);
         iconCircle.setFill(Color.DODGERBLUE);
         iconCircle.setStroke(Color.BLACK);
         iconCircle.setStrokeType(StrokeType.INSIDE);
 
-
         Label propertyIdLabel = new Label("Property ID: " + property.getId());
         propertyIdLabel.setLayoutX(123);
         propertyIdLabel.setLayoutY(19);
         propertyIdLabel.getStyleClass().add("propertyID-label");
         propertyIdLabel.setTextFill(Color.web("#8a8a8a"));
-
 
         Label roomsLabel = new Label("No. rooms: " + property.getNum_Beds());
         roomsLabel.setLayoutX(10);
@@ -157,77 +134,21 @@ public class MainDashboardController {
         tenantsLabel.setLayoutX(10);
         tenantsLabel.setLayoutY(130);
 
-
         Label rentLabel = new Label("Current rent: $" + property.getRent());
         rentLabel.setLayoutX(10);
         rentLabel.setLayoutY(150);
         rentLabel.getStyleClass().add("rent-label");
         rentLabel.setTextFill(Color.GREEN); // Rent text in green
 
-
         innerPane.getChildren().addAll(iconCircle, propertyIdLabel);
-
 
         box.getChildren().addAll(innerPane, roomsLabel, addressLabel, tenantsLabel, rentLabel);
 
         return box;
     }
 
-
-
-
     @FXML
-    protected void onEditClick() throws IOException {
-        Stage stage = (Stage) dashPage.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditAccount.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setScene(scene);
-    }
-
-    @FXML
-    protected void onDeleteClick() throws IOException {
-        Owner currentOwner = ownerDAO.getOwner(true);
-        propertyDAO.delete_Property(currentOwner);
-        Stage stage = (Stage) dashPage.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-        stage.setScene(scene);
-    }
-
-    @FXML
-    protected void onSignOutClick() throws IOException {
-        List<Owner> owners = ownerDAO.getAllOwners();
-        for (Owner owner : owners) {
-            if (owner.getConnection()) {
-                owner.setConnection(false);
-                ownerDAO.updateOwner(owner);
-
-
-                Stage stage = (Stage) signOutButton.getScene().getWindow();
-
-                if (stage == null) {
-
-                    stage = (Stage) dashPage.getScene().getWindow();
-                }
-
-                if (stage != null) {
-                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
-                    Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-                    stage.setScene(scene);
-                } else {
-                    System.err.println("Error: Stage could not be determined.");
-                }
-            }
-        }
-    }
-
-    @FXML
-    protected void handleSignOutClick() throws IOException {
-        onSignOutClick();
-    }
-    @FXML
-    protected void handleEditClick() throws IOException {
-        // Load the EditAccount.fxml when the edit button is clicked
+    protected void handleSettingsClick() throws IOException {
         Stage stage = (Stage) editButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditAccount.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -235,9 +156,29 @@ public class MainDashboardController {
     }
 
     @FXML
+    protected void handleSignOutClick() throws IOException {
+        Owner currentOwner = getCurrentOwner();
+        currentOwner.setSignedIn(false);
+        ownerDAO.updateOwner(currentOwner);
+        Stage stage = (Stage) signOutButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+    }
+
+    @FXML
+    protected void handleEditClick() throws IOException {
+        // Load the EditProperty.fxml when the edit button is clicked
+        Stage stage = (Stage) dashPage.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditProperty.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+    }
+
+    @FXML
     protected void handleAddPropertyClick() throws IOException {
         Stage stage = (Stage) addPropertyButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PropertyDashboard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AddProperty.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
     }
