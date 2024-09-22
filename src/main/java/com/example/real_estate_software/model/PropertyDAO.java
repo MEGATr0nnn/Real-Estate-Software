@@ -109,7 +109,7 @@ public class PropertyDAO {
     }
 
     /**
-     Gets data of a specific property from the id of the property and the owners Id
+     Gets data of a specific property from the id of the property and the owners id
      **/
     public Property get_Property (boolean is_Selected, Owner owner){
         try{

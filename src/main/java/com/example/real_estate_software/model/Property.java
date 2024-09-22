@@ -16,6 +16,7 @@ public class Property {
     private boolean has_Tenants;
     private boolean is_Selected;
 
+    //do we really need this many overloads
     /**
      property constructor
      **/
