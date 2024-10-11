@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,7 +16,10 @@
          <Font size="24.0"/>
       </font>
    </Text>
+
    <Button fx:id = "addTenant" layoutX="489.0" layoutY="225.0" mnemonicParsing="false" text="Add Tenant" onAction="#onTenantClick"/>
+
+   <Button fx:id = "removeTenant" layoutX="489.0" layoutY="225.0" mnemonicParsing="false" text="Remove Tenant" onAction="#onRemoveTenantClick"/>
 
    <Button fx:id = "assignRent" layoutX="489.0" layoutY="264.0" mnemonicParsing="false" text="Assign Rent" onAction="#onRentClick"/>
    <Button fx:id = "utilities" layoutX="489.0" layoutY="305.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="Utilities"/>
