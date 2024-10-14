@@ -46,7 +46,7 @@ public class EditAccountController {
             currentOwner.setLastName(lastNameField.getText());
             currentOwner.setEmail(emailField.getText());
             currentOwner.setPassword(passwordField.getText());
-            ownerDAO.updateOwner(currentOwner);
+            ownerDAO.update(currentOwner);
         }
         firstNameField.setText(currentOwner.getFirstName());
         lastNameField.setText(currentOwner.getLastName());
@@ -57,7 +57,7 @@ public class EditAccountController {
     @FXML
     protected void onDeleteClick() throws IOException {
         Owner currentOwner = ownerDAO.getOwner(true);
-        ownerDAO.deleteOwner(currentOwner);
+        ownerDAO.delete(currentOwner);
         Stage stage = (Stage) deleteButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
         Scene scene = new Scene(fxmlLoader.load());

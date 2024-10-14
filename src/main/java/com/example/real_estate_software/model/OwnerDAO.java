@@ -9,6 +9,7 @@ import java.util.List;
 
 public class OwnerDAO implements IUserDAO<Owner> {
     private Connection connection;
+    private DatabaseControl<Owner> connect;
 
     public OwnerDAO() {
         connection = DatabaseConnection.getInstance();
@@ -16,20 +17,15 @@ public class OwnerDAO implements IUserDAO<Owner> {
     }
 
     public void createTable() {
-        try {
-            Statement statement = connection.createStatement();
-            String query = "CREATE TABLE IF NOT EXISTS owners ("
-                    + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + "firstName VARCHAR NOT NULL,"
-                    + "lastName VARCHAR NOT NULL,"
-                    + "email VARCHAR NOT NULL,"
-                    + "password VARCHAR NOT NULL,"
-                    + "signedIn BOOLEAN NOT NULL"
-                    + ")";
-            statement.execute(query);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String query = "CREATE TABLE IF NOT EXISTS owners ("
+                + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + "firstName VARCHAR NOT NULL,"
+                + "lastName VARCHAR NOT NULL,"
+                + "email VARCHAR NOT NULL,"
+                + "password VARCHAR NOT NULL,"
+                + "signedIn BOOLEAN NOT NULL"
+                + ")";
+        connect.executeQuery(query);
     }
 
     public void insertNew(Owner owner) {

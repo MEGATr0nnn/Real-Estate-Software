@@ -1,5 +1,6 @@
 package com.example.real_estate_software.model;
 
+//interface for any User based classes, not for unique objects like property
 public interface IUser {
 
     public int getId();
