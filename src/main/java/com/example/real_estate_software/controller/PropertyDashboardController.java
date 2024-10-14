@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableRow;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -22,6 +21,10 @@ public class PropertyDashboardController {
     public Button utilities;
     public Button assignRent;
     public Button addTenant;
+    public Button removeTenant;
+    public Text gasBillText;
+    public Text waterBillText;
+    public Text electricityBillText;
     @FXML
     private Text addressText;
     @FXML
@@ -34,8 +37,8 @@ public class PropertyDashboardController {
     private Text bondAmountText;
     @FXML
     private Text propertyValuationText;
-    private OwnerDAO ownerDAO;
-    private PropertyDAO propertyDAO;
+    private final OwnerDAO ownerDAO;
+    private final PropertyDAO propertyDAO;
 
     public PropertyDashboardController() {
         ownerDAO = new OwnerDAO();
@@ -55,8 +58,9 @@ public class PropertyDashboardController {
         carSpotText.setText("Car Spot: " + currentProperty.getNum_Cars());
         bondAmountText.setText("Total Bond Amount: $" + calculateBondAmount(currentProperty));
         propertyValuationText.setText("Property Valuation: $" + calculatePropertyValuation(currentProperty));
-
-
+        electricityBillText.setText("Electricity Bill: $" + getElectricityBill(currentProperty));
+        gasBillText.setText("Gas Bill: $" + getGasBill(currentProperty));
+        waterBillText.setText("Water Bill: $" + getWaterBill(currentProperty));
     }
 
 
@@ -76,6 +80,18 @@ public class PropertyDashboardController {
 
         return property.getRent() * 52 * 10;
     }
+
+    //NEEDS TO BE IMPLEMENTED ONCE DAO IS DONE
+    private int getElectricityBill(Property property) {return 0;}
+
+    //NEEDS TO BE IMPLEMENTED ONCE DAO IS DONE
+
+    private int getWaterBill(Property property) {return 0;}
+
+    //NEEDS TO BE IMPLEMENTED ONCE DAO IS DONE
+
+    private int getGasBill(Property property) {return 0;}
+
 
 
     /**
@@ -106,11 +122,29 @@ public class PropertyDashboardController {
     }
 
     /**
+     * Button action for when the owner wants to remove a new tenant to the associated property
+     */
+    @FXML
+    protected void onRemoveTenantClick() throws IOException {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RemoveTenant.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+    }
+
+    /**
      * Button action for when the owner wants to assign rent to the tenants associated with the property
      */
     public void onRentClick() throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Rent.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+    }
+
+    public void onUtilitiesClick() throws IOException {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Utilities.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
     }
