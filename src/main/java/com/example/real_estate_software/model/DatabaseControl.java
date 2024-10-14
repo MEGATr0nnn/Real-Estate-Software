@@ -24,9 +24,10 @@ public class DatabaseControl<T> {
     }
 
     public int executeQuery(String query, Object[] parameters){
-        try {
+        try
+        {
             connection = DatabaseConnection.getInstance();
-            PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement statement = connection.prepareStatement(query);
 
             for (int i = 0; i < parameters.length; i++) {
                 statement.setObject(i + 1, parameters[i]);
@@ -36,10 +37,11 @@ public class DatabaseControl<T> {
 
             ResultSet generatedKeys = statement.getGeneratedKeys();
             if (generatedKeys.next()) {
-                int id = generatedKeys.getInt(1);
-                return id;
+                return generatedKeys.getInt(1);
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
         return -1;
