@@ -7,6 +7,10 @@ import java.util.List;
 public class TenantDAO implements IUserDAO<Tenant>{
     private DatabaseControl<Tenant> connect;
 
+    public TenantDAO(){
+        createTable();
+    }
+
     @Override
     public void createTable() {
         String query = "CREATE TABLE IF NOT EXISTS tenant ("
@@ -14,6 +18,7 @@ public class TenantDAO implements IUserDAO<Tenant>{
                 + "firstName VARCHAR NOT NULL,"
                 + "lastName VARCHAR NOT NULL,"
                 + "email VARCHAR NOT NULL,"
+                + "phoneNumber INTEGER NOT NULL"
                 + "property_id INTEGER FOREIGN KEY"
                 + ")";
         connect.executeQuery(query);
@@ -21,11 +26,12 @@ public class TenantDAO implements IUserDAO<Tenant>{
 
     @Override
     public void insertNew(Tenant tenant) {
-        String query = "INSERT INTO tenant (firstName, lastName, email, property_id) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO tenant (firstName, lastName, email, phoneNumber, property_id) VALUES (?, ?, ?, ?, ?)";
         Object[] params = {
                 tenant.getFirstName(),
                 tenant.getLastName(),
-                tenant.getEmail()
+                tenant.getEmail(),
+                tenant.getPhoneNumber()
                 //need a way to get property id's via the instance the owner is logged in as to assign tenants to properties
         };
         tenant.setId(connect.executeQuery(query, params));
