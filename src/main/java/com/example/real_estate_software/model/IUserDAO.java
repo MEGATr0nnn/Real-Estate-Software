@@ -7,5 +7,5 @@ public interface IUserDAO<T> {
     void insertNew(T entity);
     void delete(T entity);
     void update(T entity);
-    List<T> get(T entity);
+    List<T> getAll(T entity);
 }
