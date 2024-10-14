@@ -22,6 +22,9 @@ public class PropertyDashboardController {
     public Button assignRent;
     public Button addTenant;
     public Button removeTenant;
+    public Text gasBillText;
+    public Text waterBillText;
+    public Text electricityBillText;
     @FXML
     private Text addressText;
     @FXML
@@ -55,8 +58,9 @@ public class PropertyDashboardController {
         carSpotText.setText("Car Spot: " + currentProperty.getNum_Cars());
         bondAmountText.setText("Total Bond Amount: $" + calculateBondAmount(currentProperty));
         propertyValuationText.setText("Property Valuation: $" + calculatePropertyValuation(currentProperty));
-
-
+        electricityBillText.setText("Electricity Bill: $" + getElectricityBill(currentProperty));
+        gasBillText.setText("Gas Bill: $" + getGasBill(currentProperty));
+        waterBillText.setText("Water Bill: $" + getWaterBill(currentProperty));
     }
 
 
@@ -76,6 +80,18 @@ public class PropertyDashboardController {
 
         return property.getRent() * 52 * 10;
     }
+
+    //NEEDS TO BE IMPLEMENTED ONCE DAO IS DONE
+    private int getElectricityBill(Property property) {return 0;}
+
+    //NEEDS TO BE IMPLEMENTED ONCE DAO IS DONE
+
+    private int getWaterBill(Property property) {return 0;}
+
+    //NEEDS TO BE IMPLEMENTED ONCE DAO IS DONE
+
+    private int getGasBill(Property property) {return 0;}
+
 
 
     /**
@@ -122,6 +138,13 @@ public class PropertyDashboardController {
     public void onRentClick() throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Rent.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+    }
+
+    public void onUtilitiesClick() throws IOException {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Utilities.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
     }
