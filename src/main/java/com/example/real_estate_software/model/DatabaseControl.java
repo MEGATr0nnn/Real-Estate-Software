@@ -1,6 +1,7 @@
 package com.example.real_estate_software.model;
 
 
+import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,4 +48,35 @@ public class DatabaseControl<T> {
         return -1;
     }
 
+    public <T> List<T> executeFetchAll(String query, Object[] parameters, Class<T> uniqueClass){
+        List<T> results = new ArrayList<>();
+
+        try{
+            connection = DatabaseConnection.getInstance();
+
+            try(PreparedStatement statement = connection.prepareStatement(query)) {
+                for (int i = 0; i < parameters.length; i++) {
+                    statement.setObject(i + 1, parameters[i]);
+                }
+                ResultSet resultSet = statement.executeQuery();
+                while(resultSet.next()){
+                    T entity = uniqueClass.getDeclaredConstructor().newInstance(); //create new instance of entity ie owner
+
+                    //map names of columns from result set
+                    for(Field field : uniqueClass.getDeclaredFields()){
+                        field.setAccessible(true); //allow access to private fields
+                        field.set(entity, resultSet.getObject(field.getName()));//set value based on name of SQL column
+                    }
+                    results.add(entity);
+                }
+            }
+            catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return results;
+    }
 }
