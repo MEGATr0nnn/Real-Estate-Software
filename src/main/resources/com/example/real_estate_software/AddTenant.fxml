@@ -12,6 +12,7 @@
 <!-- The owner will be able to assign the following properties to the Tenant profile -->
 <!-- Tenant First and Last Name, Email Address, Phone Number and Image associated with the Tenant-->
 
+<?import javafx.scene.control.Label?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
       prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.real_estate_software.controller.AddTenantController">
@@ -26,10 +27,12 @@
       <TextField layoutX="37.0" layoutY="134.0" text="Tenant First Name" />
       <TextField layoutX="37.0" layoutY="177.0" prefHeight="26.0" prefWidth="158.0" text="Tenant Last Name" />
       <TextField layoutX="37.0" layoutY="220.0" text="Tenant Email Address" />
-      <Button fx:id = "saveButton" layoutX="73.0" layoutY="301.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="53.0" text="Save" />
+      <Button fx:id = "saveButton" layoutX="73.0" layoutY="301.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="53.0" text="Save" onAction="#onSaveClick"/>
       <TextField layoutX="37.0" layoutY="262.0" text="Tenant Phone Number" />
+    <Label fx:id="fileSelected" text="No file selected" />
+    <ImageView fx:id="imageView" />
 
-   <ImageView fitHeight="149.0" fitWidth="148.0" layoutX="312.0" layoutY="134.0" pickOnBounds="true"
+    <ImageView fitHeight="149.0" fitWidth="148.0" layoutX="312.0" layoutY="134.0" pickOnBounds="true"
               preserveRatio="true">
       <Image url="@images/Profile Icon.jpg"/>
    </ImageView>

@@ -16,7 +16,7 @@ public class RemoveTenantController {
     @FXML
     protected void onBackClick() throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PropertyDashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/PropertyDashboard.fxml")).toExternalForm());
         stage.setScene(scene);
