@@ -10,13 +10,11 @@ import static org.junit.jupiter.api.Assertions.*;
 public class OwnerTest {
     private Owner owner;
     private Owner owner2;
-    private Owner owner3;
 
     @BeforeEach
     public void setUp() {
         owner = new Owner("Johnny", "Walker", "johnnywalker@email.com", "abcd1234");
-        owner2 = new Owner("Johnny", "Walker", "johnnywalker@email.com", "abcd1234");
-        owner3 = new Owner("Ben", "Walker", "benwalker.com", "Abcd1234");
+        owner2 = new Owner("Johnny", "Walker", "johnnywalker@email.com", "Abcd1234!");
     }
 
     @Test
@@ -101,9 +99,7 @@ public class OwnerTest {
      */
     @Test
     public void testInvalidEmailAddress(){
-        if (!owner3.getEmail().contains("@")){
-            assertFalse(false, "Email Address Invalid!");
-        }
+        assertTrue(owner.checkValidEmail(), "Email address must contain '@' and '.com'");
     }
 
 
@@ -112,8 +108,7 @@ public class OwnerTest {
      */
     @Test
     public void testPasswordCapital(){
-        boolean containsCapital = owner3.getPassword().matches(".*[A-Z]*.");
-        assertTrue(containsCapital, "Password must contain a Capital Letter");
+        assertTrue(owner2.checkCapitalPassword(), "Password must have at least one capital letter!");
     }
 
     /**
@@ -121,8 +116,7 @@ public class OwnerTest {
      */
     @Test
     public void testPasswordNumber(){
-        boolean containsNumber = owner.getPassword().matches(".*[0-9].*");
-        assertTrue(containsNumber, "Password must contain a number");
+       assertTrue(owner.checkNumberPassowrd(), "Password must have at least one number!");
     }
 
     /**
@@ -130,7 +124,7 @@ public class OwnerTest {
      */
     @Test
     public void testPasswordLength(){
-        assertTrue(owner.getPassword().length() >= 8, "Password must be at least 8 characters long");
+        assertTrue(owner.checkLengthPassword(), "Password must be at least 8 characters long!");
     }
 
     /**
@@ -138,8 +132,7 @@ public class OwnerTest {
      */
     @Test
     public void testPasswordUnique(){
-        String uniqueChar = ".*[!@#$%^&*()_+{}|:;<>?,./`~]*.";
-        assertFalse(owner.getPassword().contains(uniqueChar), "Password must contain a special character");
+        assertTrue(owner2.checkUniqueCharacterPassword(), "Password must contain at least one special character!");
     }
 }
 

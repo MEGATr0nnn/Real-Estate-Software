@@ -33,6 +33,8 @@ public class HelloApplication extends Application {
         }
     }
 
+
+
     private boolean signedIn() {
         List<Owner> owners = ownerDAO.getAllOwners();
         for(Owner owner : owners) {
