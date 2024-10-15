@@ -2,9 +2,10 @@ package com.example.real_estate_software.model;
 
 import jdk.jshell.spi.ExecutionControl;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class TenantDAO implements IUserDAO<Tenant>{
+public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
     private DatabaseControl<Tenant> connect;
 
     public TenantDAO(){
@@ -24,6 +25,7 @@ public class TenantDAO implements IUserDAO<Tenant>{
         connect.executeQuery(query);
     }
 
+    @Override
     public void insertNew(Tenant tenant, Property property) {
         String query = "INSERT INTO tenant (firstName, lastName, email, phoneNumber, property_id) VALUES (?, ?, ?, ?, ?)";
         Object[] params = {
@@ -58,7 +60,12 @@ public class TenantDAO implements IUserDAO<Tenant>{
     }
 
     @Override
-    public List<Tenant> getAll(Tenant tenant) {
-        return null;
+    public List<Tenant> getAll(Tenant tenant, Property property) {
+        List<Tenant> tenants = new ArrayList<>();
+        String query = "SELECT * FROM tenants WHERE property_id = ?";
+        Object[] params = {
+                property.getId()
+        };
+
     }
 }
