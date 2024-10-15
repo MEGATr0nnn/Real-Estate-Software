@@ -7,32 +7,28 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OwnerDAO {
+public class OwnerDAO implements IUserDAO<Owner> {
     private Connection connection;
+    private DatabaseControl<Owner> connect;
 
     public OwnerDAO() {
         connection = DatabaseConnection.getInstance();
-        createOwnerTable();
+        createTable();
     }
 
-    public void createOwnerTable() {
-        try {
-            Statement statement = connection.createStatement();
-            String query = "CREATE TABLE IF NOT EXISTS owners ("
-                    + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + "firstName VARCHAR NOT NULL,"
-                    + "lastName VARCHAR NOT NULL,"
-                    + "email VARCHAR NOT NULL,"
-                    + "password VARCHAR NOT NULL,"
-                    + "signedIn BOOLEAN NOT NULL"
-                    + ")";
-            statement.execute(query);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void createTable() {
+        String query = "CREATE TABLE IF NOT EXISTS owners ("
+                + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + "firstName VARCHAR NOT NULL,"
+                + "lastName VARCHAR NOT NULL,"
+                + "email VARCHAR NOT NULL,"
+                + "password VARCHAR NOT NULL,"
+                + "signedIn BOOLEAN NOT NULL"
+                + ")";
+        connect.executeQuery(query);
     }
 
-    public void addOwner(Owner owner) {
+    public void insertNew(Owner owner) {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO owners (firstName, lastName, email, password, signedIn) VALUES (?, ?, ?, ?, ?)");
             statement.setString(1, owner.getFirstName());
@@ -50,7 +46,7 @@ public class OwnerDAO {
         }
     }
 
-    public void updateOwner(Owner owner) {
+    public void update(Owner owner) {
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE owners SET firstName = ?, lastName = ?, email = ?, password = ?, signedIn = ? WHERE id = ?");
             statement.setString(1, owner.getFirstName());
@@ -65,7 +61,7 @@ public class OwnerDAO {
         }
     }
 
-    public void deleteOwner(Owner owner) {
+    public void delete(Owner owner) {
         try {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM owners WHERE id = ?");
             statement.setInt(1, owner.getId());
@@ -97,7 +93,7 @@ public class OwnerDAO {
         return null;
     }
 
-    public List<Owner> getAllOwners() {
+    public List<Owner> getAll(Owner owner) {
         List<Owner> owners = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
@@ -110,7 +106,7 @@ public class OwnerDAO {
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
                 boolean signedIn = resultSet.getBoolean("signedIn");
-                Owner owner = new Owner(firstName, lastName, email, password, signedIn);
+                owner = new Owner(firstName, lastName, email, password, signedIn);
                 owner.setId(id);
                 owners.add(owner);
             }
