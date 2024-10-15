@@ -29,6 +29,7 @@ import javafx.scene.control.Label;
 import javafx.collections.ObservableList;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 public class MainDashboardController {
     @FXML
@@ -179,6 +180,7 @@ public class MainDashboardController {
         Stage stage = (Stage) propertyGrid.getScene().getWindow();
         Scene scene = new Scene(propertyPage);
         stage.setScene(scene);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
         stage.show();
     }
 
