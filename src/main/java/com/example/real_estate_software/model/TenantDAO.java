@@ -24,15 +24,14 @@ public class TenantDAO implements IUserDAO<Tenant>{
         connect.executeQuery(query);
     }
 
-    @Override
-    public void insertNew(Tenant tenant) {
+    public void insertNew(Tenant tenant, Property property) {
         String query = "INSERT INTO tenant (firstName, lastName, email, phoneNumber, property_id) VALUES (?, ?, ?, ?, ?)";
         Object[] params = {
                 tenant.getFirstName(),
                 tenant.getLastName(),
                 tenant.getEmail(),
-                tenant.getPhoneNumber()
-                //need a way to get property id's via the instance the owner is logged in as to assign tenants to properties
+                tenant.getPhoneNumber(),
+                property.getId()
         };
         tenant.setId(connect.executeQuery(query, params));
     }
