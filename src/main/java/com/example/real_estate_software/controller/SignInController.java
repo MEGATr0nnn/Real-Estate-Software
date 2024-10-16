@@ -58,11 +58,11 @@ public class SignInController {
     private boolean checkExists() {
         String email = emailField.getText();
         String password = passwordField.getText();
-        List<Owner> owners = ownerDAO.getAllOwners();
+        List<Owner> owners = ownerDAO.getAll();
         for(Owner owner : owners) {
             if(owner.getEmail().equals(email) && owner.getPassword().equals(password)) {
                 owner.setSignedIn(true);
-                ownerDAO.updateOwner(owner);
+                ownerDAO.update(owner);
                 return true;
             }
         }

@@ -13,9 +13,11 @@ public class OwnerDAO implements IUserDAO<Owner> {
 
     public OwnerDAO() {
         connection = DatabaseConnection.getInstance();
+        connect = new DatabaseControl<Owner>();
         createTable();
     }
 
+    @Override
     public void createTable() {
         String query = "CREATE TABLE IF NOT EXISTS owners ("
                 + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -28,47 +30,64 @@ public class OwnerDAO implements IUserDAO<Owner> {
         connect.executeQuery(query);
     }
 
+    @Override
     public void insertNew(Owner owner) {
+        String query = "INSERT INTO owners (firstName, lastName, email, password, signedIn) VALUES (?, ?, ?, ?, ?)";
+        Object[] params = {
+                owner.getFirstName(),
+                owner.getLastName(),
+                owner.getEmail(),
+                owner.getPassword(),
+                owner.getSignedIn()
+        };
+        owner.setId(connect.executeQuery(query, params));
+    }
+
+    @Override
+    public void update(Owner owner) {
+        String query = "UPDATE owners SET firstName = ?, lastName = ?, email = ?, password = ?, signedIn = ? WHERE id = ?";
+        Object[] params = {
+                owner.getFirstName(),
+                owner.getLastName(),
+                owner.getEmail(),
+                owner.getPassword(),
+                owner.getSignedIn(),
+                owner.getId()
+        };
+        connect.executeQuery(query, params);
+    }
+
+    @Override
+    public void delete(Owner owner) {
+        String query = "DELETE FROM owners WHERE id = ?";
+        Object[] params = {
+                owner.getId()
+        };
+        connect.executeQuery(query, params);
+    }
+
+    @Override
+    public List<Owner> getAll() {
+        List<Owner> owners = new ArrayList<>();
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO owners (firstName, lastName, email, password, signedIn) VALUES (?, ?, ?, ?, ?)");
-            statement.setString(1, owner.getFirstName());
-            statement.setString(2, owner.getLastName());
-            statement.setString(3, owner.getEmail());
-            statement.setString(4, owner.getPassword());
-            statement.setBoolean(5, owner.getSignedIn());
-            statement.executeUpdate();
-            ResultSet generatedKeys = statement.getGeneratedKeys();
-            if (generatedKeys.next()) {
-                owner.setId(generatedKeys.getInt(1));
+            Statement statement = connection.createStatement();
+            String query = "SELECT * FROM owners";
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String firstName = resultSet.getString("firstName");
+                String lastName = resultSet.getString("lastName");
+                String email = resultSet.getString("email");
+                String password = resultSet.getString("password");
+                boolean signedIn = resultSet.getBoolean("signedIn");
+                Owner owner = new Owner(firstName, lastName, email, password, signedIn);
+                owner.setId(id);
+                owners.add(owner);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public void update(Owner owner) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE owners SET firstName = ?, lastName = ?, email = ?, password = ?, signedIn = ? WHERE id = ?");
-            statement.setString(1, owner.getFirstName());
-            statement.setString(2, owner.getLastName());
-            statement.setString(3, owner.getEmail());
-            statement.setString(4, owner.getPassword());
-            statement.setBoolean(5, owner.getSignedIn());
-            statement.setInt(6, owner.getId());
-            statement.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void delete(Owner owner) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("DELETE FROM owners WHERE id = ?");
-            statement.setInt(1, owner.getId());
-            statement.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return owners;
     }
 
     public Owner getOwner(boolean signedIn) {
@@ -91,28 +110,5 @@ public class OwnerDAO implements IUserDAO<Owner> {
             e.printStackTrace();
         }
         return null;
-    }
-
-    public List<Owner> getAll(Owner owner) {
-        List<Owner> owners = new ArrayList<>();
-        try {
-            Statement statement = connection.createStatement();
-            String query = "SELECT * FROM owners";
-            ResultSet resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String firstName = resultSet.getString("firstName");
-                String lastName = resultSet.getString("lastName");
-                String email = resultSet.getString("email");
-                String password = resultSet.getString("password");
-                boolean signedIn = resultSet.getBoolean("signedIn");
-                owner = new Owner(firstName, lastName, email, password, signedIn);
-                owner.setId(id);
-                owners.add(owner);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return owners;
     }
 }
