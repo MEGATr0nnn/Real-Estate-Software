@@ -15,11 +15,9 @@ import java.util.List;
  *
  * */
 public class OwnerDAO implements IUserDAO<Owner> {
-    private Connection connection;
     private DatabaseControl<Owner> connect;
 
     public OwnerDAO() {
-        connection = DatabaseConnection.getInstance();
         connect = new DatabaseControl<Owner>();
         createTable();
     }
@@ -80,24 +78,6 @@ public class OwnerDAO implements IUserDAO<Owner> {
 
     @Override
     public Owner getAllBool(boolean signedIn) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM owners WHERE signedIn = ?");
-            statement.setBoolean(1, signedIn);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String firstName = resultSet.getString("firstName");
-                String lastName = resultSet.getString("lastName");
-                String email = resultSet.getString("email");
-                String password = resultSet.getString("password");
-                signedIn = resultSet.getBoolean("signedIn");
-                Owner owner = new Owner(firstName, lastName, email, password, signedIn);
-                owner.setId(id);
-                return owner;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+       return connect.executeFetchOwner(signedIn);
     }
 }

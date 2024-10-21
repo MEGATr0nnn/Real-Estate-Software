@@ -13,9 +13,9 @@ import java.util.List;
  * This is a Generic Type class that is used to handle any DB commands.
  * It provides methods to execute SQL queries, handle exceptions and retrieve data in a flexible and reusable format.
  *
- * This class uses generics to allow it to handle different types of entities, enabling reusability.
+ * This class supports the use of generics to allow it to handle different types of entities, enabling reusability.
  *
- * Key Features
+ * Key Features:
  * - Executes parameterized SQL queries to prevent SQL injection attacks.
  * - Uses reflection to map SQL result sets to Java objects.
  * - Supports generic fetch methods to retrieve data for different entity types.
@@ -24,10 +24,13 @@ import java.util.List;
  * @param <T> The type of entity that this class will handle (Owner, Tenant, Property etc.). This entity must remain consistent for the entire application of the class.
  *
  * @author Harrison Mega
- * @version 1.2
+ * @version 1.3
  *
  * */
 public class DatabaseControl<T> {
+    //============================================================================================
+    //                                         GENERIC BLOC
+    //============================================================================================
     private Connection connection;
 
     /**
@@ -76,9 +79,15 @@ public class DatabaseControl<T> {
     //============================================================================================
     //                                          OWNER BLOC
     //============================================================================================
+    /**
+     * This method is designed to return a list of all Objects of type Owner from the DB
+     *
+     * @return A list of all Objects Owner in format List<Owner>OwnerValues</Owner>
+     *
+     * */
     public List<Owner> executeFetchAllOwner() {
         List<Owner> owners = new ArrayList<>();
-
+        connection = DatabaseConnection.getInstance();
         try {
             Statement statement = connection.createStatement();
             String query = "SELECT * FROM owners";
@@ -99,17 +108,47 @@ public class DatabaseControl<T> {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
         return owners;
+    }
+
+    /**
+     * This method is designed to return a specific Object Owner where the signedIn value of Owner is true.
+     *
+     * @return A singular instance of Owner.
+     *
+     * */
+    public Owner executeFetchOwner(boolean signedIn) {
+        connection = DatabaseConnection.getInstance();
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM owners WHERE signedIn = ?");
+            statement.setBoolean(1, signedIn);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String firstName = resultSet.getString("firstName");
+                String lastName = resultSet.getString("lastName");
+                String email = resultSet.getString("email");
+                String password = resultSet.getString("password");
+                signedIn = resultSet.getBoolean("signedIn");
+                Owner owner = new Owner(firstName, lastName, email, password, signedIn);
+                owner.setId(id);
+                return owner;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     //============================================================================================
     //                                          TENANT BLOC
     //============================================================================================
-
+    /**
+     *
+     * */
     public List<Tenant> executeFetchAllTenant() {
         List<Tenant> tenants = new ArrayList<>();
-
+        connection = DatabaseConnection.getInstance();
         try {
             Statement statement = connection.createStatement();
             String query = "SELECT * FROM tenants"; // Make sure to adjust the table name if different
@@ -134,6 +173,7 @@ public class DatabaseControl<T> {
     }
 
     public Tenant executeFetchAllPropertyTenant(boolean assignedToProp, Property property) {
+        connection = DatabaseConnection.getInstance();
         try {
             String query = "SELECT * FROM tenants WHERE property_id = ?";
             PreparedStatement statement = connection.prepareStatement(query);

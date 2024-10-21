@@ -13,6 +13,7 @@ public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
     private DatabaseControl<Tenant> connect;
 
     public TenantDAO(){
+        connect = new DatabaseControl<Tenant>();
         createTable();
     }
 
