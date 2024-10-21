@@ -72,20 +72,9 @@ public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
         return connect.executeFetchAllTenant();
     }
 
-        /*
     @Override
-    public List<Tenant> getAll(Tenant tenant, Property property) {
-        String query = "SELECT * FROM tenants WHERE property_id = ?";
-        Object[] params = {
-                property.getId()
-        };
-        return connect.executeFetchAllWithParam(query, params, Tenant.class);
-    }
-    */
-
-    @Override
-    public Tenant getAllBool(boolean bool) {
-        return null;
+    public Tenant getAllBool(boolean assignedToProp, Property property) {
+        return connect.executeFetchAllPropertyTenant(assignedToProp, property);
     }
 
 

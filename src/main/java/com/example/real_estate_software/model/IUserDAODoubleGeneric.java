@@ -8,5 +8,5 @@ public interface IUserDAODoubleGeneric<T,U> {
     void delete(T entity);
     void update(T entity, U additonalentity);
     List<T> getAll();
-    T getAllBool(boolean bool);
+    T getAllBool(boolean bool, U additionalentity);
 }

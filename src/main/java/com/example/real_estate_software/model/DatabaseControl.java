@@ -133,10 +133,11 @@ public class DatabaseControl<T> {
         return tenants;
     }
 
-    public Tenant executeFetchAllPropertyTenant(Property property) {
+    public Tenant executeFetchAllPropertyTenant(boolean assignedToProp, Property property) {
         try {
-            Statement statement = connection.createStatement();
             String query = "SELECT * FROM tenants WHERE property_id = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setBoolean(1, assignedToProp);
             ResultSet resultSet = statement.executeQuery(query);
 
             if (resultSet.next()) {
@@ -145,7 +146,7 @@ public class DatabaseControl<T> {
                 String lastName = resultSet.getString("lastName");
                 String email = resultSet.getString("email");
                 int phoneNumber = resultSet.getInt("phoneNumber");
-                boolean assignedToProp = resultSet.getBoolean("assignedToProp");
+                assignedToProp = resultSet.getBoolean("assignedToProp");
                 int propertyId = resultSet.getInt("propertyId");
 
                 Tenant tenant = new Tenant(firstName, lastName, email, phoneNumber, assignedToProp, propertyId);
