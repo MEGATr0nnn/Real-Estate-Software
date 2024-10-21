@@ -7,6 +7,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This is the DAO that links the Owner object to the Owner table in the DB
+ *
+ * @author Harrison Mega, Steven Hujbert
+ * @version 1.8
+ *
+ * */
 public class OwnerDAO implements IUserDAO<Owner> {
     private Connection connection;
     private DatabaseControl<Owner> connect;
@@ -27,7 +34,7 @@ public class OwnerDAO implements IUserDAO<Owner> {
                 + "password VARCHAR NOT NULL,"
                 + "signedIn BOOLEAN NOT NULL"
                 + ")";
-        connect.executeQuery(query);
+        connect.executeParamQuery(query);
     }
 
     @Override
@@ -40,7 +47,7 @@ public class OwnerDAO implements IUserDAO<Owner> {
                 owner.getPassword(),
                 owner.getSignedIn()
         };
-        owner.setId(connect.executeQuery(query, params));
+        owner.setId(connect.executeParamQuery(query, params));
     }
 
     @Override
@@ -54,7 +61,7 @@ public class OwnerDAO implements IUserDAO<Owner> {
                 owner.getSignedIn(),
                 owner.getId()
         };
-        connect.executeQuery(query, params);
+        connect.executeParamQuery(query, params);
     }
 
     @Override
@@ -63,34 +70,16 @@ public class OwnerDAO implements IUserDAO<Owner> {
         Object[] params = {
                 owner.getId()
         };
-        connect.executeQuery(query, params);
+        connect.executeParamQuery(query, params);
     }
 
     @Override
-    public List<Owner> getAll() {
-        List<Owner> owners = new ArrayList<>();
-        try {
-            Statement statement = connection.createStatement();
-            String query = "SELECT * FROM owners";
-            ResultSet resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String firstName = resultSet.getString("firstName");
-                String lastName = resultSet.getString("lastName");
-                String email = resultSet.getString("email");
-                String password = resultSet.getString("password");
-                boolean signedIn = resultSet.getBoolean("signedIn");
-                Owner owner = new Owner(firstName, lastName, email, password, signedIn);
-                owner.setId(id);
-                owners.add(owner);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return owners;
+    public List<Owner>getAll(){
+        return connect.executeFetchAllOwner();
     }
 
-    public Owner getOwner(boolean signedIn) {
+    @Override
+    public Owner getAllBool(boolean signedIn) {
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM owners WHERE signedIn = ?");
             statement.setBoolean(1, signedIn);

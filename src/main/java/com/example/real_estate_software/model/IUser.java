@@ -1,6 +1,12 @@
 package com.example.real_estate_software.model;
 
-//interface for any User based classes, not for unique objects like property
+/**
+ * Interface for any Objects of type User
+ *
+ * @author Steven Hujbert
+ * @version 1
+ *
+ * */
 public interface IUser {
 
     public int getId();

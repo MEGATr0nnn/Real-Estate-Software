@@ -7,11 +7,6 @@ import com.example.real_estate_software.model.PropertyDAO;
 import javafx.fxml.FXML;
 
 
-import com.example.real_estate_software.model.Owner;
-import com.example.real_estate_software.model.OwnerDAO;
-import com.example.real_estate_software.model.Property;
-import com.example.real_estate_software.model.PropertyDAO;
-import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
@@ -19,7 +14,6 @@ import javafx.scene.chart.XYChart;
 import java.util.List;
 
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -54,7 +48,7 @@ public class ChartController {
 
     @FXML
     public void initialize() {
-        Owner currentOwner = ownerDAO.getOwner(true);
+        Owner currentOwner = ownerDAO.getAllBool(true);
         loadBarChartData(currentOwner);
         loadPieChartData(currentOwner);
     }

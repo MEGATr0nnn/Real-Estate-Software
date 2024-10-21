@@ -9,9 +9,11 @@ Property DAO for DB property data (DATABASE MANAGER ABSTRACT CLASS)
  **/
 public class PropertyDAO {
     private Connection connection;
+    private DatabaseControl<Property> connect;
 
     public PropertyDAO(){
         connection = DatabaseConnection.getInstance();
+        connect = new DatabaseControl<Property>();
         create_Table_Property();
     }
 

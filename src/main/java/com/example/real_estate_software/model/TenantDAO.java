@@ -1,10 +1,14 @@
 package com.example.real_estate_software.model;
 
-import jdk.jshell.spi.ExecutionControl;
-
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This is the DAO that links the Tenant Object to the Tenant Table in the DB
+ *
+ * @author Harrison Mega
+ * @version 1
+ *
+ * */
 public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
     private DatabaseControl<Tenant> connect;
 
@@ -19,15 +23,16 @@ public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
                 + "firstName VARCHAR NOT NULL,"
                 + "lastName VARCHAR NOT NULL,"
                 + "email VARCHAR NOT NULL,"
-                + "phoneNumber INTEGER NOT NULL"
-                + "property_id INTEGER FOREIGN KEY"
+                + "phoneNumber INTEGER NOT NULL,"
+                + "assignedToProp BOOLEAN NOT NULL,"
+                + "propertyId INTEGER NOT NULL"
                 + ")";
-        connect.executeQuery(query);
+        connect.executeParamQuery(query);
     }
 
     @Override
     public void insertNew(Tenant tenant, Property property) {
-        String query = "INSERT INTO tenant (firstName, lastName, email, phoneNumber, property_id) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO tenant (firstName, lastName, email, phoneNumber, propertyId) VALUES (?, ?, ?, ?, ?)";
         Object[] params = {
                 tenant.getFirstName(),
                 tenant.getLastName(),
@@ -35,7 +40,7 @@ public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
                 tenant.getPhoneNumber(),
                 property.getId()
         };
-        tenant.setId(connect.executeQuery(query, params));
+        tenant.setId(connect.executeParamQuery(query, params));
     }
 
     @Override
@@ -44,27 +49,46 @@ public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
         Object[] params = {
                 tenant.getId()
         };
-        connect.executeQuery(query, params);
+        connect.executeParamQuery(query, params);
     }
 
     @Override
-    public void update(Tenant tenant) {
-        String query = "UPDATE tenant SET firstName = ?, lastName = ?, email = ?, property_id WHERE id = ?";
+    public void update(Tenant tenant, Property property) {
+        String query = "UPDATE tenant SET firstName = ?, lastName = ?, email = ?, phoneNumber = ?, assignedToProp = ?, property_id = ? WHERE id = ?";
         Object[] params = {
                 tenant.getFirstName(),
                 tenant.getLastName(),
                 tenant.getEmail(),
+                tenant.getPhoneNumber(),
+                tenant.getPropertyId(),
+                property.getId(),
                 tenant.getId()
         };
-        connect.executeQuery(query, params);
+        connect.executeParamQuery(query, params);
     }
 
+    @Override
+    public List<Tenant> getAll(){
+        return connect.executeFetchAllTenant();
+    }
+
+        /*
     @Override
     public List<Tenant> getAll(Tenant tenant, Property property) {
         String query = "SELECT * FROM tenants WHERE property_id = ?";
         Object[] params = {
                 property.getId()
         };
-        return connect.executeFetchAll(query, params, Tenant.class);
+        return connect.executeFetchAllWithParam(query, params, Tenant.class);
     }
+    */
+
+    @Override
+    public Tenant getAllBool(boolean bool) {
+        return null;
+    }
+
+
+
+
 }
