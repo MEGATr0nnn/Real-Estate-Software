@@ -2,6 +2,7 @@ module com.example.real_estate_software {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires jdk.jshell;
 
 
     opens com.example.real_estate_software to javafx.fxml;
