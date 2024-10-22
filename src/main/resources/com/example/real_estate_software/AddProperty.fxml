@@ -95,39 +95,39 @@
         </Label>
     </Pane>
     <!-- Background Rectangle -->
-    <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#add8ffa2" height="400.0" stroke="BLACK" strokeType="INSIDE" width="500.0" layoutX="90" layoutY="50"/>
+    <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#add8ffa2" height="400.0" stroke="BLACK" strokeType="INSIDE" width="500.0" layoutX="90" layoutY="90"/>
 
     <!-- Address Label and TextField -->
-    <Text layoutX="150" layoutY="100" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
-    <TextField fx:id="addressField" layoutX="250" layoutY="90" prefWidth="200"/>
+    <Text layoutX="150" layoutY="140" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
+    <TextField fx:id="addressField" layoutX="250" layoutY="130" prefWidth="200"/>
 
     <!-- Tenants Label and TextField -->
-    <Text layoutX="150" layoutY="140" strokeType="OUTSIDE" strokeWidth="0.0" text="Tenants" />
-    <TextField fx:id="tenantField" layoutX="250" layoutY="130" prefWidth="200"/>
+    <Text layoutX="150" layoutY="180" strokeType="OUTSIDE" strokeWidth="0.0" text="Tenants" />
+    <TextField fx:id="tenantField" layoutX="250" layoutY="170" prefWidth="200"/>
 
     <!-- Beds Label and TextField -->
-    <Text layoutX="150" layoutY="180" strokeType="OUTSIDE" strokeWidth="0.0" text="Beds" />
-    <TextField fx:id="bedsField" layoutX="250" layoutY="170" prefWidth="200"/>
+    <Text layoutX="150" layoutY="220" strokeType="OUTSIDE" strokeWidth="0.0" text="Beds" />
+    <TextField fx:id="bedsField" layoutX="250" layoutY="210" prefWidth="200"/>
 
     <!-- Baths Label and TextField -->
-    <Text layoutX="150" layoutY="220" strokeType="OUTSIDE" strokeWidth="0.0" text="Baths" />
-    <TextField fx:id="bathsField" layoutX="250" layoutY="210" prefWidth="200"/>
+    <Text layoutX="150" layoutY="260" strokeType="OUTSIDE" strokeWidth="0.0" text="Baths" />
+    <TextField fx:id="bathsField" layoutX="250" layoutY="250" prefWidth="200"/>
 
     <!-- Cars Label and TextField -->
-    <Text layoutX="150" layoutY="260" strokeType="OUTSIDE" strokeWidth="0.0" text="Cars" />
-    <TextField fx:id="carsField" layoutX="250" layoutY="250" prefWidth="200"/>
+    <Text layoutX="150" layoutY="300" strokeType="OUTSIDE" strokeWidth="0.0" text="Cars" />
+    <TextField fx:id="carsField" layoutX="250" layoutY="290" prefWidth="200"/>
 
     <!-- Rent Label and TextField -->
-    <Text layoutX="150" layoutY="300" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent" />
-    <TextField fx:id="rentField" layoutX="250" layoutY="290" prefWidth="200"/>
+    <Text layoutX="150" layoutY="340" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent" />
+    <TextField fx:id="rentField" layoutX="250" layoutY="330" prefWidth="200"/>
 
     <!-- Utilities Label and TextField -->
-    <Text layoutX="150" layoutY="340" strokeType="OUTSIDE" strokeWidth="0.0" text="Utilities" />
-    <TextField fx:id="utilitiesField" layoutX="250" layoutY="330" prefWidth="200"/>
+    <Text layoutX="150" layoutY="380" strokeType="OUTSIDE" strokeWidth="0.0" text="Utilities" />
+    <TextField fx:id="utilitiesField" layoutX="250" layoutY="370" prefWidth="200"/>
 
     <!-- Buttons aligned to the right -->
-    <Button fx:id="saveButton" layoutX="480" layoutY="380" text="Save" />
-    <Button fx:id="cancelButton" layoutX="400" layoutY="380" text="Cancel" />
+    <Button fx:id="saveButton" layoutX="480" layoutY="420" text="Save" />
+    <Button fx:id="cancelButton" layoutX="400" layoutY="420" text="Cancel" />
 
 
 
@@ -138,6 +138,6 @@
         </font>
     </Text>
     </VBox>
-    <Button fx:id="addButton"  layoutX="280.0" layoutY="380.0" mnemonicParsing="false"  text="Add Property" onAction="#onAddClick"/>
+    <Button fx:id="addButton"  layoutX="280.0" layoutY="420.0" mnemonicParsing="false"  text="Add Property" onAction="#onAddClick"/>
     <Button fx:id="backButton"  layoutX="100.0" layoutY="9.0" mnemonicParsing="false"  text="Go Back" onAction="#onBackClick"/>
 </AnchorPane>
