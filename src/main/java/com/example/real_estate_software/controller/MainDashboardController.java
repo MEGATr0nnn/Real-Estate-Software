@@ -5,10 +5,8 @@ import com.example.real_estate_software.model.Owner;
 import com.example.real_estate_software.model.OwnerDAO;
 import com.example.real_estate_software.model.Property;
 import com.example.real_estate_software.model.PropertyDAO;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -19,14 +17,10 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.scene.effect.BlurType;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.StrokeType;
-import javafx.scene.control.Label;
-import javafx.collections.ObservableList;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -194,7 +188,7 @@ public class MainDashboardController {
     protected void handleSignOutClick() throws IOException {
         Owner currentOwner = getCurrentOwner();
         currentOwner.setSignedIn(false);
-        ownerDAO.updateOwner(currentOwner);
+        ownerDAO.update(currentOwner);
         Stage stage = (Stage) signOutButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -219,7 +213,7 @@ public class MainDashboardController {
     }
 
     private Owner getCurrentOwner() {
-        return ownerDAO.getOwner(true);
+        return ownerDAO.getAllBool(true);
     }
 
     @FXML

@@ -3,7 +3,6 @@ package com.example.real_estate_software.controller;
 import com.example.real_estate_software.HelloApplication;
 import com.example.real_estate_software.model.Owner;
 import com.example.real_estate_software.model.OwnerDAO;
-import com.example.real_estate_software.model.Property;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.util.List;
 import java.util.Objects;
 
 public class EditAccountController {
@@ -40,13 +38,13 @@ public class EditAccountController {
 
     @FXML
     protected void onEditClick() {
-        Owner currentOwner = ownerDAO.getOwner(true);
+        Owner currentOwner = ownerDAO.getAllBool(true);
         if(!emptyFields()) {
             currentOwner.setFirstName(firstNameField.getText());
             currentOwner.setLastName(lastNameField.getText());
             currentOwner.setEmail(emailField.getText());
             currentOwner.setPassword(passwordField.getText());
-            ownerDAO.updateOwner(currentOwner);
+            ownerDAO.update(currentOwner);
         }
         firstNameField.setText(currentOwner.getFirstName());
         lastNameField.setText(currentOwner.getLastName());
@@ -56,8 +54,8 @@ public class EditAccountController {
 
     @FXML
     protected void onDeleteClick() throws IOException {
-        Owner currentOwner = ownerDAO.getOwner(true);
-        ownerDAO.deleteOwner(currentOwner);
+        Owner currentOwner = ownerDAO.getAllBool(true);
+        ownerDAO.delete(currentOwner);
         Stage stage = (Stage) deleteButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -74,7 +72,7 @@ public class EditAccountController {
     }
 
     private void displayOwner() {
-        Owner currentOwner = ownerDAO.getOwner(true);
+        Owner currentOwner = ownerDAO.getAllBool(true);
         firstNameField.setText(currentOwner.getFirstName());
         lastNameField.setText(currentOwner.getLastName());
         emailField.setText(currentOwner.getEmail());

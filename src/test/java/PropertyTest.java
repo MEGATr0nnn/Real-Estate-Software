@@ -22,7 +22,7 @@ public class PropertyTest {
     }
 
     /**
-     Just quick tests to see if the get sets work
+     Just quick tests to see if the getAll sets work
      **/
     @Test
     public void testSetNumBeds(){

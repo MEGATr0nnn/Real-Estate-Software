@@ -34,7 +34,7 @@ public class HelloApplication extends Application {
     }
 
     private boolean signedIn() {
-        List<Owner> owners = ownerDAO.getAllOwners();
+        List<Owner> owners = ownerDAO.getAll();
         for(Owner owner : owners) {
             if(owner.getSignedIn()) {
                 return true;

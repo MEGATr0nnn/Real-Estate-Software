@@ -114,7 +114,7 @@ public class EditPropertyController {
 
     private void displayProperties() {
         propertyListView.getItems().clear();
-        Owner currentOwner = ownerDAO.getOwner(true);
+        Owner currentOwner = ownerDAO.getAllBool(true);
         List<Property> properties = propertyDAO.get_OwnerProperties(currentOwner);
         propertyListView.getItems().addAll(properties);
     }

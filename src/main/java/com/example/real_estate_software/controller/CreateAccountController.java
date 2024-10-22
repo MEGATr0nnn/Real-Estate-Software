@@ -60,7 +60,7 @@ public class CreateAccountController {
         String lastName = lastNameField.getText();
         String email = emailField.getText();
         String password = passwordField.getText();
-        ownerDAO.addOwner(new Owner(firstName, lastName, email, password));
+        ownerDAO.insertNew(new Owner(firstName, lastName, email, password));
     }
 
     private boolean emptyFields() {
