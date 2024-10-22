@@ -1,0 +1,21 @@
+.sidebar {
+    -fx-background-color: black !important;
+}
+
+.tenant-box {
+
+}
+
+.property-stats-box{
+-fx-background-color: #F0F8FF;
+-fx-border-color:black;
+-fx-border-width:2;
+-fx-padding:10;
+}
+
+.top-border{
+-fx-background-color: #F0F8FF;
+-fx-border-color:black;
+-fx-border-width:2;
+
+}
