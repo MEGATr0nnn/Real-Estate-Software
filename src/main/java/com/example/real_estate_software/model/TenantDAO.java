@@ -28,7 +28,7 @@ public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
                 + "assignedToProp BOOLEAN NOT NULL,"
                 + "propertyId INTEGER NOT NULL"
                 + ")";
-        connect.executeParamQuery(query);
+        connect.executeQuery(query);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
                 tenant.getPhoneNumber(),
                 property.getId()
         };
-        tenant.setId(connect.executeParamQuery(query, params));
+        tenant.setId(connect.executeQuery(query, params));
     }
 
     @Override
@@ -50,7 +50,7 @@ public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
         Object[] params = {
                 tenant.getId()
         };
-        connect.executeParamQuery(query, params);
+        connect.executeQuery(query, params);
     }
 
     @Override
@@ -65,7 +65,7 @@ public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
                 property.getId(),
                 tenant.getId()
         };
-        connect.executeParamQuery(query, params);
+        connect.executeQuery(query, params);
     }
 
     @Override

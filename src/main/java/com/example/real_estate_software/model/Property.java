@@ -1,9 +1,15 @@
 package com.example.real_estate_software.model;
 
 /**
- This is the Property class that holds all the information regarding each property,
- it is used to set property info that is then saved into the DB
- **/
+ * The Property class is used to create and manage objects representing a property.
+ * It includes attributes such as address, number of tenants, number of rooms,
+ * rent, and utility costs. It also tracks whether the property has tenants
+ * and if it is currently selected for some operation.
+ *
+ * @author Steven Hujbert, Harrison Mega
+ * @version 1.3
+ *
+ */
 public class Property {
     private int id;
     private String address;
@@ -16,10 +22,17 @@ public class Property {
     private boolean has_Tenants;
     private boolean is_Selected;
 
-    //do we really need this many overloads
     /**
-     property constructor
-     **/
+     * Constructor to create a new Property object.
+     *
+     * @param address Address of the property
+     * @param num_Tenants Number of tenants in the property
+     * @param num_Beds Number of bedrooms in the property
+     * @param num_Baths Number of bathrooms in the property
+     * @param num_Cars Number of car spaces available
+     * @param rent Monthly rent amount
+     * @param utilities Utility costs
+     */
     public Property(String address, int num_Tenants, int num_Beds, int num_Baths, int num_Cars, int rent, int utilities){
         this.address = address;
         this.num_Tenants = num_Tenants;
@@ -33,8 +46,17 @@ public class Property {
     }
 
     /**
-     property constructor overload
-     **/
+     * Overloaded constructor to create a new Property object with a specified tenant status.
+     *
+     * @param address Address of the property
+     * @param num_Tenants Number of tenants in the property
+     * @param num_Beds Number of bedrooms in the property
+     * @param num_Baths Number of bathrooms in the property
+     * @param num_Cars Number of car spaces available
+     * @param rent Monthly rent amount
+     * @param utilities Utility costs
+     * @param has_Tenants Indicates if the property has tenants
+     */
     public Property(String address, int num_Tenants, int num_Beds, int num_Baths, int num_Cars, int rent, int utilities, boolean has_Tenants){
         this.address = address;
         this.num_Tenants = num_Tenants;
@@ -48,8 +70,18 @@ public class Property {
     }
 
     /**
-     property constructor overload
-     **/
+     * Overloaded constructor to create a new Property object with specified tenant and selection status.
+     *
+     * @param address Address of the property
+     * @param num_Tenants Number of tenants in the property
+     * @param num_Beds Number of bedrooms in the property
+     * @param num_Baths Number of bathrooms in the property
+     * @param num_Cars Number of car spaces available
+     * @param rent Monthly rent amount
+     * @param utilities Utility costs
+     * @param has_Tenants Indicates if the property has tenants
+     * @param is_Selected Indicates if the property is selected
+     */
     public Property(String address, int num_Tenants, int num_Beds, int num_Baths, int num_Cars, int rent, int utilities, boolean has_Tenants, boolean is_Selected){
         this.address = address;
         this.num_Tenants = num_Tenants;
@@ -62,6 +94,7 @@ public class Property {
         this.is_Selected = is_Selected;
     }
 
+    //Getters and Setters
     public int getId() {return id;}
     public void setId(int id) {this.id = id;}
 
