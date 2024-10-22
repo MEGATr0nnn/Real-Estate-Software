@@ -7,31 +7,122 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
 
 <!-- The Add Tenant FXML was created in Scenebuilder which allows the Owner to add a Tenant to the associated property -->
 <!-- The owner will be able to assign the following properties to the Tenant profile -->
 <!-- Tenant First and Last Name, Email Address, Phone Number and Image associated with the Tenant-->
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-      prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0"
+      prefWidth="780.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.real_estate_software.controller.AddTenantController">
-      <Text layoutX="241.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Tenant">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
 
-      <Text layoutX="271.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADDRESS" />
-      <Button fx:id = "backButton" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" text="Back" onAction="#onBackClick"/>
-      <TextField layoutX="37.0" layoutY="134.0" text="Tenant First Name" />
-      <TextField layoutX="37.0" layoutY="177.0" prefHeight="26.0" prefWidth="158.0" text="Tenant Last Name" />
-      <TextField layoutX="37.0" layoutY="220.0" text="Tenant Email Address" />
-      <Button fx:id = "saveButton" layoutX="73.0" layoutY="301.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="53.0" text="Save" />
-      <TextField layoutX="37.0" layoutY="262.0" text="Tenant Phone Number" />
+    <Pane prefHeight="580.0" prefWidth="75.0" styleClass="sidebar" AnchorPane.leftAnchor="0.0">
 
-   <ImageView fitHeight="149.0" fitWidth="148.0" layoutX="312.0" layoutY="134.0" pickOnBounds="true"
-              preserveRatio="true">
-      <Image url="@images/Profile Icon.jpg"/>
-   </ImageView>
-      <Button fx:id = "addImageButton" layoutX="348.0" layoutY="301.0" mnemonicParsing="false" text="Add Image" onAction="#onAddImageClick"/>
+        <HBox alignment="CENTER" layoutY="94.0" prefHeight="65.0" prefWidth="75.0">
+            <padding>
+                <Insets left="8.0" right="12.0"/>
+            </padding>
+            <HBox alignment="CENTER" prefHeight="65.0" prefWidth="75.0">
+                <padding>
+                    <Insets left="8.0" right="12.0"/>
+                </padding>
+                <FontIcon iconLiteral="fas-home" iconSize="24" styleClass="fontawesomeicon"/>
+            </HBox>
+        </HBox>
+
+        <HBox alignment="CENTER" layoutX="4.0" layoutY="159.0" prefHeight="65.0" prefWidth="64.0">
+            <padding>
+                <Insets left="8.0" right="12.0"/>
+            </padding>
+            <Button fx:id="editButton" styleClass="icon-button" onAction="#handleEditClick">
+                <graphic>
+                    <FontIcon iconLiteral="far-edit" iconSize="24" styleClass="fontawesomeicon"/>
+                </graphic>
+            </Button>
+        </HBox>
+
+
+        <HBox alignment="CENTER" layoutX="4.0" layoutY="224.0" prefHeight="65.0" prefWidth="75.0">
+            <padding>
+                <Insets left="8.0" right="12.0"/>
+            </padding>
+            <Button fx:id="settingsButton" styleClass="icon-button" onAction="#handleSettingsClick">
+                <graphic>
+                    <FontIcon iconLiteral="fas-cogs" iconSize="24" styleClass="fontawesomeicon"/>
+                </graphic>
+            </Button>
+        </HBox>
+
+
+
+        <HBox alignment="CENTER" layoutX="4.0" layoutY="289.0" prefHeight="65.0" prefWidth="75.0">
+            <padding>
+                <Insets left="8.0" right="12.0"/>
+            </padding>
+            <Button fx:id="viewStatsButton" onAction="#handleViewStatsClick">
+                <graphic>
+                    <FontIcon iconLiteral="fas-chart-bar" iconSize="24" styleClass="fontawesomeicon"/>
+                </graphic>
+            </Button>
+        </HBox>
+
+
+
+        <HBox alignment="CENTER" layoutX="4.0" layoutY="450.0" prefHeight="65.0" prefWidth="75.0">
+            <padding>
+                <Insets left="8.0" right="12.0"/>
+            </padding>
+            <Button fx:id="signOutButton" styleClass="icon-button" onAction="#handleSignOutClick">
+                <graphic>
+                    <FontIcon iconLiteral="fas-sign-out-alt" iconSize="24" styleClass="fontawesomeicon"/>
+                </graphic>
+            </Button>
+        </HBox>
+
+
+        <Label layoutX="4.0" layoutY="5.0" styleClass="HOME" text="ESTATE" textFill="#c6baba">
+            <font>
+                <Font name="Hoefler Text Black" size="14.0"/>
+            </font>
+        </Label>
+    </Pane>
+
+    <VBox layoutX="74" layoutY="0.0" prefHeight="75" prefWidth="705.0" alignment="CENTER" spacing="10" styleClass="top-border">
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Tenant">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Text>
+
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ADDRESS">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Text>
+    </VBox>
+
+
+
+
+
+    <Button fx:id = "backButton" layoutX="100.0" layoutY="9.0" mnemonicParsing="false" text="Back" onAction="#onBackClick"/>
+      <TextField layoutX="110.0" layoutY="134.0" text="Tenant First Name" />
+      <TextField layoutX="110.0" layoutY="177.0" prefHeight="26.0" prefWidth="158.0" text="Tenant Last Name" />
+      <TextField layoutX="110.0" layoutY="220.0" text="Tenant Email Address" />
+      <Button fx:id = "saveButton" layoutX="146.0" layoutY="301.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="53.0" text="Save" />
+      <TextField layoutX="110.0" layoutY="262.0" text="Tenant Phone Number" />
+
+    <VBox alignment="CENTER" spacing="10" layoutY="134" layoutX="400">
+        <ImageView fitHeight="149.0" fitWidth="198.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@images/Profile Icon.jpg"/>
+        </ImageView>
+
+        <Button fx:id="addImageButton" mnemonicParsing="false" text="Add Image" onAction="#onAddImageClick"/>
+    </VBox>
 </Pane>
