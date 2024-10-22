@@ -82,7 +82,7 @@ public class AddPropertyController {
     }
 
     private void addProperty() {
-        Owner currentOwner = ownerDAO.getOwner(true);
+        Owner currentOwner = ownerDAO.getAllBool(true);
         String address = addressField.getText();
         int tenants = Integer.parseInt(tenantField.getText());
         int beds = Integer.parseInt(bedsField.getText());

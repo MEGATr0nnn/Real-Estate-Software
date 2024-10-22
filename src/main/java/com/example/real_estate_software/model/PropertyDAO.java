@@ -5,13 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-Property DAO for DB property data
+Property DAO for DB property data (DATABASE MANAGER ABSTRACT CLASS)
  **/
 public class PropertyDAO {
     private Connection connection;
+    private DatabaseControl<Property> connect;
 
     public PropertyDAO(){
         connection = DatabaseConnection.getInstance();
+        connect = new DatabaseControl<Property>();
         create_Table_Property();
     }
 
@@ -19,27 +21,21 @@ public class PropertyDAO {
     Creates table in DB
      **/
     public void create_Table_Property() {
-        try{
-            Statement statement = connection.createStatement();
-            String query = "CREATE TABLE IF NOT EXISTS properties ("
-                    + "property_Id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + "owner_Id INTEGER NOT NULL,"
-                    + "address VARCHAR NOT NULL,"
-                    + "num_Tenants INTEGER NOT NULL,"
-                    + "num_Beds INTEGER NOT NULL,"
-                    + "num_Baths INTEGER NOT NULL,"
-                    + "num_Cars INTEGER NOT NULL,"
-                    + "weekly_Rent INTEGER NOT NULL,"
-                    + "weekly_Utilities INTEGER NOT NULL,"
-                    + "has_tenants BOOLEAN NOT NULL,"
-                    + "is_Selected BOOLEAN NOT NULL,"
-                    + "FOREIGN KEY (owner_Id) REFERENCES owners(id)"
-                    + ")";
-            statement.execute(query);
-        }
-        catch (Exception ex){
-            System.err.println(ex);
-        }
+        String query = "CREATE TABLE IF NOT EXISTS properties ("
+                + "property_Id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + "owner_Id INTEGER NOT NULL,"
+                + "address VARCHAR NOT NULL,"
+                + "num_Tenants INTEGER NOT NULL,"
+                + "num_Beds INTEGER NOT NULL,"
+                + "num_Baths INTEGER NOT NULL,"
+                + "num_Cars INTEGER NOT NULL,"
+                + "weekly_Rent INTEGER NOT NULL,"
+                + "weekly_Utilities INTEGER NOT NULL,"
+                + "has_tenants BOOLEAN NOT NULL,"
+                + "is_Selected BOOLEAN NOT NULL,"
+                + "FOREIGN KEY (owner_Id) REFERENCES owners(id)"
+                + ")";
+        connect.executeQuery(query);
     }
 
     /**

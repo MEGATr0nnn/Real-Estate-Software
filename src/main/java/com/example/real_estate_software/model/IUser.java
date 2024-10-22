@@ -1,5 +1,12 @@
 package com.example.real_estate_software.model;
 
+/**
+ * Interface for any Objects of type User
+ *
+ * @author Steven Hujbert
+ * @version 1
+ *
+ * */
 public interface IUser {
 
     public int getId();

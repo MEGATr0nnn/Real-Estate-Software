@@ -69,7 +69,7 @@ public class PropertyDashboardController {
     @FXML
     public void initialize() {
         // Set the current property
-        Owner currentOwner = ownerDAO.getOwner(true);
+        Owner currentOwner = ownerDAO.getAllBool(true);
         Property currentProperty = propertyDAO.get_Property(true, currentOwner);
 
         // Populate the UI with the property data
@@ -120,7 +120,7 @@ public class PropertyDashboardController {
      */
     @FXML
     protected void onBackClick() throws IOException {
-        Owner currentOwner = ownerDAO.getOwner(true);
+        Owner currentOwner = ownerDAO.getAllBool(true);
         Property currentProperty = propertyDAO.get_Property(true, currentOwner);
         currentProperty.setIs_Selected(false);
         propertyDAO.update_Property(currentProperty);
