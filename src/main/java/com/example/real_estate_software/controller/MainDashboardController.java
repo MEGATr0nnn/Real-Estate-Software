@@ -195,7 +195,7 @@ public class MainDashboardController {
     protected void handleSignOutClick() throws IOException {
         Owner currentOwner = getCurrentOwner();
         currentOwner.setSignedIn(false);
-        ownerDAO.updateOwner(currentOwner);
+        ownerDAO.update(currentOwner);
         Stage stage = (Stage) signOutButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -223,7 +223,7 @@ public class MainDashboardController {
     }
 
     private Owner getCurrentOwner() {
-        return ownerDAO.getOwner(true);
+        return ownerDAO.getAllBool(true);
     }
 
     @FXML

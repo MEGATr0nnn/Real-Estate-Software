@@ -61,13 +61,13 @@ public class EditAccountController {
 
     @FXML
     protected void onEditClick() {
-        Owner currentOwner = ownerDAO.getOwner(true);
+        Owner currentOwner = ownerDAO.getAllBool(true);
         if(!emptyFields()) {
             currentOwner.setFirstName(firstNameField.getText());
             currentOwner.setLastName(lastNameField.getText());
             currentOwner.setEmail(emailField.getText());
             currentOwner.setPassword(passwordField.getText());
-            ownerDAO.updateOwner(currentOwner);
+            ownerDAO.update(currentOwner);
         }
         firstNameField.setText(currentOwner.getFirstName());
         lastNameField.setText(currentOwner.getLastName());
@@ -77,8 +77,8 @@ public class EditAccountController {
 
     @FXML
     protected void onDeleteClick() throws IOException {
-        Owner currentOwner = ownerDAO.getOwner(true);
-        ownerDAO.deleteOwner(currentOwner);
+        Owner currentOwner = ownerDAO.getAllBool(true);
+        ownerDAO.delete(currentOwner);
         Stage stage = (Stage) deleteButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -95,7 +95,7 @@ public class EditAccountController {
     }
 
     private void displayOwner() {
-        Owner currentOwner = ownerDAO.getOwner(true);
+        Owner currentOwner = ownerDAO.getAllBool(true);
         firstNameField.setText(currentOwner.getFirstName());
         lastNameField.setText(currentOwner.getLastName());
         emailField.setText(currentOwner.getEmail());
@@ -121,7 +121,7 @@ public class EditAccountController {
     protected void handleSignOutClick() throws IOException {
         Owner currentOwner = getCurrentOwner();
         currentOwner.setSignedIn(false);
-        ownerDAO.updateOwner(currentOwner);
+        ownerDAO.update(currentOwner);
         Stage stage = (Stage) signOutButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -148,7 +148,7 @@ public class EditAccountController {
     }
 
     private Owner getCurrentOwner() {
-        return ownerDAO.getOwner(true);
+        return ownerDAO.getAllBool(true);
     }
 
     @FXML
