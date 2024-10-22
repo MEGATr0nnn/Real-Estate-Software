@@ -1,7 +1,6 @@
 package com.example.real_estate_software.model;
 
 
-import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,10 +15,10 @@ import java.util.List;
  * This class supports the use of generics to allow it to handle different types of entities, enabling reusability.
  *
  * Key Features:
- * - Executes parameterized SQL queries to prevent SQL injection attacks.
- * - Uses reflection to map SQL result sets to Java objects.
- * - Supports generic fetch methods to retrieve data for different entity types.
- * - Simplifies database interaction by centralizing repetitive tasks.
+ *  - Executes parameterized SQL queries to prevent SQL injection attacks.
+ *  - Uses reflection to map SQL result sets to Java objects.
+ *  - Supports generic fetch methods to retrieve data for different entity types.
+ *  - Simplifies database interaction by centralizing repetitive tasks.
  *
  * @param <T> The type of entity that this class will handle (Owner, Tenant, Property etc.). This entity must remain consistent for the entire application of the class.
  *
@@ -38,7 +37,7 @@ public class DatabaseControl<T> {
      *
      * @param query SQL query in string format.
      */
-    public void executeParamQuery(String query) {
+    public void executeQuery(String query) {
         try {
             connection = DatabaseConnection.getInstance();
 
@@ -50,12 +49,12 @@ public class DatabaseControl<T> {
     }
 
     /**
-     * This method is designed to execute more complex queries with parameters.
+     * This method is designed to execute more complex queries with parameters. Overloads original method.
      *
      * @param query      SQL query in string format.
      * @param parameters List of parameters in Object format ie Object[] = {param 1,param 2...,param i};.
      */
-    public int executeParamQuery(String query, Object[] parameters) {
+    public int executeQuery(String query, Object[] parameters) {
         try {
             connection = DatabaseConnection.getInstance();
             PreparedStatement statement = connection.prepareStatement(query);

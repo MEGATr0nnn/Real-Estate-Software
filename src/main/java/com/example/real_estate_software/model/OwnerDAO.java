@@ -1,14 +1,14 @@
 package com.example.real_estate_software.model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This is the DAO that links the Owner object to the Owner table in the DB
+ * This is the DAO that links the Owner object to the Owner table in the DB. It provides methods for creating, reading
+ * updating and deleting (CRUD operations) Owner Objects.
+ *
+ * The Owner DAO ensures that all DB operations related to Owner Objects are encapsulated appropriately, making it
+ * easier to manage data persistence and retrieval without directly exposing SQL. It also allows for easy updating of
+ * queries to allow for further future changes to be easily made to the system.
  *
  * @author Harrison Mega, Steven Hujbert
  * @version 1.8
@@ -32,7 +32,7 @@ public class OwnerDAO implements IUserDAO<Owner> {
                 + "password VARCHAR NOT NULL,"
                 + "signedIn BOOLEAN NOT NULL"
                 + ")";
-        connect.executeParamQuery(query);
+        connect.executeQuery(query);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class OwnerDAO implements IUserDAO<Owner> {
                 owner.getPassword(),
                 owner.getSignedIn()
         };
-        owner.setId(connect.executeParamQuery(query, params));
+        owner.setId(connect.executeQuery(query, params));
     }
 
     @Override
@@ -59,7 +59,7 @@ public class OwnerDAO implements IUserDAO<Owner> {
                 owner.getSignedIn(),
                 owner.getId()
         };
-        connect.executeParamQuery(query, params);
+        connect.executeQuery(query, params);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class OwnerDAO implements IUserDAO<Owner> {
         Object[] params = {
                 owner.getId()
         };
-        connect.executeParamQuery(query, params);
+        connect.executeQuery(query, params);
     }
 
     @Override

@@ -3,7 +3,7 @@ package com.example.real_estate_software.model;
 import java.util.List;
 
 /**
- * Interface for any DAOS of Object type User, this interface only takes a single generic type specification
+ * Interface for any DAOs of Object type User, this interface only takes a single generic type specification
  *
  * @param <T> The type of entity that this class will handle (Owner, Tenant, Property etc.). This entity must remain consistent for the entire application of the class.
  *

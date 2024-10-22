@@ -29,7 +29,7 @@ public class DatabaseConnection {
 
     /**
      * This method is used to get the specific instance of the connection
-     * @return instance This class returns the instance in Connection format
+     * @return This class returns the instance in Connection format
      * */
     public static Connection getInstance() {
         if (instance == null) {

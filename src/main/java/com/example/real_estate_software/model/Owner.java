@@ -2,7 +2,21 @@ package com.example.real_estate_software.model;
 
 
 /**
- * The Owner class is a class used to create and access User objects of type Owner
+ * The Owner class is a class used to create and access User objects of type Owner. It extends the abstract class
+ * User, inheriting its methods and basic User Object information ie first Name.
+ *
+ *
+ * The Owner class provides two constructor overrides:
+ *
+ * 1. Constructor Override #1:
+ *  - Initializes an Owner with a first name, last name, email, and password.
+ *  - The Owner is marked as signed in by default.
+ *
+ * 2. Constructor Override #2:
+ *  - Initializes an Owner with a first name, last name, email, password, and a signed-in status.
+ *  - Allows more control over the sign-in status, which is useful for scenarios where the sign-in
+ *    state needs to be explicitly set (e.g., loading data from a database).
+ *
  *
  * @author Harrison Mega, Steven Hujbert
  * @version 1.4
@@ -13,7 +27,7 @@ public class Owner extends User{
     private boolean signedIn;
 
     /**
-     * The Owner Constructor Override #1
+     * The Owner Constructor
      *
      * @param firstName Owners First Name
      * @param lastName Owners Last Name
@@ -28,7 +42,7 @@ public class Owner extends User{
     }
 
     /**
-     * The Owner Constructor Override #2
+     * The Owner Constructor Overload
      *
      * @param firstName Owners First Name
      * @param lastName Owners Last Name
