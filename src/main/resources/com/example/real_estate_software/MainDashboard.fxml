@@ -95,43 +95,8 @@
    <HBox layoutX="74" layoutY="0.0" prefHeight="75" prefWidth="708.0" alignment="CENTER_RIGHT" styleClass="top-border">
       <!-- Expandable space to push buttons to the right -->
       <Pane HBox.hgrow="ALWAYS"/>
-
-
-      <!-- Search Button -->
-      <Button fx:id="searchButton" styleClass="icon-button" onAction="#handleSearchClick">
-         <graphic>
-            <FontIcon iconLiteral="fas-search" iconSize="12" styleClass="fontawesomeicon"/>
-         </graphic>
-      </Button>
-
-      <!-- Bell Button with Notification -->
-      <Button fx:id="notificationsButton" styleClass="icon-button" onAction="#handleNotificationsClick">
-         <graphic>
-            <FontIcon iconLiteral="fas-bell" iconSize="12" styleClass="fontawesomeicon"/>
-         </graphic>
-      </Button>
-
-      <!-- Settings Button -->
-      <Button fx:id="settingsTopButton" styleClass="icon-button" onAction="#handleSettingsTopClick">
-         <graphic>
-            <FontIcon iconLiteral="fas-cog" iconSize="12" styleClass="fontawesomeicon"/>
-         </graphic>
-      </Button>
-
-      <!-- Question Circle Button -->
-      <Button fx:id="helpButton" styleClass="icon-button" onAction="#handleHelpClick">
-         <graphic>
-            <FontIcon iconLiteral="fas-question-circle" iconSize="12" styleClass="fontawesomeicon"/>
-         </graphic>
-      </Button>
-
-      <!-- Plus Button -->
-      <Button fx:id="plusButton" styleClass="icon-button" onAction="#handlePlusClick">
-         <graphic>
-            <FontIcon iconLiteral="fas-plus" iconSize="12" styleClass="fontawesomeicon"/>
-         </graphic>
-      </Button>
    </HBox>
+
 
    <Button fx:id="addPropertyButton" layoutX="220.0" layoutY="78.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="166.0"
            styleClass="add-button" text="ADD NEW PROPERTY" textFill="#549cc9" onAction="#handleAddPropertyClick">

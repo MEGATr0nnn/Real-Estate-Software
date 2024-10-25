@@ -74,6 +74,8 @@ public class UtilitiesController {
         Stage stage = (Stage) settingsButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditAccount.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
+
         stage.setScene(scene);
     }
 
@@ -85,6 +87,8 @@ public class UtilitiesController {
         Stage stage = (Stage) signOutButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
+
         stage.setScene(scene);
     }
 
@@ -94,6 +98,8 @@ public class UtilitiesController {
         Stage stage = (Stage) editButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditProperty.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
+
         stage.setScene(scene);
     }
 
@@ -102,6 +108,8 @@ public class UtilitiesController {
         Stage stage = (Stage) addPropertyButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AddProperty.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
+
         stage.setScene(scene);
     }
 
@@ -118,51 +126,10 @@ public class UtilitiesController {
         // Get the current stage and set the new scene
         Stage stage = (Stage) viewStatsButton.getScene().getWindow();
         stage.setScene(scene);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
+
         stage.show();
     }
 
-    @FXML
-    protected void handleSearchClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The Search page is not yet implemented.");
-        alert.showAndWait();
-    }
 
-    @FXML
-    protected void handleNotificationsClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The Notifications page is not yet implemented.");
-        alert.showAndWait();
-    }
-
-    @FXML
-    protected void handleSettingsTopClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The settings page is not yet implemented.");
-        alert.showAndWait();
-    }
-
-    @FXML
-    protected void handleHelpClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The Help page is not yet implemented.");
-        alert.showAndWait();
-    }
-
-    @FXML
-    protected void handlePlusClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The Add Property page is not yet implemented.");
-        alert.showAndWait();
-    }
 }

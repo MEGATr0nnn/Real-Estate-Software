@@ -7,7 +7,7 @@ import com.example.real_estate_software.model.PropertyDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -22,8 +22,7 @@ import java.util.Objects;
  */
 public class RentController {
     public Button backButton;
-    @FXML
-    private Button cogsButton;
+
     @FXML
     private Button barChartButton;
     @FXML
@@ -32,8 +31,7 @@ public class RentController {
     private Button signOutButton;
     @FXML
     private Button addPropertyButton;
-    @FXML
-    private GridPane propertyGrid;
+
     @FXML
     private Button editButton;
     @FXML
@@ -60,6 +58,8 @@ public class RentController {
         Stage stage = (Stage) settingsButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditAccount.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
+
         stage.setScene(scene);
     }
 
@@ -71,6 +71,8 @@ public class RentController {
         Stage stage = (Stage) signOutButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
+
         stage.setScene(scene);
     }
 
@@ -80,6 +82,8 @@ public class RentController {
         Stage stage = (Stage) editButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditProperty.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
+
         stage.setScene(scene);
     }
 
@@ -88,6 +92,8 @@ public class RentController {
         Stage stage = (Stage) addPropertyButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AddProperty.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
+
         stage.setScene(scene);
     }
 
@@ -107,48 +113,6 @@ public class RentController {
         stage.show();
     }
 
-    @FXML
-    protected void handleSearchClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The Search page is not yet implemented.");
-        alert.showAndWait();
-    }
 
-    @FXML
-    protected void handleNotificationsClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The Notifications page is not yet implemented.");
-        alert.showAndWait();
-    }
 
-    @FXML
-    protected void handleSettingsTopClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The settings page is not yet implemented.");
-        alert.showAndWait();
-    }
-
-    @FXML
-    protected void handleHelpClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The Help page is not yet implemented.");
-        alert.showAndWait();
-    }
-
-    @FXML
-    protected void handlePlusClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The Add Property page is not yet implemented.");
-        alert.showAndWait();
-    }
 }

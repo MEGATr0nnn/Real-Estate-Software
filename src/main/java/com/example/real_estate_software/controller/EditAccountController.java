@@ -3,18 +3,17 @@ package com.example.real_estate_software.controller;
 import com.example.real_estate_software.HelloApplication;
 import com.example.real_estate_software.model.Owner;
 import com.example.real_estate_software.model.OwnerDAO;
-import com.example.real_estate_software.model.Property;
-import com.example.real_estate_software.model.PropertyDAO;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.util.List;
+
 import java.util.Objects;
 
 public class EditAccountController {
@@ -62,7 +61,7 @@ public class EditAccountController {
     @FXML
     protected void onEditClick() {
         Owner currentOwner = ownerDAO.getAllBool(true);
-        if(!emptyFields()) {
+        if (!emptyFields()) {
             currentOwner.setFirstName(firstNameField.getText());
             currentOwner.setLastName(lastNameField.getText());
             currentOwner.setEmail(emailField.getText());
@@ -86,7 +85,7 @@ public class EditAccountController {
     }
 
     @FXML
-    protected void onBackClick () throws IOException {
+    protected void onBackClick() throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -109,6 +108,7 @@ public class EditAccountController {
         boolean emptyPassword = passwordField.getText().trim().isEmpty();
         return emptyFirstName || emptyLastName || emptyEmail || emptyPassword;
     }
+
     @FXML
     protected void handleSettingsClick() throws IOException {
         Stage stage = (Stage) settingsButton.getScene().getWindow();
@@ -134,6 +134,8 @@ public class EditAccountController {
         Stage stage = (Stage) editButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditProperty.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
+
         stage.setScene(scene);
     }
 
@@ -163,48 +165,4 @@ public class EditAccountController {
         stage.show();
     }
 
-    @FXML
-    protected void handleSearchClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The Search page is not yet implemented.");
-        alert.showAndWait();
-    }
-
-    @FXML
-    protected void handleNotificationsClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The Notifications page is not yet implemented.");
-        alert.showAndWait();
-    }
-
-    @FXML
-    protected void handleSettingsTopClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The settings page is not yet implemented.");
-        alert.showAndWait();
-    }
-
-    @FXML
-    protected void handleHelpClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The Help page is not yet implemented.");
-        alert.showAndWait();
-    }
-
-    @FXML
-    protected void handlePlusClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The Add Property page is not yet implemented.");
-        alert.showAndWait();
-    }
 }

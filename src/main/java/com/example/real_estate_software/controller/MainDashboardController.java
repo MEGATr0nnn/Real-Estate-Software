@@ -114,11 +114,6 @@ public class MainDashboardController {
         iconCircle.setStroke(Color.BLACK);
         iconCircle.setStrokeType(StrokeType.INSIDE);
 
-        Label propertyIdLabel = new Label("Property ID: " + property.getId());
-        propertyIdLabel.setLayoutX(123);
-        propertyIdLabel.setLayoutY(19);
-        propertyIdLabel.getStyleClass().add("propertyID-label");
-        propertyIdLabel.setTextFill(Color.web("#8a8a8a"));
 
         Label roomsLabel = new Label("No. rooms: " + property.getNum_Beds());
         roomsLabel.setLayoutX(10);
@@ -140,7 +135,7 @@ public class MainDashboardController {
         rentLabel.getStyleClass().add("rent-label");
         rentLabel.setTextFill(Color.GREEN); // Rent text in green
 
-        innerPane.getChildren().addAll(iconCircle, propertyIdLabel);
+        innerPane.getChildren().addAll(iconCircle);
 
         box.getChildren().addAll(innerPane, roomsLabel, addressLabel, tenantsLabel, rentLabel);
 
@@ -238,48 +233,5 @@ public class MainDashboardController {
         stage.show();
     }
 
-    @FXML
-    protected void handleSearchClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The Search page is not yet implemented.");
-        alert.showAndWait();
-    }
 
-    @FXML
-    protected void handleNotificationsClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The Notifications page is not yet implemented.");
-        alert.showAndWait();
-    }
-
-    @FXML
-    protected void handleSettingsTopClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The settings page is not yet implemented.");
-        alert.showAndWait();
-    }
-
-    @FXML
-    protected void handleHelpClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The Help page is not yet implemented.");
-        alert.showAndWait();
-    }
-
-    @FXML
-    protected void handlePlusClick() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Coming Soon");
-        alert.setHeaderText(null);
-        alert.setContentText("The Add Property page is not yet implemented.");
-        alert.showAndWait();
-    }
 }
