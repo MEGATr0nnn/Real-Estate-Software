@@ -22,8 +22,6 @@ public class PropertyDashboardController {
     private AnchorPane propertyContainer;
     public Button propertyDashboard;
     @FXML
-    private Button cogsButton;
-    @FXML
     private Button barChartButton;
     @FXML
     private Button settingsButton;
@@ -226,6 +224,17 @@ public class PropertyDashboardController {
         stage.show();
     }
 
+    public void onPropertyMaintenanceClick() throws IOException {
+        // Correctly specify the location of the FXML file for the stats page
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PropertyMaintenance.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+
+        // Get the current stage and set the new scene
+        Stage stage = (Stage) viewStatsButton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+    }
 }
 
 

@@ -9,15 +9,10 @@
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
 
 
@@ -82,7 +77,7 @@
          </Button>
       </HBox>
    </Pane>
-<VBox layoutX="74" layoutY="0.0" prefHeight="75" prefWidth="705.0" alignment="CENTER" styleClass = "top-border">
+<VBox layoutX="74" prefHeight="75" prefWidth="705.0" alignment="CENTER" styleClass = "top-border">
 
    <Text layoutX="199.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Dashboard">
 
@@ -100,10 +95,10 @@
    <Button fx:id = "assignRent" layoutX="550.0" layoutY="264.0" mnemonicParsing="false" text="Assign Rent" onAction="#onRentClick"/>
    <Button fx:id = "utilities" layoutX="550.0" layoutY="305.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="Utilities" onAction="#onUtilitiesClick"/>
    <Button fx:id = "maintenanceRequest" layoutX="550.0" layoutY="346.0" mnemonicParsing="false" prefWidth="185.0"
-           text="Property Maintenance Request"/>
+           text="Property Maintenance Request" onAction="#onPropertyMaintenanceClick"/>
 
 
-   <VBox layoutX="100.0" layoutY="177.0" spacing="20.0" styleClass="property-stats-box" alignment="TOP_LEFT">
+   <VBox layoutX="100.0" layoutY="177.0" spacing="20.0" styleClass="property-stats-box">
       <Text fx:id="totalRentalIncomeText" layoutX="100.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Rental Income"/>
       <Text fx:id="vacantRoomsText" layoutX="100.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Vacant Rooms"/>
       <Text fx:id="propertyValuationText" layoutX="235.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROPERTY VALUATION"/>
