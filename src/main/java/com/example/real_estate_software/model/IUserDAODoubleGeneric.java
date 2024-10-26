@@ -18,5 +18,5 @@ public interface IUserDAODoubleGeneric<T,U> {
     void delete(T entity);
     void update(T entity);
     List<T> getAll();
-    T getAllBool(U additionalentity);
+    List<T> getAllBool(U additionalentity);
 }

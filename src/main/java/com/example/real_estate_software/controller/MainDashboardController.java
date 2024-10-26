@@ -59,7 +59,6 @@ public class MainDashboardController {
 
     @FXML
     public void initialize() {
-        propertyDAO.create_Table_Property();
         Owner currentOwner = getCurrentOwner();
         loadProperties(currentOwner);
     }

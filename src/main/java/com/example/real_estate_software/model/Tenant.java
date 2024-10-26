@@ -8,7 +8,7 @@ package com.example.real_estate_software.model;
  *
  * */
 public class Tenant extends User {
-    private int phoneNumber;
+    private String phoneNumber;
     private boolean assignedToProp;
 
     /**
@@ -20,7 +20,7 @@ public class Tenant extends User {
      * @param phoneNumber Tenants Phone Number
      *
      * */
-    public Tenant(String firstName, String lastName, String email, int phoneNumber) {
+    public Tenant(String firstName, String lastName, String email, String phoneNumber) {
         super(firstName, lastName, email);
         this.phoneNumber = phoneNumber;
         assignedToProp = true;
@@ -36,18 +36,18 @@ public class Tenant extends User {
      * @param assignedToProp Boolean that tracks if the Tenant has been assigned to a property in to the DB or not
      *
      * */
-    public Tenant(String firstName, String lastName, String email, int phoneNumber, boolean assignedToProp) {
+    public Tenant(String firstName, String lastName, String email, String phoneNumber, boolean assignedToProp) {
         super(firstName, lastName, email);
         this.phoneNumber = phoneNumber;
         this.assignedToProp = assignedToProp;
     }
 
     //Getters and Setters
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

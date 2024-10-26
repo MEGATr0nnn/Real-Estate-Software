@@ -158,44 +158,44 @@ public class DatabaseControl<T> {
                 String firstName = resultSet.getString("firstName");
                 String lastName = resultSet.getString("lastName");
                 String email = resultSet.getString("email");
-                int phoneNumber = resultSet.getInt("phoneNumber");
+                String phoneNumber = resultSet.getString("phoneNumber");
                 boolean assignedToProp = resultSet.getBoolean("assignedToProp");
 
                 Tenant tenant = new Tenant(firstName, lastName, email, phoneNumber, assignedToProp);
                 tenant.setId(id);
                 tenants.add(tenant);
             }
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return tenants;
     }
 
-    public Tenant executeFetchAllPropertyTenant(Property property) {
+    public List<Tenant> executeFetchAllPropertyTenant(Property property) {
+        List<Tenant> tenants = new ArrayList<>();
         connection = DatabaseConnection.getInstance();
         try {
-            String query = "SELECT * FROM tenants WHERE propertyId = ?";
-            PreparedStatement statement = connection.prepareStatement(query);
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM tenants WHERE propertyId = ?");
             statement.setInt(1, property.getId());
-            ResultSet resultSet = statement.executeQuery(query);
+            ResultSet resultSet = statement.executeQuery();
 
-            if (resultSet.next()) {
+            while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String firstName = resultSet.getString("firstName");
                 String lastName = resultSet.getString("lastName");
                 String email = resultSet.getString("email");
-                int phoneNumber = resultSet.getInt("phoneNumber");
+                String phoneNumber = resultSet.getString("phoneNumber");
                 boolean assignedToProp = resultSet.getBoolean("assignedToProp");
 
                 Tenant tenant = new Tenant(firstName, lastName, email, phoneNumber, assignedToProp);
                 tenant.setId(id);
-                return tenant;
+                tenants.add(tenant);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return null;
+
+        return tenants;
     }
 }

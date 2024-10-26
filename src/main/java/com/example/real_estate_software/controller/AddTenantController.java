@@ -94,7 +94,7 @@ public class AddTenantController {
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
         String email = emailField.getText();
-        int phoneNumber = Integer.parseInt(phoneNumberField.getText());
+        String phoneNumber = phoneNumberField.getText();
         tenantDAO.insertNew(new Tenant(firstName, lastName, email, phoneNumber), selectedProperty);
         selectedProperty.setNum_Tenants(selectedProperty.getNum_Tenants() + 1);
         propertyDAO.update_Property(selectedProperty);

@@ -84,8 +84,12 @@
         </HBox>
     </Pane>
 
+    <GridPane fx:id="tenantGrid" layoutX="92.0" layoutY="117.0" hgap="15.0" vgap="15.0">
 
-    <!-- First Tenant Section using tenant-box style -->
+
+    </GridPane>
+<!--
+     First Tenant Section using tenant-box style
     <VBox layoutX="100.0" layoutY="120.0" spacing="20.0" styleClass="tenant-box" alignment="CENTER">
         <ImageView fitHeight="99.0" fitWidth="99.0" layoutX="462.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@images/Profile Icon.jpg"/>
@@ -97,72 +101,7 @@
         </Text>
         <Button mnemonicParsing="false" text="Remove Tenant" />
     </VBox>
-
-    <!-- Second Tenant Section using tenant-box style -->
-    <VBox layoutX="320.0" layoutY="120.0" spacing="20.0" styleClass="tenant-box" alignment="CENTER">
-    <ImageView fitHeight="99.0" fitWidth="99.0" layoutX="462.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@images/Profile Icon.jpg"/>
-    </ImageView>
-
-    <Text text="Tenant: ">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Text>
-        <Button mnemonicParsing="false" text="Remove Tenant" />
-    </VBox>
-
-    <!-- Third Tenant Section using tenant-box style -->
-    <VBox layoutX="540.0" layoutY="120.0" spacing="20.0" styleClass="tenant-box" alignment="CENTER">
-        <ImageView fitHeight="99.0" fitWidth="99.0" layoutX="462.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@images/Profile Icon.jpg"/>
-        </ImageView>
-        <Text text="Tenant: ">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Text>
-        <Button mnemonicParsing="false" text="Remove Tenant" />
-    </VBox>
-
-    <!-- Fourth Tenant Section using tenant-box style -->
-    <VBox layoutX="100.0" layoutY="320.0" spacing="20.0" styleClass="tenant-box" alignment="CENTER">
-        <ImageView fitHeight="99.0" fitWidth="99.0" layoutX="462.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@images/Profile Icon.jpg"/>
-        </ImageView>
-        <Text text="Tenant: ">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Text>
-        <Button mnemonicParsing="false" text="Remove Tenant" />
-    </VBox>
-
-    <!-- Fifth Tenant Section using tenant-box style -->
-    <VBox layoutX="320.0" layoutY="320.0" spacing="20.0" styleClass="tenant-box" alignment="CENTER">
-        <ImageView fitHeight="99.0" fitWidth="99.0" layoutX="462.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@images/Profile Icon.jpg"/>
-        </ImageView>
-        <Text text="Tenant: ">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Text>
-        <Button mnemonicParsing="false" text="Remove Tenant" />
-    </VBox>
-
-    <!-- Sixth Tenant Section using tenant-box style -->
-    <VBox layoutX="540.0" layoutY="320.0" spacing="20.0" styleClass="tenant-box" alignment="CENTER">
-        <ImageView fitHeight="99.0" fitWidth="99.0" layoutX="462.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@images/Profile Icon.jpg"/>
-        </ImageView>
-        <Text text="Tenant: ">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Text>
-        <Button mnemonicParsing="false" text="Remove Tenant" />
-    </VBox>
+-->
     <VBox layoutX="74" layoutY="0.0" prefHeight="75" prefWidth="705.0" alignment="CENTER" styleClass = "top-border">
 
         <Text layoutX="199.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove Tenant">
