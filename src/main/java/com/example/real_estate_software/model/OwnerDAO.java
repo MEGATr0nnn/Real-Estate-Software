@@ -13,7 +13,7 @@ import java.util.List;
  * @author Harrison Mega, Steven Hujbert
  * @version 1.8
  *
- * */
+ */
 public class OwnerDAO implements IUserDAO<Owner> {
     private DatabaseControl<Owner> connect;
 

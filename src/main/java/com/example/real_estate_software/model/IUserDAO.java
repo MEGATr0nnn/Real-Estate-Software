@@ -10,7 +10,7 @@ import java.util.List;
  * @author Harrison Mega
  * @version 1
  *
- * */
+ */
 public interface IUserDAO<T> {
     void createTable();
     void insertNew(T entity);

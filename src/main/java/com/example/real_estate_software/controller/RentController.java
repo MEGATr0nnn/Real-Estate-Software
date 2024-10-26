@@ -10,9 +10,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * The Rent AbstractController Class is for the functionality of managing the rent for an associated property
  * Class is used to locate all associated tenants with the property and assign
- * the rent and set the frequency of rent to be paid by the tenant.
+ * the rent and set the frequency of rent to be paid by the tenant. [WORK-IN-PROGRESS]
  */
 public class RentController extends AbstractController {
     @FXML
@@ -22,6 +21,10 @@ public class RentController extends AbstractController {
         super();
     }
 
+    /**
+     * Button action that directs the user to the Property Dashboard
+     * @throws IOException
+     */
     public void onBackClick() throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PropertyDashboard.fxml"));

@@ -12,6 +12,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * Class used for the Sign-Up Page
+ */
 public class CreateAccountController {
     @FXML
     private Button createAccountButton;
@@ -34,6 +37,7 @@ public class CreateAccountController {
     /**
      * Button action for when the user signs in
      * User will then be directed to the Main Dashboard upon successful login
+     * @throws IOException
      */
     @FXML
     protected void onCreateAccountClick() throws IOException {
@@ -48,6 +52,11 @@ public class CreateAccountController {
         }
     }
 
+    /**
+     * Button action to revert back to the Sign-In page
+     * Upon pressing the button, the user will be directed to the Sign-In Page
+     * @throws IOException
+     */
     @FXML
     protected void onBackClick () throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
@@ -57,6 +66,9 @@ public class CreateAccountController {
         stage.show();
     }
 
+    /**
+     * Creates an Owner account for the database
+     */
     private void createAccount() {
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
@@ -65,6 +77,10 @@ public class CreateAccountController {
         ownerDAO.insertNew(new Owner(firstName, lastName, email, password));
     }
 
+    /**
+     * Used to check if the text fields are empty
+     * @return boolean
+     */
     private boolean emptyFields() {
         boolean emptyFirstName = firstNameField.getText().trim().isEmpty();
         boolean emptyLastName = lastNameField.getText().trim().isEmpty();

@@ -1,5 +1,6 @@
 package com.example.real_estate_software.controller;
 
+import com.example.real_estate_software.HelloApplication;
 import com.example.real_estate_software.model.Owner;
 import com.example.real_estate_software.model.OwnerDAO;
 import com.example.real_estate_software.model.Property;
@@ -13,10 +14,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import com.example.real_estate_software.HelloApplication; // Ensure this import is correct
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * Class that is used for Property Charts Page
+ */
 public class ChartController {
     @FXML
     private BarChart<String, Number> propertyBarChart;
@@ -41,6 +44,10 @@ public class ChartController {
         loadPieChartData(currentOwner);
     }
 
+    /**
+     * Used to create bar charts
+     * @param owner
+     */
     private void loadBarChartData(Owner owner) {
         List<Property> properties = propertyDAO.get_OwnerProperties(owner);
 
@@ -66,6 +73,10 @@ public class ChartController {
         tenantBarChart.getData().add(tenantSeries);
     }
 
+    /**
+     * Used to create pie charts
+     * @param owner
+     */
     private void loadPieChartData(Owner owner) {
         List<Property> properties = propertyDAO.get_OwnerProperties(owner);
 
@@ -85,6 +96,11 @@ public class ChartController {
 
         propertyPieChart.getData().addAll(tenantedSlice, nonTenantedSlice);
     }
+
+    /**
+     * Button action to revert back to the Main Dashboard page
+     * Upon pressing the button, the user will be directed to the Main Dashboard
+     */
     @FXML
     private void handleBackButtonClick() {
         try {

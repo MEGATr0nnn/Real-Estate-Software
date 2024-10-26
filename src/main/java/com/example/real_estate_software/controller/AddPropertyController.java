@@ -1,17 +1,13 @@
 package com.example.real_estate_software.controller;
 
-import com.example.real_estate_software.HelloApplication;
 import com.example.real_estate_software.model.Owner;
 import com.example.real_estate_software.model.Property;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import java.io.IOException;
-import java.util.Objects;
 
+/**
+ * Class that is used for the Add Property Page
+ */
 public class AddPropertyController extends AbstractController {
     @FXML
     private TextField addressField;
@@ -25,31 +21,26 @@ public class AddPropertyController extends AbstractController {
     private TextField rentField;
     @FXML
     private TextField utilitiesField;
-    @FXML
-    private Button backButton;
 
     public AddPropertyController() {
         super();
     }
 
+    /**
+     * Button action for when the Owner adds a property
+     * Upon pressing the button, a property will be added to the Main Dashboard
+     */
     @FXML
-    protected void onBackClick() throws IOException {
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/dashboard.css")).toExternalForm());
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    protected void onAddPropertyClick() throws IOException {
+    protected void onAddPropertyClick() {
         if(!emptyFields()) {
             addProperty();
             clearFields();
         }
     }
 
+    /**
+     * Used to add property to the database
+     */
     private void addProperty() {
         Owner currentOwner = getOwnerDAO().getAllBool(true);
         String address = addressField.getText();
@@ -61,6 +52,9 @@ public class AddPropertyController extends AbstractController {
         getPropertyDAO().insert_New_Property(new Property(address, beds, baths, cars, rent, utilities), currentOwner);
     }
 
+    /**
+     * Used to clear text fields after adding property
+     */
     private void clearFields() {
         addressField.clear();
         bedsField.clear();
@@ -70,6 +64,10 @@ public class AddPropertyController extends AbstractController {
         utilitiesField.clear();
     }
 
+    /**
+     * Used to see if any text fields are empty
+     * @return boolean
+     */
     private boolean emptyFields() {
         boolean emptyAddress = addressField.getText().trim().isEmpty();
         boolean emptyBeds = bedsField.getText().trim().isEmpty();

@@ -6,13 +6,13 @@ package com.example.real_estate_software.model;
  * User, inheriting its methods and basic User Object information ie first Name.
  *
  *
- * The Owner class provides two constructor overrides:
+ * The Owner class provides two constructor:
  *
- * 1. Constructor Override #1:
+ * 1. Constructor #1:
  *  - Initializes an Owner with a first name, last name, email, and password.
  *  - The Owner is marked as signed in by default.
  *
- * 2. Constructor Override #2:
+ * 2. Constructor #2:
  *  - Initializes an Owner with a first name, last name, email, password, and a signed-in status.
  *  - Allows more control over the sign-in status, which is useful for scenarios where the sign-in
  *    state needs to be explicitly set (e.g., loading data from a database).
@@ -21,7 +21,7 @@ package com.example.real_estate_software.model;
  * @author Harrison Mega, Steven Hujbert
  * @version 1.4
  *
- * */
+ */
 public class Owner extends User{
     private String password;
     private boolean signedIn;
@@ -34,7 +34,7 @@ public class Owner extends User{
      * @param email Owners Email
      * @param password Owners Password
      *
-     * */
+     */
     public Owner(String firstName, String lastName, String email, String password) {
         super(firstName, lastName, email);
         this.password = password;
@@ -50,7 +50,7 @@ public class Owner extends User{
      * @param password Owners Password
      * @param signedIn Boolean that changes depending on if the Owner is signed in to the DB or not
      *
-     * */
+     */
     public Owner(String firstName, String lastName, String email, String password, boolean signedIn) {
         super(firstName, lastName, email);
         this.password = password;

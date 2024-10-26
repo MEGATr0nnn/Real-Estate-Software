@@ -11,9 +11,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * Class that is used for the Property Dashboard
+ */
 public class PropertyDashboardController extends AbstractController {
-    @FXML
-    private Button backButton;
     @FXML
     private Button maintenanceRequest;
     @FXML
@@ -91,23 +92,9 @@ public class PropertyDashboardController extends AbstractController {
     private int getGasBill(Property property) {return 0;}
 
     /**
-     * Button action for when the user wants to revert back to the Property Dashboard page
-     */
-    @FXML
-    protected void onBackClick() throws IOException {
-        Property currentProperty = getPropertyDAO().get_Property(true);
-        currentProperty.setIs_Selected(false);
-        getPropertyDAO().update_Property(currentProperty);
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/dashboard.css")).toExternalForm());
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    /**
      * Button action for when the owner wants to add a new tenant to the associated property
+     * Upon pressing the button, the user is directed to the Add Tenant Page
+     * @throws IOException
      */
     @FXML
     protected void onTenantClick() throws IOException {
@@ -121,6 +108,8 @@ public class PropertyDashboardController extends AbstractController {
 
     /**
      * Button action for when the owner wants to remove a new tenant to the associated property
+     * Upon pressing the button, the user is directed to the Remove Tenant Page
+     * @throws IOException
      */
     @FXML
     protected void onRemoveTenantClick() throws IOException {
@@ -134,6 +123,8 @@ public class PropertyDashboardController extends AbstractController {
 
     /**
      * Button action for when the owner wants to assign rent to the tenants associated with the property
+     * Upon pressing the button, the user is directed to the Rent Page
+     * @throws IOException
      */
     @FXML
     protected void onRentClick() throws IOException {
@@ -145,6 +136,10 @@ public class PropertyDashboardController extends AbstractController {
         stage.show();
     }
 
+    /**
+     * Button action the directs the user to the Utilities Page
+     * @throws IOException
+     */
     @FXML
     protected void onUtilitiesClick() throws IOException {
         Stage stage = (Stage) utilities.getScene().getWindow();
@@ -155,6 +150,10 @@ public class PropertyDashboardController extends AbstractController {
         stage.show();
     }
 
+    /**
+     * Button action that directs the user to the Property Maintenance Page
+     * @throws IOException
+     */
     @FXML
     protected void onPropertyMaintenanceClick() throws IOException {
         // Correctly specify the location of the FXML file for the stats page

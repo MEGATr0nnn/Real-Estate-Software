@@ -10,6 +10,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * Abstract class that contains navigation methods that are used by other controllers
+ */
 public abstract class AbstractController {
     @FXML
     private Button homeButton;
@@ -31,6 +34,11 @@ public abstract class AbstractController {
         tenantDAO = new TenantDAO();
     }
 
+    /**
+     * Button action for when the Owner wants to go to the Main Dashboard
+     * Upon pressing the button, the user will be directed to the Main Dashboard
+     * @throws IOException
+     */
     @FXML
     protected void handleHomeClick() throws IOException {
         deselectProperty();
@@ -42,9 +50,13 @@ public abstract class AbstractController {
         stage.show();
     }
 
+    /**
+     * Button action for when the Owner wants to go to the Edit Property Page
+     * Upon pressing the button, the user will be directed to the Edit Property Page
+     * @throws IOException
+     */
     @FXML
     protected void handleEditClick() throws IOException {
-        // Load the EditProperty.fxml when the edit button is clicked
         deselectProperty();
         Stage stage = (Stage) editButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditProperty.fxml"));
@@ -54,6 +66,11 @@ public abstract class AbstractController {
         stage.show();
     }
 
+    /**
+     * Button action for when the Owner wants to go to the Edit Account Page
+     * Upon pressing the button, the user will be directed to the Edit Account Page
+     * @throws IOException
+     */
     @FXML
     protected void handleSettingsClick() throws IOException {
         deselectProperty();
@@ -65,9 +82,13 @@ public abstract class AbstractController {
         stage.show();
     }
 
+    /**
+     * Button action for when the Owner wants to go to the Property Charts Page
+     * Upon pressing the button, the user will be directed to the Property Charts Page
+     * @throws IOException
+     */
     @FXML
     protected void handleViewStatsClick() throws IOException {
-        // Load the Charts.fxml when the stats button is clicked
         deselectProperty();
         Stage stage = (Stage) viewStatsButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Charts.fxml"));
@@ -76,6 +97,11 @@ public abstract class AbstractController {
         stage.show();
     }
 
+    /**
+     * Button action for when the Owner wants to go to Sign Out of the application
+     * Upon pressing the button, the user will be signed out and directed to the Sign-In Page
+     * @throws IOException
+     */
     @FXML
     protected void handleSignOutClick() throws IOException {
         deselectProperty();
@@ -99,6 +125,9 @@ public abstract class AbstractController {
         return tenantDAO;
     }
 
+    /**
+     * Makes sure that property is not selected when leaving Property Dashboard
+     */
     public void deselectProperty() {
         Property selectedProperty = propertyDAO.get_Property(true);
         if(selectedProperty != null) {
@@ -107,6 +136,9 @@ public abstract class AbstractController {
         }
     }
 
+    /**
+     * Makes sure Owner is still not signed in when returning to Authentication Page
+     */
     public void signOutOwner() {
         Owner currentOwner = ownerDAO.getAllBool(true);
         if(currentOwner != null) {

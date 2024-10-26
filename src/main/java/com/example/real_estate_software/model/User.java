@@ -1,5 +1,8 @@
 package com.example.real_estate_software.model;
 
+/**
+ * Abstract class that contains fields that are shared by other Users
+ */
 public abstract class User implements IUser {
     private int id;
     private String firstName;
@@ -13,6 +16,7 @@ public abstract class User implements IUser {
         this.email = email;
     }
 
+    //Getters and Setters
     public int getId() {
         return id;
     }
@@ -45,6 +49,11 @@ public abstract class User implements IUser {
         this.email = email;
     }
 
+
+    /**
+     * Used to check if email contain valid characters
+     * @return boolean
+     */
     public boolean checkValidEmail() {
         return email.contains("@") && email.contains(".com");
     }

@@ -1,18 +1,15 @@
 package com.example.real_estate_software.controller;
 
-import com.example.real_estate_software.HelloApplication;
 import com.example.real_estate_software.model.Owner;
 import com.example.real_estate_software.model.Property;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
 
+/**
+ * CLass that is used for the Edit Property Page
+ */
 public class EditPropertyController extends AbstractController {
     @FXML
     private ListView<Property> propertyListView;
@@ -28,9 +25,6 @@ public class EditPropertyController extends AbstractController {
     private TextField rentField;
     @FXML
     private TextField utilitiesField;
-    @FXML
-    private Button backButton;
-
 
     public EditPropertyController() {
         super();
@@ -42,6 +36,9 @@ public class EditPropertyController extends AbstractController {
         displayProperties();
     }
 
+    /**
+     * Button action that edits selected property information for the database
+     */
     @FXML
     protected void onEditClick() {
         Property selectedProperty = propertyListView.getSelectionModel().getSelectedItem();
@@ -59,6 +56,9 @@ public class EditPropertyController extends AbstractController {
         }
     }
 
+    /**
+     * Button action that deletes selected property from the databse
+     */
     @FXML
     protected void onDeleteClick() {
         Property selectedProperty = propertyListView.getSelectionModel().getSelectedItem();
@@ -69,16 +69,11 @@ public class EditPropertyController extends AbstractController {
         }
     }
 
-    @FXML
-    protected void onBackClick() throws IOException {
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/dashboard.css")).toExternalForm());
-        stage.setScene(scene);
-        stage.show();
-    }
-
+    /**
+     * Used to render each owner property as its on clickable cell
+     * @param propertyListVIew
+     * @return ListCell<Property>
+     */
     private ListCell<Property> renderCell(ListView<Property> propertyListVIew) {
         return new ListCell<>() {
 
@@ -103,6 +98,9 @@ public class EditPropertyController extends AbstractController {
         };
     }
 
+    /**
+     * Used to display all owner properties in the list window
+     */
     private void displayProperties() {
         propertyListView.getItems().clear();
         Owner currentOwner = getOwnerDAO().getAllBool(true);
@@ -110,6 +108,10 @@ public class EditPropertyController extends AbstractController {
         propertyListView.getItems().addAll(properties);
     }
 
+    /**
+     * Used to display selected property information in text fields
+     * @param property
+     */
     private void selectProperty(Property property) {
         propertyListView.getSelectionModel().select(property);
         addressField.setText(property.getAddress());
@@ -120,6 +122,9 @@ public class EditPropertyController extends AbstractController {
         utilitiesField.setText(String.valueOf(property.getUtilities()));
     }
 
+    /**
+     * Used to clear text fields
+     */
     private void clearFields() {
         addressField.clear();
         bedsField.clear();
@@ -129,6 +134,10 @@ public class EditPropertyController extends AbstractController {
         utilitiesField.clear();
     }
 
+    /**
+     * Used to check if any text fields are empty
+     * @return boolean
+     */
     private boolean emptyFields() {
         boolean emptyAddress = addressField.getText().trim().isEmpty();
         boolean emptyBeds = bedsField.getText().trim().isEmpty();

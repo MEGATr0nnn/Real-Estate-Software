@@ -1,6 +1,5 @@
 package com.example.real_estate_software.model;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,7 +24,7 @@ import java.util.List;
  * @author Harrison Mega
  * @version 1.3
  *
- * */
+ */
 public class DatabaseControl<T> {
     //============================================================================================
     //                                         GENERIC BLOC
@@ -83,7 +82,7 @@ public class DatabaseControl<T> {
      *
      * @return A list of all Objects Owner in format List<Owner>OwnerValues</Owner>
      *
-     * */
+     */
     public List<Owner> executeFetchAllOwner() {
         List<Owner> owners = new ArrayList<>();
         connection = DatabaseConnection.getInstance();
@@ -115,7 +114,7 @@ public class DatabaseControl<T> {
      *
      * @return A singular instance of Owner.
      *
-     * */
+     */
     public Owner executeFetchOwner(boolean signedIn) {
         connection = DatabaseConnection.getInstance();
         try {
@@ -143,8 +142,9 @@ public class DatabaseControl<T> {
     //                                          TENANT BLOC
     //============================================================================================
     /**
-     *
-     * */
+     * This is a method that is designed to return all tenants within the database
+     * @return List<Tenant>
+     */
     public List<Tenant> executeFetchAllTenant() {
         List<Tenant> tenants = new ArrayList<>();
         connection = DatabaseConnection.getInstance();
@@ -172,6 +172,11 @@ public class DatabaseControl<T> {
         return tenants;
     }
 
+    /**
+     * This is a method that is designed to return tenants from a selected property within the database
+     * @param property
+     * @return List<Tenant>
+     */
     public List<Tenant> executeFetchAllPropertyTenant(Property property) {
         List<Tenant> tenants = new ArrayList<>();
         connection = DatabaseConnection.getInstance();

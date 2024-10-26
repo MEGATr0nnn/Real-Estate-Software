@@ -27,14 +27,6 @@
             </Text>
         </VBox>
 
-        <!-- Back Button -->
-        <HBox alignment="CENTER" layoutX="4.0" layoutY="20.0" prefHeight="65.0" prefWidth="75.0">
-            <padding>
-                <Insets left="8.0" right="12.0"/>
-            </padding>
-            <Button fx:id="backButton" layoutX="4.0" layoutY="20.0" mnemonicParsing="false" text="Back" onAction="#onBackClick"/>
-        </HBox>
-
         <!-- Home Button -->
         <HBox alignment="CENTER" layoutX="4.0" layoutY="94.0" prefHeight="65.0" prefWidth="75.0">
             <padding>

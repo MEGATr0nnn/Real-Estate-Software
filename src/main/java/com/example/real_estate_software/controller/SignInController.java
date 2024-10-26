@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Class that is used for the Sign-In Page
+ */
 public class SignInController {
     @FXML
     private Button signUpButton;
@@ -57,6 +60,10 @@ public class SignInController {
         stage.show();
     }
 
+    /**
+     * Used to check the database and see if Owner exists
+     * @return boolean
+     */
     private boolean checkExists() {
         String email = emailField.getText();
         String password = passwordField.getText();

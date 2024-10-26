@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * Class that is used for the Property Maintenance Page [WORK-IN-PROGRESS]
+ */
 public class PropertyMaintenanceController extends AbstractController {
     @FXML
     private Button backButton;
@@ -21,6 +24,10 @@ public class PropertyMaintenanceController extends AbstractController {
         //NEED TO IMPLEMENT FOR FILE UPLOAD
     }
 
+    /**
+     * Button action that directs the user back to the Property Dashboard
+     * @throws IOException
+     */
     @FXML
     protected void onBackClick() throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();

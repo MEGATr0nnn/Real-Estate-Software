@@ -20,6 +20,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Class the is used for the Remove Tenant Page
+ */
 public class RemoveTenantController extends AbstractController {
     @FXML
     private GridPane tenantGrid;
@@ -36,6 +39,10 @@ public class RemoveTenantController extends AbstractController {
         loadTenants(selectedProperty);
     }
 
+    /**
+     * Button action that directs the user to the Property Dashboard
+     * @throws IOException
+     */
     @FXML
     protected void onBackClick() throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
@@ -46,9 +53,11 @@ public class RemoveTenantController extends AbstractController {
         stage.show();
     }
 
+
     /**
-     loads tenants of current property
-     **/
+     * Used to render each properties tenant in its own box
+     * @param property
+     */
     private void loadTenants(Property property) {
         List<Tenant> tenants = getTenantDAO().getAllType(property);
         int column = 0;
@@ -67,6 +76,11 @@ public class RemoveTenantController extends AbstractController {
         }
     }
 
+    /**
+     * Used to design the box for each tenant
+     * @param tenant
+     * @return
+     */
     private AnchorPane createTenantBox(Tenant tenant) {
 
         AnchorPane box = new AnchorPane();
@@ -125,6 +139,10 @@ public class RemoveTenantController extends AbstractController {
         return box;
     }
 
+    /**
+     * Used to remove tenants from the database
+     * @param tenant
+     */
     private void removeTenant(Tenant tenant) {
         getTenantDAO().delete(tenant);
         Property selectedProperty = getPropertyDAO().get_Property(true);
@@ -132,6 +150,10 @@ public class RemoveTenantController extends AbstractController {
         getPropertyDAO().update_Property(selectedProperty);
     }
 
+    /**
+     * Button action for each tenant that reloads the Remove Tenant Page
+     * @throws IOException
+     */
     private void reloadPage() throws IOException{
         Stage stage = (Stage) tenantGrid.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RemoveTenant.fxml"));

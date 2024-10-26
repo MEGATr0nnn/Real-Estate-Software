@@ -21,6 +21,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Class that is used for the Main Dashboard
+ */
 public class MainDashboardController extends AbstractController {
     @FXML
     private Button addPropertyButton;
@@ -37,6 +40,10 @@ public class MainDashboardController extends AbstractController {
         loadProperties(currentOwner);
     }
 
+    /**
+     * Button action the directs the user to the Add Property Page
+     * @throws IOException
+     */
     @FXML
     protected void handleAddPropertyClick() throws IOException {
         Stage stage = (Stage) addPropertyButton.getScene().getWindow();
@@ -48,9 +55,9 @@ public class MainDashboardController extends AbstractController {
     }
 
     /**
-     loads properties of current owner
-     **/
-    //make sure this only gets current owner properties
+     * Used to render each owner's property in its own box
+     * @param owner
+     */
     private void loadProperties(Owner owner) {
         List<Property> properties = getPropertyDAO().get_OwnerProperties(owner);
         int column = 0;
@@ -69,6 +76,11 @@ public class MainDashboardController extends AbstractController {
         }
     }
 
+    /**
+     * Used to design the box for each property
+     * @param property
+     * @return AnchorPane
+     */
     private AnchorPane createPropertyBox(Property property) {
 
         AnchorPane box = new AnchorPane();
@@ -132,6 +144,11 @@ public class MainDashboardController extends AbstractController {
         return box;
     }
 
+    /**
+     * Button action for each property that directs to the Property Dashboard
+     * @param property
+     * @throws IOException
+     */
     private void loadPropertyDetailsPage(Property property) throws IOException {
 
         // Used new select column from database

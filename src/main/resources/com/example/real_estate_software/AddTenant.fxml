@@ -106,8 +106,8 @@
     <Button fx:id="addTenantButton" layoutX="150.0" layoutY="300.0" mnemonicParsing="false" text="Add Tenant" onAction="#onAddTenantClick" />
 
     <VBox alignment="CENTER" spacing="10" layoutY="134" layoutX="400">
-        <ImageView fitHeight="149.0" fitWidth="198.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@images/ProfileIcon.jpg"/>
+        <ImageView fx:id="imageView" fitHeight="149.0" fitWidth="198.0" pickOnBounds="true" preserveRatio="true">
+            <Image fx:id="image" url="@images/ProfileIcon.jpg"/>
         </ImageView>
         <Button fx:id="addImageButton" mnemonicParsing="false" text="Add Image" onAction="#onAddImageClick"/>
     </VBox>

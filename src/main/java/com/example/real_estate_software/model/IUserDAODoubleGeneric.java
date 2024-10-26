@@ -11,7 +11,7 @@ import java.util.List;
  * @author Harrison Mega
  * @version 1
  *
- * */
+ */
 public interface IUserDAODoubleGeneric<T,U> {
     void createTable();
     void insertNew(T entity, U additionalentity);

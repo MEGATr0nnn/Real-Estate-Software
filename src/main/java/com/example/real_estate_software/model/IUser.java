@@ -6,7 +6,7 @@ package com.example.real_estate_software.model;
  * @author Steven Hujbert
  * @version 1
  *
- * */
+ */
 public interface IUser {
 
     public int getId();

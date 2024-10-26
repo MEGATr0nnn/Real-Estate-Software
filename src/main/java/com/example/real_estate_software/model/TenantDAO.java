@@ -8,7 +8,7 @@ import java.util.List;
  * @author Harrison Mega
  * @version 1
  *
- * */
+ */
 public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
     private DatabaseControl<Tenant> connect;
 

@@ -9,8 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.util.Objects;
 
+/**
+ * Class that is used for the Edit Account Page
+ */
 public class EditAccountController extends AbstractController {
     @FXML
     private TextField firstNameField;
@@ -20,8 +22,6 @@ public class EditAccountController extends AbstractController {
     private TextField emailField;
     @FXML
     private TextField passwordField;
-    @FXML
-    private Button backButton;
     @FXML
     private Button deleteAccountButton;
 
@@ -34,6 +34,9 @@ public class EditAccountController extends AbstractController {
         displayOwner();
     }
 
+    /**
+     * Button action that edits the Owner information in the database
+     */
     @FXML
     protected void onEditClick() {
         Owner currentOwner = getOwnerDAO().getAllBool(true);
@@ -50,6 +53,11 @@ public class EditAccountController extends AbstractController {
         passwordField.setText(currentOwner.getPassword());
     }
 
+    /**
+     * Button action that deletes the Owner from the database
+     * Upon pressing the button, Owner wil be deleted and returned to the Sign-In Page
+     * @throws IOException
+     */
     @FXML
     protected void onDeleteClick() throws IOException {
         Owner currentOwner = getOwnerDAO().getAllBool(true);
@@ -61,16 +69,9 @@ public class EditAccountController extends AbstractController {
         stage.show();
     }
 
-    @FXML
-    protected void onBackClick() throws IOException {
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainDashboard.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/dashboard.css")).toExternalForm());
-        stage.setScene(scene);
-        stage.show();
-    }
-
+    /**
+     * Used to display Owner information on screen
+     */
     private void displayOwner() {
         Owner currentOwner = getOwnerDAO().getAllBool(true);
         firstNameField.setText(currentOwner.getFirstName());
@@ -79,6 +80,10 @@ public class EditAccountController extends AbstractController {
         passwordField.setText(currentOwner.getPassword());
     }
 
+    /**
+     * Used to check if any text fields are empty
+     * @return boolean
+     */
     private boolean emptyFields() {
         boolean emptyFirstName = firstNameField.getText().trim().isEmpty();
         boolean emptyLastName = lastNameField.getText().trim().isEmpty();
