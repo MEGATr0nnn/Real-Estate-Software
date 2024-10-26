@@ -94,17 +94,11 @@
             <Font size="24.0"/>
          </font>
       </Text>
-       <Text layoutX="272.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADDRESS">
-           <font>
-               <Font size="14"/>
-           </font>
-       </Text>
    </VBox>
 
 
 
    <Button fx:id = "backButton" layoutX="100.0" layoutY="9.0" mnemonicParsing="false" text="Back" onAction="#onBackClick"/>
-   <Text layoutX="272.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADDRESS"/>
    <ImageView fitHeight="70.0" fitWidth="85.0" layoutX="108.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@images/Profile Icon.jpg"/>
    </ImageView>

@@ -101,10 +101,6 @@
     <Text layoutX="150" layoutY="140" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
     <TextField fx:id="addressField" layoutX="250" layoutY="130" prefWidth="200"/>
 
-    <!-- Tenants Label and TextField -->
-    <Text layoutX="150" layoutY="180" strokeType="OUTSIDE" strokeWidth="0.0" text="Tenants" />
-    <TextField fx:id="tenantField" layoutX="250" layoutY="170" prefWidth="200"/>
-
     <!-- Beds Label and TextField -->
     <Text layoutX="150" layoutY="220" strokeType="OUTSIDE" strokeWidth="0.0" text="Beds" />
     <TextField fx:id="bedsField" layoutX="250" layoutY="210" prefWidth="200"/>

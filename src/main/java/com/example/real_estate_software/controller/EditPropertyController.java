@@ -22,8 +22,6 @@ public class EditPropertyController {
     @FXML
     private TextField addressField;
     @FXML
-    private TextField tenantField;
-    @FXML
     private TextField bedsField;
     @FXML
     private TextField bathsField;
@@ -72,7 +70,6 @@ public class EditPropertyController {
         Property selectedProperty = propertyListView.getSelectionModel().getSelectedItem();
         if(!emptyFields()) {
             selectedProperty.setAddress(addressField.getText());
-            selectedProperty.setNum_Tenants(Integer.parseInt(tenantField.getText()));
             selectedProperty.setNum_Beds(Integer.parseInt(bedsField.getText()));
             selectedProperty.setNum_Baths(Integer.parseInt(bathsField.getText()));
             selectedProperty.setNum_Cars(Integer.parseInt(carsField.getText()));
@@ -138,7 +135,6 @@ public class EditPropertyController {
     private void selectProperty(Property property) {
         propertyListView.getSelectionModel().select(property);
         addressField.setText(property.getAddress());
-        tenantField.setText(String.valueOf(property.getNum_Tenants()));
         bedsField.setText(String.valueOf(property.getNum_Beds()));
         bathsField.setText(String.valueOf(property.getNum_Baths()));
         carsField.setText(String.valueOf(property.getNum_Cars()));
@@ -148,7 +144,6 @@ public class EditPropertyController {
 
     private void clearFields() {
         addressField.clear();
-        tenantField.clear();
         bedsField.clear();
         bathsField.clear();
         carsField.clear();
@@ -158,13 +153,12 @@ public class EditPropertyController {
 
     private boolean emptyFields() {
         boolean emptyAddress = addressField.getText().trim().isEmpty();
-        boolean emptyTenant = tenantField.getText().trim().isEmpty();
         boolean emptyBeds = bedsField.getText().trim().isEmpty();
         boolean emptyBaths = bathsField.getText().trim().isEmpty();
         boolean emptyCars = carsField.getText().trim().isEmpty();
         boolean emptyRent = rentField.getText().trim().isEmpty();
         boolean emptyUtilities = utilitiesField.getText().trim().isEmpty();
-        return emptyAddress || emptyTenant || emptyBeds || emptyBaths || emptyCars || emptyRent || emptyUtilities;
+        return emptyAddress || emptyBeds || emptyBaths || emptyCars || emptyRent || emptyUtilities;
     }
 
     @FXML

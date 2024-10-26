@@ -21,8 +21,6 @@ public class AddPropertyController {
     @FXML
     private TextField addressField;
     @FXML
-    private TextField tenantField;
-    @FXML
     private TextField bedsField;
     @FXML
     private TextField bathsField;
@@ -84,18 +82,16 @@ public class AddPropertyController {
     private void addProperty() {
         Owner currentOwner = ownerDAO.getAllBool(true);
         String address = addressField.getText();
-        int tenants = Integer.parseInt(tenantField.getText());
         int beds = Integer.parseInt(bedsField.getText());
         int baths = Integer.parseInt(bathsField.getText());
         int cars = Integer.parseInt(carsField.getText());
         int rent = Integer.parseInt(rentField.getText());
         int utilities = Integer.parseInt(utilitiesField.getText());
-        propertyDAO.insert_New_Property(new Property(address, tenants, beds, baths, cars, rent, utilities), currentOwner);
+        propertyDAO.insert_New_Property(new Property(address, beds, baths, cars, rent, utilities), currentOwner);
     }
 
     private void clearFields() {
         addressField.clear();
-        tenantField.clear();
         bedsField.clear();
         bathsField.clear();
         carsField.clear();
@@ -105,13 +101,12 @@ public class AddPropertyController {
 
     private boolean emptyFields() {
         boolean emptyAddress = addressField.getText().trim().isEmpty();
-        boolean emptyTenant = tenantField.getText().trim().isEmpty();
         boolean emptyBeds = bedsField.getText().trim().isEmpty();
         boolean emptyBaths = bathsField.getText().trim().isEmpty();
         boolean emptyCars = carsField.getText().trim().isEmpty();
         boolean emptyRent = rentField.getText().trim().isEmpty();
         boolean emptyUtilities = utilitiesField.getText().trim().isEmpty();
-        return emptyAddress || emptyTenant || emptyBeds || emptyBaths || emptyCars || emptyRent || emptyUtilities;
+        return emptyAddress || emptyBeds || emptyBaths || emptyCars || emptyRent || emptyUtilities;
     }
 
     @FXML

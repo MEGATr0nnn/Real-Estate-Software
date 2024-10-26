@@ -82,23 +82,13 @@
     </HBox>
     <VBox layoutX="74" layoutY="0.0" prefHeight="75" prefWidth="705.0" alignment="CENTER" styleClass = "top-border">
 
-        <Text layoutX="277.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent">
+        <Text layoutX="277.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Utilities">
 
             <font>
                 <Font size="24.0"/>
             </font>
         </Text>
-        <Text layoutX="272.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADDRESS">
-            <font>
-                <Font size="14"/>
-            </font>
-        </Text>
     </VBox>
-      <Text layoutX="263.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Utilities">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
     </Pane>
         <!-- Main Horizontal Layout for Images, TextFields, and Buttons -->
         <HBox layoutX="100" layoutY="194" spacing="50" alignment="CENTER">

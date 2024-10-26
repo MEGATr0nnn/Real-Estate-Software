@@ -86,7 +86,6 @@
       </font>
    </Text>
 </VBox>
-   <Text layoutX="600.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome NAME"/>
 
    <Button fx:id = "addTenant" layoutX="550.0" layoutY="225.0" mnemonicParsing="false" text="Add Tenant" onAction="#onTenantClick"/>
 

@@ -10,7 +10,6 @@ package com.example.real_estate_software.model;
 public class Tenant extends User {
     private int phoneNumber;
     private boolean assignedToProp;
-    private int propertyId;
 
     /**
      * Tenant Constructor Override #1
@@ -24,7 +23,7 @@ public class Tenant extends User {
     public Tenant(String firstName, String lastName, String email, int phoneNumber) {
         super(firstName, lastName, email);
         this.phoneNumber = phoneNumber;
-        assignedToProp = false;
+        assignedToProp = true;
     }
 
     /**
@@ -37,11 +36,10 @@ public class Tenant extends User {
      * @param assignedToProp Boolean that tracks if the Tenant has been assigned to a property in to the DB or not
      *
      * */
-    public Tenant(String firstName, String lastName, String email, int phoneNumber, boolean assignedToProp, int propertyId) {
+    public Tenant(String firstName, String lastName, String email, int phoneNumber, boolean assignedToProp) {
         super(firstName, lastName, email);
         this.phoneNumber = phoneNumber;
         this.assignedToProp = assignedToProp;
-        this.propertyId = propertyId;
     }
 
     //Getters and Setters
@@ -61,11 +59,4 @@ public class Tenant extends User {
         this.assignedToProp = assignedToProp;
     }
 
-    public int getPropertyId(){
-        return propertyId;
-    }
-
-    public void setPropertyId(int propertyId){
-        this.propertyId = propertyId;
-    }
 }

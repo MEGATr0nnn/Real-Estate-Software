@@ -159,8 +159,9 @@ public class DatabaseControl<T> {
                 String lastName = resultSet.getString("lastName");
                 String email = resultSet.getString("email");
                 int phoneNumber = resultSet.getInt("phoneNumber");
+                boolean assignedToProp = resultSet.getBoolean("assignedToProp");
 
-                Tenant tenant = new Tenant(firstName, lastName, email, phoneNumber);
+                Tenant tenant = new Tenant(firstName, lastName, email, phoneNumber, assignedToProp);
                 tenant.setId(id);
                 tenants.add(tenant);
             }
@@ -171,12 +172,12 @@ public class DatabaseControl<T> {
         return tenants;
     }
 
-    public Tenant executeFetchAllPropertyTenant(boolean assignedToProp, Property property) {
+    public Tenant executeFetchAllPropertyTenant(Property property) {
         connection = DatabaseConnection.getInstance();
         try {
-            String query = "SELECT * FROM tenants WHERE property_id = ?";
+            String query = "SELECT * FROM tenants WHERE propertyId = ?";
             PreparedStatement statement = connection.prepareStatement(query);
-            statement.setBoolean(1, assignedToProp);
+            statement.setInt(1, property.getId());
             ResultSet resultSet = statement.executeQuery(query);
 
             if (resultSet.next()) {
@@ -185,12 +186,10 @@ public class DatabaseControl<T> {
                 String lastName = resultSet.getString("lastName");
                 String email = resultSet.getString("email");
                 int phoneNumber = resultSet.getInt("phoneNumber");
-                assignedToProp = resultSet.getBoolean("assignedToProp");
-                int propertyId = resultSet.getInt("propertyId");
+                boolean assignedToProp = resultSet.getBoolean("assignedToProp");
 
-                Tenant tenant = new Tenant(firstName, lastName, email, phoneNumber, assignedToProp, propertyId);
+                Tenant tenant = new Tenant(firstName, lastName, email, phoneNumber, assignedToProp);
                 tenant.setId(id);
-                tenant.setPropertyId(property.getId());
                 return tenant;
             }
         }

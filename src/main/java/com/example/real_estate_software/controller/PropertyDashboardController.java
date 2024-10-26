@@ -68,7 +68,7 @@ public class PropertyDashboardController {
     public void initialize() {
         // Set the current property
         Owner currentOwner = ownerDAO.getAllBool(true);
-        Property currentProperty = propertyDAO.get_Property(true, currentOwner);
+        Property currentProperty = propertyDAO.get_Property(true);
 
         // Populate the UI with the property data
         addressText.setText(currentProperty.getAddress());
@@ -118,8 +118,7 @@ public class PropertyDashboardController {
      */
     @FXML
     protected void onBackClick() throws IOException {
-        Owner currentOwner = ownerDAO.getAllBool(true);
-        Property currentProperty = propertyDAO.get_Property(true, currentOwner);
+        Property currentProperty = propertyDAO.get_Property(true);
         currentProperty.setIs_Selected(false);
         propertyDAO.update_Property(currentProperty);
         Stage stage = (Stage) backButton.getScene().getWindow();

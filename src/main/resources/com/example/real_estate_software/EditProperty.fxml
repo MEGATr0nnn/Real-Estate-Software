@@ -104,8 +104,6 @@
     <ListView fx:id="propertyListView" layoutX="154.0" layoutY="119.0" maxHeight="250" maxWidth="200"/>
     <Text layoutX="390.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
     <TextField fx:id="addressField" layoutX="480.0" layoutY="130.0" />
-    <Text layoutX="390.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tenants" />
-    <TextField fx:id="tenantField" layoutX="480.0" layoutY="166.0" />
     <Text layoutX="390.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beds" />
     <TextField fx:id="bedsField" layoutX="480.0" layoutY="202.0" />
     <Text layoutX="390.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Baths" />
@@ -114,7 +112,7 @@
     <TextField fx:id="carsField" layoutX="480.0" layoutY="274.0" />
     <Text layoutX="390.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent" />
     <TextField fx:id="rentField" layoutX="480.0" layoutY="310.0" />
-    <Text layoutX="490.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Utilities" />
+    <Text layoutX="390.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Utilities" />
     <TextField fx:id="utilitiesField" layoutX="480.0" layoutY="346.0" />
 
     <VBox layoutX="74" layoutY="0.0" prefHeight="75" prefWidth="705.0" alignment="CENTER" styleClass = "top-border">

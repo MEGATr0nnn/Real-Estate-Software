@@ -19,34 +19,36 @@ public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
 
     @Override
     public void createTable() {
-        String query = "CREATE TABLE IF NOT EXISTS tenant ("
+        String query = "CREATE TABLE IF NOT EXISTS tenants ("
                 + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + "propertyId INTEGER NOT NULL,"
                 + "firstName VARCHAR NOT NULL,"
                 + "lastName VARCHAR NOT NULL,"
                 + "email VARCHAR NOT NULL,"
-                + "phoneNumber INTEGER NOT NULL,"
+                + "phoneNumber VARCHAR NOT NULL,"
                 + "assignedToProp BOOLEAN NOT NULL,"
-                + "propertyId INTEGER NOT NULL"
+                + "FOREIGN KEY (propertyId) REFERENCES properties(id)"
                 + ")";
         connect.executeQuery(query);
     }
 
     @Override
     public void insertNew(Tenant tenant, Property property) {
-        String query = "INSERT INTO tenant (firstName, lastName, email, phoneNumber, propertyId) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO tenants (propertyId, firstName, lastName, email, phoneNumber, assignedToProp) VALUES (?, ?, ?, ?, ?, ?)";
         Object[] params = {
+                property.getId(),
                 tenant.getFirstName(),
                 tenant.getLastName(),
                 tenant.getEmail(),
                 tenant.getPhoneNumber(),
-                property.getId()
+                tenant.getAssignedToProp()
         };
         tenant.setId(connect.executeQuery(query, params));
     }
 
     @Override
     public void delete(Tenant tenant) {
-        String query = "DELETE FROM tenant WHERE id = ?";
+        String query = "DELETE FROM tenants WHERE id = ?";
         Object[] params = {
                 tenant.getId()
         };
@@ -54,15 +56,14 @@ public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
     }
 
     @Override
-    public void update(Tenant tenant, Property property) {
-        String query = "UPDATE tenant SET firstName = ?, lastName = ?, email = ?, phoneNumber = ?, assignedToProp = ?, property_id = ? WHERE id = ?";
+    public void update(Tenant tenant) {
+        String query = "UPDATE tenants SET firstName = ?, lastName = ?, email = ?, phoneNumber = ?, assignedToProp = ? WHERE id = ?";
         Object[] params = {
                 tenant.getFirstName(),
                 tenant.getLastName(),
                 tenant.getEmail(),
                 tenant.getPhoneNumber(),
-                tenant.getPropertyId(),
-                property.getId(),
+                tenant.getAssignedToProp(),
                 tenant.getId()
         };
         connect.executeQuery(query, params);
@@ -74,11 +75,8 @@ public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
     }
 
     @Override
-    public Tenant getAllBool(boolean assignedToProp, Property property) {
-        return connect.executeFetchAllPropertyTenant(assignedToProp, property);
+    public Tenant getAllBool(Property property) {
+        return connect.executeFetchAllPropertyTenant(property);
     }
-
-
-
 
 }

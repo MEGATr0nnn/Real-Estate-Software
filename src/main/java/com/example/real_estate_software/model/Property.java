@@ -26,46 +26,21 @@ public class Property {
      * Constructor to create a new Property object.
      *
      * @param address Address of the property
-     * @param num_Tenants Number of tenants in the property
      * @param num_Beds Number of bedrooms in the property
      * @param num_Baths Number of bathrooms in the property
      * @param num_Cars Number of car spaces available
      * @param rent Monthly rent amount
      * @param utilities Utility costs
      */
-    public Property(String address, int num_Tenants, int num_Beds, int num_Baths, int num_Cars, int rent, int utilities){
+    public Property(String address, int num_Beds, int num_Baths, int num_Cars, int rent, int utilities){
         this.address = address;
-        this.num_Tenants = num_Tenants;
+        num_Tenants = 0;
         this.num_Beds = num_Beds;
         this.num_Baths = num_Baths;
         this.num_Cars = num_Cars;
         this.rent = rent;
         this.utilities = utilities;
         has_Tenants = checkHas_Tenants();
-        is_Selected = false;
-    }
-
-    /**
-     * Overloaded constructor to create a new Property object with a specified tenant status.
-     *
-     * @param address Address of the property
-     * @param num_Tenants Number of tenants in the property
-     * @param num_Beds Number of bedrooms in the property
-     * @param num_Baths Number of bathrooms in the property
-     * @param num_Cars Number of car spaces available
-     * @param rent Monthly rent amount
-     * @param utilities Utility costs
-     * @param has_Tenants Indicates if the property has tenants
-     */
-    public Property(String address, int num_Tenants, int num_Beds, int num_Baths, int num_Cars, int rent, int utilities, boolean has_Tenants){
-        this.address = address;
-        this.num_Tenants = num_Tenants;
-        this.num_Beds = num_Beds;
-        this.num_Baths = num_Baths;
-        this.num_Cars = num_Cars;
-        this.rent = rent;
-        this.utilities = utilities;
-        this.has_Tenants = has_Tenants;
         is_Selected = false;
     }
 
@@ -79,10 +54,9 @@ public class Property {
      * @param num_Cars Number of car spaces available
      * @param rent Monthly rent amount
      * @param utilities Utility costs
-     * @param has_Tenants Indicates if the property has tenants
      * @param is_Selected Indicates if the property is selected
      */
-    public Property(String address, int num_Tenants, int num_Beds, int num_Baths, int num_Cars, int rent, int utilities, boolean has_Tenants, boolean is_Selected){
+    public Property(String address, int num_Tenants, int num_Beds, int num_Baths, int num_Cars, int rent, int utilities, boolean is_Selected){
         this.address = address;
         this.num_Tenants = num_Tenants;
         this.num_Beds = num_Beds;
@@ -90,7 +64,7 @@ public class Property {
         this.num_Cars = num_Cars;
         this.rent = rent;
         this.utilities = utilities;
-        this.has_Tenants = has_Tenants;
+        has_Tenants = checkHas_Tenants();
         this.is_Selected = is_Selected;
     }
 

@@ -1,16 +1,16 @@
 package com.example.real_estate_software.controller;
 
 import com.example.real_estate_software.HelloApplication;
-import com.example.real_estate_software.model.Owner;
-import com.example.real_estate_software.model.OwnerDAO;
-import com.example.real_estate_software.model.PropertyDAO;
+import com.example.real_estate_software.model.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
@@ -25,6 +25,14 @@ public class AddTenantController {
     public Button backButton;
     public Button addImageButton;
     public Button saveButton;
+    @FXML
+    private TextField firstNameField;
+    @FXML
+    private TextField lastNameField;
+    @FXML
+    private TextField emailField;
+    @FXML
+    private TextField phoneNumberField;
     private AnchorPane propertyContainer;
     public Button propertyDashboard;
     @FXML
@@ -45,13 +53,13 @@ public class AddTenantController {
     private Button viewStatsButton;
     private final OwnerDAO ownerDAO;
     private final PropertyDAO propertyDAO;
+    private final TenantDAO tenantDAO;
 
     public AddTenantController() {
         ownerDAO = new OwnerDAO();
         propertyDAO = new PropertyDAO();
+        tenantDAO = new TenantDAO();
     }
-
-
 
     /**
      * Button action to revert back to the Property Dashboard page
@@ -65,12 +73,46 @@ public class AddTenantController {
         stage.setScene(scene);
     }
 
+    @FXML
+    protected void onSaveClick() throws IOException {
+        if(!emptyFields()) {
+            addTenant();
+            clearFields();
+        }
+    }
+
     /**
      * Button action to add an image associated with the tenant (Work in progress)
      */
     @FXML
     protected void onAddImageClick() throws IOException {
 
+    }
+
+    private void addTenant() {
+        Property selectedProperty = propertyDAO.get_Property(true);
+        String firstName = firstNameField.getText();
+        String lastName = lastNameField.getText();
+        String email = emailField.getText();
+        int phoneNumber = Integer.parseInt(phoneNumberField.getText());
+        tenantDAO.insertNew(new Tenant(firstName, lastName, email, phoneNumber), selectedProperty);
+        selectedProperty.setNum_Tenants(selectedProperty.getNum_Tenants() + 1);
+        propertyDAO.update_Property(selectedProperty);
+    }
+
+    private void clearFields() {
+        firstNameField.clear();
+        lastNameField.clear();
+        emailField.clear();
+        phoneNumberField.clear();
+    }
+
+    private boolean emptyFields() {
+        boolean emptyFirstName = firstNameField.getText().trim().isEmpty();
+        boolean emptyLastName = lastNameField.getText().trim().isEmpty();
+        boolean emptyEmail = emailField.getText().trim().isEmpty();
+        boolean emptyPhoneNumber = phoneNumberField.getText().trim().isEmpty();
+        return emptyFirstName || emptyLastName || emptyEmail || emptyPhoneNumber;
     }
 
     //Create button functionality for saving
