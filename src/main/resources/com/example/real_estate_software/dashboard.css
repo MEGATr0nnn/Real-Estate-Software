@@ -8,7 +8,7 @@
     -fx-text-fill:silver;
 }
 .fontawesomeicon{
-    -fx-fill:grey;
+    -fx-fill:black;
 }
 .noti-num{
     -fx-background-color:#F02E54;
@@ -48,5 +48,4 @@
 -fx-background-color: #F0F8FF;
 -fx-border-color:black;
 -fx-border-width:2;
-
 }

@@ -1,3 +1,4 @@
+
 <VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_software.controller.RenterTileController" alignment="CENTER">
     <Image fxid ="tenantPicture" fitHeight="99.0" fitWidth="99.0" layoutX="462.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true"></Image>
     <Label fxid ="tenantName" Font-size="18.0"></Label>

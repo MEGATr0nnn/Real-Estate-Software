@@ -40,6 +40,7 @@ public class SignInController {
             Scene scene = new Scene(fxmlLoader.load());
             scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/dashboard.css")).toExternalForm());
             stage.setScene(scene);
+            stage.show();
         }
     }
 
@@ -53,6 +54,7 @@ public class SignInController {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CreateAccount.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
+        stage.show();
     }
 
     private boolean checkExists() {

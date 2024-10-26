@@ -16,54 +16,41 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.StrokeType;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
-public class RemoveTenantController {
-    @FXML
-    private AnchorPane propertyContainer;
-    public Button propertyDashboard;
-    @FXML
-    private Button cogsButton;
-    @FXML
-    private Button barChartButton;
-    @FXML
-    private Button settingsButton;
-    @FXML
-    private Button signOutButton;
-    @FXML
-    private Button addPropertyButton;
+public class RemoveTenantController extends AbstractController {
     @FXML
     private GridPane tenantGrid;
     @FXML
-    private Button editButton;
-    @FXML
-    private Button viewStatsButton;
-    public Button backButton;
-    private final OwnerDAO ownerDAO;
-    private final PropertyDAO propertyDAO;
-    private final TenantDAO tenantDAO;
+    private Button backButton;
 
     public RemoveTenantController() {
-        ownerDAO = new OwnerDAO();
-        propertyDAO = new PropertyDAO();
-        tenantDAO = new TenantDAO();
+        super();
     }
 
     @FXML
     public void initialize() {
-        Property selectedProperty = propertyDAO.get_Property(true);
+        Property selectedProperty = getPropertyDAO().get_Property(true);
         loadTenants(selectedProperty);
+    }
+
+    @FXML
+    protected void onBackClick() throws IOException {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PropertyDashboard.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
+        stage.setScene(scene);
+        stage.show();
     }
 
     /**
      loads tenants of current property
      **/
-    //make sure this only gets current owner properties
     private void loadTenants(Property property) {
-        List<Tenant> tenants = tenantDAO.getAllBool(property);
+        List<Tenant> tenants = getTenantDAO().getAllType(property);
         int column = 0;
         int row = 0;
         for(Tenant tenant : tenants) {
@@ -79,7 +66,6 @@ public class RemoveTenantController {
             }
         }
     }
-
 
     private AnchorPane createTenantBox(Tenant tenant) {
 
@@ -124,7 +110,6 @@ public class RemoveTenantController {
         phoneNumberLabel.getStyleClass().add("phone-number-label");
 
         innerPane.getChildren().addAll(iconCircle);
-
         box.getChildren().addAll(innerPane, nameLabel, emailLabel, phoneNumberLabel);
 
         // Set click event to remove tenant
@@ -141,10 +126,10 @@ public class RemoveTenantController {
     }
 
     private void removeTenant(Tenant tenant) {
-        tenantDAO.delete(tenant);
-        Property selectedProperty = propertyDAO.get_Property(true);
+        getTenantDAO().delete(tenant);
+        Property selectedProperty = getPropertyDAO().get_Property(true);
         selectedProperty.setNum_Tenants(selectedProperty.getNum_Tenants() - 1);
-        propertyDAO.update_Property(selectedProperty);
+        getPropertyDAO().update_Property(selectedProperty);
     }
 
     private void reloadPage() throws IOException{
@@ -153,73 +138,7 @@ public class RemoveTenantController {
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
         stage.setScene(scene);
-    }
-
-    @FXML
-    protected void handleSettingsClick() throws IOException {
-        Stage stage = (Stage) settingsButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditAccount.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
-
-        stage.setScene(scene);
-    }
-
-    @FXML
-    protected void handleSignOutClick() throws IOException {
-        Owner currentOwner = getCurrentOwner();
-        currentOwner.setSignedIn(false);
-        ownerDAO.update(currentOwner);
-        Stage stage = (Stage) signOutButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignIn.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setScene(scene);
-    }
-
-    @FXML
-    protected void handleEditClick() throws IOException {
-        // Load the EditProperty.fxml when the edit button is clicked
-        Stage stage = (Stage) editButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EditProperty.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
-
-        stage.setScene(scene);
-    }
-
-    @FXML
-    protected void handleAddPropertyClick() throws IOException {
-        Stage stage = (Stage) addPropertyButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AddProperty.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
-
-        stage.setScene(scene);
-    }
-
-    private Owner getCurrentOwner() {
-        return ownerDAO.getAllBool(true);
-    }
-
-    @FXML
-    protected void handleViewStatsClick() throws IOException {
-        // Correctly specify the location of the FXML file for the stats page
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("charts.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-
-        // Get the current stage and set the new scene
-        Stage stage = (Stage) viewStatsButton.getScene().getWindow();
-        stage.setScene(scene);
         stage.show();
     }
-    @FXML
-    protected void onBackClick() throws IOException {
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PropertyDashboard.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
 
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/real_estate_software/stylesheet.css")).toExternalForm());
-
-        stage.setScene(scene);
-    }
 }

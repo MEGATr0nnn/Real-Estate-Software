@@ -75,7 +75,7 @@ public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
     }
 
     @Override
-    public List<Tenant> getAllBool(Property property) {
+    public List<Tenant> getAllType(Property property) {
         return connect.executeFetchAllPropertyTenant(property);
     }
 

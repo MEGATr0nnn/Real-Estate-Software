@@ -1,45 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import javafx.scene.image.ImageView?>
-
-<?import javafx.scene.text.Text?>
-
 <?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Text?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_software.controller.RemoveTenantController">
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.real_estate_software.controller.RemoveTenantController">
-
+    <!-- Left and Top Pane for Header and Navigation -->
     <Pane prefHeight="580.0" prefWidth="75.0" styleClass="sidebar" AnchorPane.leftAnchor="0.0">
 
-        <HBox alignment="CENTER" layoutY="94.0" prefHeight="65.0" prefWidth="75.0">
+        <!-- Remove Tenant Header Section -->
+        <VBox layoutX="74" prefHeight="75" prefWidth="705.0" alignment="CENTER" styleClass="top-border">
+            <Text layoutX="277.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove Tenant">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Text>
+        </VBox>
+
+        <!-- Back Button -->
+        <HBox alignment="CENTER" layoutX="4.0" layoutY="20.0" prefHeight="65.0" prefWidth="75.0">
             <padding>
                 <Insets left="8.0" right="12.0"/>
             </padding>
-            <HBox alignment="CENTER" prefHeight="65.0" prefWidth="75.0">
-                <padding>
-                    <Insets left="8.0" right="12.0"/>
-                </padding>
-                <FontIcon iconLiteral="fas-home" iconSize="24" styleClass="fontawesomeicon"/>
-            </HBox>
+            <Button fx:id="backButton" layoutX="4.0" layoutY="20.0" mnemonicParsing="false" text="Back" onAction="#onBackClick"/>
         </HBox>
 
-        <HBox alignment="CENTER" layoutX="4.0" layoutY="159.0" prefHeight="65.0" prefWidth="64.0">
+        <!-- Home Button -->
+        <HBox alignment="CENTER" layoutX="4.0" layoutY="94.0" prefHeight="65.0" prefWidth="75.0">
+            <padding>
+                <Insets left="8.0" right="12.0"/>
+            </padding>
+            <Button fx:id="homeButton" styleClass="icon-button" onAction="#handleHomeClick">
+                <graphic>
+                    <FontIcon iconLiteral="fas-home" iconSize="24" styleClass="fontawesomeicon"/>
+                </graphic>
+            </Button>
+        </HBox>
+
+        <!-- Edit Button -->
+        <HBox alignment="CENTER" layoutX="4.0" layoutY="159.0" prefHeight="65.0" prefWidth="75.0">
             <padding>
                 <Insets left="8.0" right="12.0"/>
             </padding>
@@ -50,6 +60,7 @@
             </Button>
         </HBox>
 
+        <!-- Settings Button -->
         <HBox alignment="CENTER" layoutX="4.0" layoutY="224.0" prefHeight="65.0" prefWidth="75.0">
             <padding>
                 <Insets left="8.0" right="12.0"/>
@@ -61,6 +72,7 @@
             </Button>
         </HBox>
 
+        <!-- Charts Button -->
         <HBox alignment="CENTER" layoutX="4.0" layoutY="289.0" prefHeight="65.0" prefWidth="75.0">
             <padding>
                 <Insets left="8.0" right="12.0"/>
@@ -72,6 +84,7 @@
             </Button>
         </HBox>
 
+        <!-- Sign Out Button -->
         <HBox alignment="CENTER" layoutX="4.0" layoutY="450.0" prefHeight="65.0" prefWidth="75.0">
             <padding>
                 <Insets left="8.0" right="12.0"/>
@@ -85,9 +98,8 @@
     </Pane>
 
     <GridPane fx:id="tenantGrid" layoutX="92.0" layoutY="117.0" hgap="15.0" vgap="15.0">
-
-
     </GridPane>
+
 <!--
      First Tenant Section using tenant-box style
     <VBox layoutX="100.0" layoutY="120.0" spacing="20.0" styleClass="tenant-box" alignment="CENTER">
@@ -102,14 +114,5 @@
         <Button mnemonicParsing="false" text="Remove Tenant" />
     </VBox>
 -->
-    <VBox layoutX="74" layoutY="0.0" prefHeight="75" prefWidth="705.0" alignment="CENTER" styleClass = "top-border">
 
-        <Text layoutX="199.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove Tenant">
-
-            <font>
-                <Font size="24.0"/>
-            </font>
-        </Text>
-    </VBox>
-    <Button fx:id="backButton" layoutX="100" layoutY="9.0" mnemonicParsing="false" text="Back" onAction="#onBackClick"/>
 </AnchorPane>

@@ -8,20 +8,25 @@
 <?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_software.controller.CreateAccountController">
-    <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#add8ffa2" height="300.0" layoutX="44.0" layoutY="68.0" stroke="BLACK" strokeType="INSIDE" width="500.0" />
-    <Text layoutX="121.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
-    <TextField fx:id="firstNameField" layoutX="346.0" layoutY="143.0" />
-    <Text layoutX="121.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
-    <TextField fx:id="lastNameField" layoutX="348.0" layoutY="175.0" />
-    <Text layoutX="120.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address" />
-    <TextField fx:id="emailField" layoutX="348.0" layoutY="206.0" />
-    <Text layoutX="120.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-    <TextField fx:id="passwordField" layoutX="346.0" layoutY="242.0" />
+
     <Text layoutX="186.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Account" textAlignment="CENTER">
         <font>
             <Font size="24.0" />
         </font>
     </Text>
-    <Button fx:id="createAccountButton" layoutX="144.0" layoutY="298.0" mnemonicParsing="false" text="Create New Account" onAction="#onCreateAccountClick"/>
-    <Button fx:id="backButton" layoutX="364.0" layoutY="298.0" mnemonicParsing="false" text="Go Back" onAction="#onBackClick"/>
+
+    <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#add8ffa2" height="300.0" layoutX="44.0" layoutY="68.0" stroke="BLACK" strokeType="INSIDE" width="500.0" />
+
+    <Text layoutX="120.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
+    <TextField fx:id="firstNameField" layoutX="345.0" layoutY="110.0" />
+    <Text layoutX="120.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
+    <TextField fx:id="lastNameField" layoutX="345.0" layoutY="150.0" />
+    <Text layoutX="120.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address" />
+    <TextField fx:id="emailField" layoutX="345.0" layoutY="190.0" />
+    <Text layoutX="120.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+    <TextField fx:id="passwordField" layoutX="345.0" layoutY="230.0" />
+
+    <Button fx:id="backButton" layoutX="200.0" layoutY="290.0" mnemonicParsing="false" text="Go Back" onAction="#onBackClick"/>
+    <Button fx:id="createAccountButton" layoutX="300.0" layoutY="290.0" mnemonicParsing="false" text="Create New Account" onAction="#onCreateAccountClick"/>
+
 </Pane>

@@ -7,13 +7,10 @@ import javafx.scene.control.Label;
 public class PropertyBoxController {
     @FXML
     private Label propertyAddressLabel;
-
     @FXML
     private Label numRoomsLabel;
-
     @FXML
     private Label tenantLabel;
-
     @FXML
     private Label rentLabel;
 

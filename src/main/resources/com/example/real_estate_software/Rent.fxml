@@ -1,130 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import javafx.scene.control.TextField?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-
 <?import javafx.scene.text.Text?>
-<?import org.kordamp.ikonli.javafx.FontIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
-
-
 
 <!-- The Rent FXML was created in Scenebuilder which allows the Owner to assign rent to the tenants associated with the property-->
 <!-- The owner will be able to view the number of tenants and assign individual rent amounts and the frequency of the payments -->
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_software.controller.RentController">
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0"
-      prefWidth="780.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.real_estate_software.controller.RentController">
-
+    <!-- Left and Top Pane for Header and Navigation -->
     <Pane prefHeight="580.0" prefWidth="75.0" styleClass="sidebar" AnchorPane.leftAnchor="0.0">
 
-    <HBox alignment="CENTER" layoutY="94.0" prefHeight="65.0" prefWidth="75.0">
-        <padding>
-            <Insets left="8.0" right="12.0"/>
-        </padding>
-        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="75.0">
+        <!-- Rent Header Section -->
+        <VBox layoutX="74" prefHeight="75" prefWidth="705.0" alignment="CENTER" styleClass="top-border">
+            <Text layoutX="277.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Text>
+        </VBox>
+
+        <!-- Back Button -->
+        <HBox alignment="CENTER" layoutX="4.0" layoutY="20.0" prefHeight="65.0" prefWidth="75.0">
             <padding>
                 <Insets left="8.0" right="12.0"/>
             </padding>
-            <FontIcon iconLiteral="fas-home" iconSize="24" styleClass="fontawesomeicon"/>
+            <Button fx:id="backButton" layoutX="4.0" layoutY="20.0" mnemonicParsing="false" text="Back" onAction="#onBackClick"/>
         </HBox>
-    </HBox>
 
-    <HBox alignment="CENTER" layoutX="4.0" layoutY="159.0" prefHeight="65.0" prefWidth="64.0">
-        <padding>
-            <Insets left="8.0" right="12.0"/>
-        </padding>
-        <Button fx:id="editButton" styleClass="icon-button" onAction="#handleEditClick">
-            <graphic>
-                <FontIcon iconLiteral="far-edit" iconSize="24" styleClass="fontawesomeicon"/>
-            </graphic>
-        </Button>
-    </HBox>
+        <!-- Home Button -->
+        <HBox alignment="CENTER" layoutX="4.0" layoutY="94.0" prefHeight="65.0" prefWidth="75.0">
+            <padding>
+                <Insets left="8.0" right="12.0"/>
+            </padding>
+            <Button fx:id="homeButton" styleClass="icon-button" onAction="#handleHomeClick">
+                <graphic>
+                    <FontIcon iconLiteral="fas-home" iconSize="24" styleClass="fontawesomeicon"/>
+                </graphic>
+            </Button>
+        </HBox>
 
-    <HBox alignment="CENTER" layoutX="4.0" layoutY="224.0" prefHeight="65.0" prefWidth="75.0">
-        <padding>
-            <Insets left="8.0" right="12.0"/>
-        </padding>
-        <Button fx:id="settingsButton" styleClass="icon-button" onAction="#handleSettingsClick">
-            <graphic>
-                <FontIcon iconLiteral="fas-cogs" iconSize="24" styleClass="fontawesomeicon"/>
-            </graphic>
-        </Button>
-    </HBox>
+        <!-- Edit Button -->
+        <HBox alignment="CENTER" layoutX="4.0" layoutY="159.0" prefHeight="65.0" prefWidth="75.0">
+            <padding>
+                <Insets left="8.0" right="12.0"/>
+            </padding>
+            <Button fx:id="editButton" styleClass="icon-button" onAction="#handleEditClick">
+                <graphic>
+                    <FontIcon iconLiteral="far-edit" iconSize="24" styleClass="fontawesomeicon"/>
+                </graphic>
+            </Button>
+        </HBox>
 
-    <HBox alignment="CENTER" layoutX="4.0" layoutY="289.0" prefHeight="65.0" prefWidth="75.0">
-        <padding>
-            <Insets left="8.0" right="12.0"/>
-        </padding>
-        <Button fx:id="viewStatsButton" onAction="#handleViewStatsClick">
-            <graphic>
-                <FontIcon iconLiteral="fas-chart-bar" iconSize="24" styleClass="fontawesomeicon"/>
-            </graphic>
-        </Button>
-    </HBox>
+        <!-- Settings Button -->
+        <HBox alignment="CENTER" layoutX="4.0" layoutY="224.0" prefHeight="65.0" prefWidth="75.0">
+            <padding>
+                <Insets left="8.0" right="12.0"/>
+            </padding>
+            <Button fx:id="settingsButton" styleClass="icon-button" onAction="#handleSettingsClick">
+                <graphic>
+                    <FontIcon iconLiteral="fas-cogs" iconSize="24" styleClass="fontawesomeicon"/>
+                </graphic>
+            </Button>
+        </HBox>
 
-    <HBox alignment="CENTER" layoutX="4.0" layoutY="450.0" prefHeight="65.0" prefWidth="75.0">
-        <padding>
-            <Insets left="8.0" right="12.0"/>
-        </padding>
-        <Button fx:id="signOutButton" styleClass="icon-button" onAction="#handleSignOutClick">
-            <graphic>
-                <FontIcon iconLiteral="fas-sign-out-alt" iconSize="24" styleClass="fontawesomeicon"/>
-            </graphic>
-        </Button>
-    </HBox>
-   <VBox layoutX="74" layoutY="0.0" prefHeight="75" prefWidth="705.0" alignment="CENTER" styleClass = "top-border">
+        <!-- Charts Button -->
+        <HBox alignment="CENTER" layoutX="4.0" layoutY="289.0" prefHeight="65.0" prefWidth="75.0">
+            <padding>
+                <Insets left="8.0" right="12.0"/>
+            </padding>
+            <Button fx:id="viewStatsButton" onAction="#handleViewStatsClick">
+                <graphic>
+                    <FontIcon iconLiteral="fas-chart-bar" iconSize="24" styleClass="fontawesomeicon"/>
+                </graphic>
+            </Button>
+        </HBox>
 
-      <Text layoutX="277.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent">
-
-         <font>
-            <Font size="24.0"/>
-         </font>
-      </Text>
-   </VBox>
-
-
-
-   <Button fx:id = "backButton" layoutX="100.0" layoutY="9.0" mnemonicParsing="false" text="Back" onAction="#onBackClick"/>
-   <ImageView fitHeight="70.0" fitWidth="85.0" layoutX="108.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@images/Profile Icon.jpg"/>
-   </ImageView>
-   <ImageView fitHeight="70.0" fitWidth="85.0" layoutX="108.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@images/Profile Icon.jpg"/>
-   </ImageView>
-   <ImageView fitHeight="70.0" fitWidth="85.0" layoutX="108.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@images/Profile Icon.jpg"/>
-   </ImageView>
-   <Text layoutX="203.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TENANT NAME"/>
-   <Text layoutX="203.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TENANT NAME"/>
-   <Text layoutX="203.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TENANT NAME"/>
-   <Button layoutX="562.0" layoutY="335.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="70.0" text="Save"/>
-   <Text layoutX="195.0" layoutY="135.0" text="Rent Amount"/>
-   <Text layoutX="195.0" layoutY="229.0" text="Rent Amount"/>
-   <Text layoutX="195.0" layoutY="325.0" text="Rent Amount"/>
-   <ImageView fitHeight="70.0" fitWidth="85.0" layoutX="400.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@images/Profile Icon.jpg"/>
-   </ImageView>
-   <ImageView fitHeight="70.0" fitWidth="85.0" layoutX="400.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@images/Profile Icon.jpg"/>
-   </ImageView>
-   <Text layoutX="495.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TENANT NAME"/>
-   <Text layoutX="495.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TENANT NAME"/>
-   <Text layoutX="487.0" layoutY="147.0" text="Rent Amount"/>
-   <Text layoutX="487.0" layoutY="241.0" text="Rent Amount"/>
+        <!-- Sign Out Button -->
+        <HBox alignment="CENTER" layoutX="4.0" layoutY="450.0" prefHeight="65.0" prefWidth="75.0">
+            <padding>
+                <Insets left="8.0" right="12.0"/>
+            </padding>
+            <Button fx:id="signOutButton" styleClass="icon-button" onAction="#handleSignOutClick">
+                <graphic>
+                    <FontIcon iconLiteral="fas-sign-out-alt" iconSize="24" styleClass="fontawesomeicon"/>
+                </graphic>
+            </Button>
+        </HBox>
     </Pane>
+
+    <ImageView fitHeight="70.0" fitWidth="85.0" layoutX="108.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/ProfileIcon.jpg"/>
+    </ImageView>
+    <ImageView fitHeight="70.0" fitWidth="85.0" layoutX="108.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/ProfileIcon.jpg"/>
+    </ImageView>
+    <ImageView fitHeight="70.0" fitWidth="85.0" layoutX="108.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/ProfileIcon.jpg"/>
+    </ImageView>
+    <Text layoutX="203.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TENANT NAME"/>
+    <Text layoutX="203.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TENANT NAME"/>
+    <Text layoutX="203.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TENANT NAME"/>
+    <Text layoutX="195.0" layoutY="135.0" text="Rent Amount"/>
+    <Text layoutX="195.0" layoutY="229.0" text="Rent Amount"/>
+    <Text layoutX="195.0" layoutY="325.0" text="Rent Amount"/>
+
+    <ImageView fitHeight="70.0" fitWidth="85.0" layoutX="400.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/ProfileIcon.jpg"/>
+    </ImageView>
+    <ImageView fitHeight="70.0" fitWidth="85.0" layoutX="400.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/ProfileIcon.jpg"/>
+    </ImageView>
+    <Text layoutX="495.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TENANT NAME"/>
+    <Text layoutX="495.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TENANT NAME"/>
+    <Text layoutX="487.0" layoutY="147.0" text="Rent Amount"/>
+    <Text layoutX="487.0" layoutY="241.0" text="Rent Amount"/>
+
+    <Button layoutX="562.0" layoutY="335.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="70.0" text="Save"/>
 
 </AnchorPane>

@@ -133,8 +133,8 @@ public class DatabaseControl<T> {
                 owner.setId(id);
                 return owner;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
         return null;
     }
@@ -165,8 +165,8 @@ public class DatabaseControl<T> {
                 tenant.setId(id);
                 tenants.add(tenant);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
 
         return tenants;
@@ -192,8 +192,8 @@ public class DatabaseControl<T> {
                 tenant.setId(id);
                 tenants.add(tenant);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
 
         return tenants;
