@@ -6,6 +6,10 @@ import java.sql.ResultSet;
 
 /**
  * UtilitiesDAO for database utilities data
+ *
+ * @author Steven Hujbert
+ * @version 1
+ *
  */
 public class UtilitiesDAO {
     private Connection connection;

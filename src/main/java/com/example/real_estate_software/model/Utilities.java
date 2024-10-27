@@ -2,6 +2,10 @@ package com.example.real_estate_software.model;
 
 /**
  * The Utilities class is used to create and manage objects representing utilities
+ *
+ * @author Harrison Mega, Steven Hujbert
+ * @version 1.1
+ *
  */
 public class Utilities {
     private int id;
