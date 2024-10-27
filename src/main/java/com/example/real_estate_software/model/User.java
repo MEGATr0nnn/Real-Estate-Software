@@ -2,6 +2,10 @@ package com.example.real_estate_software.model;
 
 /**
  * Abstract class that contains fields that are shared by other Users
+ *
+ * @author Harrison Mega, Steven Hujbert
+ * @version 1
+ *
  */
 public abstract class User implements IUser {
     private int id;
