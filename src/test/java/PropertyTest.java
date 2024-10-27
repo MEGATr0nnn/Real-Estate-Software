@@ -22,7 +22,7 @@ public class PropertyTest {
     }
 
     /**
-     Just quick tests to see if the getAll sets work
+     Simple test to see if the getAll sets work
      **/
     @Test
     public void testSetNumBeds(){
@@ -30,6 +30,9 @@ public class PropertyTest {
         assertEquals(3, property.getNum_Beds());
     }
 
+    /**
+     Simple test to see if the getAll sets work
+     **/
     @Test
     public void testSetNumBaths(){
         property.setNum_Baths(10);
