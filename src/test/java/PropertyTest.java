@@ -6,70 +6,84 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PropertyTest {
     private Property property;
     private Property property2;
-    private Property property3;
 
     @BeforeEach
     public void setUp(){
-        property = new Property("123 wallaby way", 2, 1, 2, 0, false);
-        property2 = new Property("123 constitution way", 2, 1, 2, 2, true);
-        property3 = new Property("123 constitution way", 3, 2, 1, 2, true);
+        property = new Property("123 wallaby way", 2, 2, 2, 2, true);
+        property2 = new Property("123 constitution way", 0, 0, 0, 0, false);
     }
 
     @Test
-    public void testGetAddress(){
+    public void testID() {
+        property.setId(1);
+        assertEquals(1, property.getId());
+    }
+
+    @Test
+    public void testAddress(){
         property.setAddress("spongebob");
         assertEquals("spongebob", property.getAddress());
     }
 
-    /**
-     Just quick tests to see if the getAll sets work
-     **/
     @Test
-    public void testSetNumBeds(){
-        property.setNum_Beds(3);
-        assertEquals(3, property.getNum_Beds());
+    public void testGetNumTenants() {
+        assertEquals(2, property.getNum_Tenants());
     }
 
     @Test
-    public void testSetNumBaths(){
-        property.setNum_Baths(10);
-        assertEquals(10, property.getNum_Baths());
+    public void testSetNumTenants() {
+        property2.setNum_Tenants(1);
+        assertEquals(1, property2.getNum_Tenants());
     }
 
-    /**
-     * Test to check if the address provided by the user has a house number associated with the address
-     * If address has property number, then test will pass
-     */
     @Test
-    public void testPropertyNumber(){
-        boolean containsNumber = false;
-
-        for (int i = 0; i < property.getAddress().length(); i++){
-            if (Character.isDigit(property.getAddress().charAt(i))){
-                containsNumber = true;
-            }
-        }
-
-        if (containsNumber){
-            assertTrue(containsNumber, "Address provided must have a property number");
-        }
+    public void testNumBeds(){
+        property2.setNum_Beds(3);
+        assertEquals(3, property2.getNum_Beds());
     }
 
-    /**
-     * Test to check whether the inputted property has at least one bed to rent out to a potential tenant
-     * If the property has less than 1 Bedroom (0 Bedrooms) then test will fail.
-     */
     @Test
-    public void testBedroomNumber(){
-        assertTrue(property.getNum_Beds() >= 1, "Property must have at least 1 Bedroom");
+    public void testNumBaths() {
+        property2.setNum_Baths(2);
+        assertEquals(2, property2.getNum_Baths());
     }
 
-    /**
-     * Test to check for duplicate addresses that are inputted into the system.
-     * If the given address already exists, the test will fail
-     */
     @Test
-    public void testDuplicateProperty(){
-        assertEquals(property2.getAddress(), property3.getAddress(), "Property already exists!");
+    public void testNumCars() {
+        property2.setNum_Cars(7);
+        assertEquals(7, property2.getNum_Cars());
     }
+
+    @Test
+    public void testGetHasTenants() {
+        assertEquals(true, property.getHas_Tenants());
+    }
+
+    @Test
+    public void testSetHasTenants() {
+        property2.setHas_Tenants(true);
+        assertEquals(true, property2.getHas_Tenants());
+    }
+
+    @Test
+    public void testGetIsSelected() {
+        assertEquals(true, property.getIs_Selected());
+    }
+
+    @Test
+    public void testSetIsSelected() {
+        property2.setIs_Selected(true);
+        assertEquals(true, property2.getIs_Selected());
+    }
+
+    @Test
+    public void testHasTenants() {
+        assertEquals(true, property.checkHas_Tenants());
+    }
+
+    @Test
+    public void testHasNoTenants() {
+        assertEquals(false, property2.checkHas_Tenants());
+    }
+
 }

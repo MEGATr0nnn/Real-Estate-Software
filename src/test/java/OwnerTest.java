@@ -13,18 +13,12 @@ public class OwnerTest {
 
     @BeforeEach
     public void setUp() {
-        owner = new Owner("Johnny", "Walker", "johnnywalker@email.com", "abcd1234");
-        owner2 = new Owner("Johnny", "Walker", "johnnywalker@email.com", "Abcd1234!");
+        owner = new Owner("Johnny", "Walker", "johnnywalker@email.com", "1Password!", true);
+        owner2 = new Owner("Jimmy", "Stalker", "jstalk.com", "abcd1234", false);
     }
 
     @Test
-    public void testGetID() {
-        owner.setId(1);
-        assertEquals(1, owner.getId());
-    }
-
-    @Test
-    public void testSetID() {
+    public void testID() {
         owner.setId(3);
         assertEquals(3, owner.getId());
     }
@@ -36,9 +30,10 @@ public class OwnerTest {
 
     @Test
     public void testSetFirstName() {
-        owner.setFirstName("Will");
-        assertEquals("Will", owner.getFirstName());
+        owner2.setFirstName("Larry");
+        assertEquals("Larry", owner2.getFirstName());
     }
+
     @Test
     public void testGetLastName() {
         assertEquals("Walker", owner.getLastName());
@@ -46,8 +41,8 @@ public class OwnerTest {
 
     @Test
     public void testSetLastName() {
-        owner.setLastName("Johns");
-        assertEquals("Johns", owner.getLastName());
+        owner2.setLastName("Johns");
+        assertEquals("Johns", owner2.getLastName());
     }
 
     @Test
@@ -57,58 +52,48 @@ public class OwnerTest {
 
     @Test
     public void testSetEmail() {
-        owner.setEmail("jwalker@email.com");
-        assertEquals("jwalker@email.com", owner.getEmail());
+        owner2.setEmail("ljohn@email.com");
+        assertEquals("ljohn@email.com", owner2.getEmail());
     }
 
     @Test
     public void testGetPassword() {
-        assertEquals("abcd1234", owner.getPassword());
+        assertEquals("1Password!", owner.getPassword());
     }
 
     @Test
     public void testSetPassword() {
-        owner.setPassword("12345678");
-        assertEquals("12345678", owner.getPassword());
+        owner2.setPassword("12345678");
+        assertEquals("12345678", owner2.getPassword());
     }
 
     @Test
     public void testGetConnection() {
-        assertTrue(owner.getSignedIn());
+        assertEquals(true, owner.getSignedIn());
     }
 
     @Test
     public void testSetConnection() {
-        owner.setSignedIn(false);
-        assertFalse(owner.getSignedIn());
+        owner2.setSignedIn(true);
+        assertEquals(true, owner2.getSignedIn());
     }
 
-    /**
-     * Test to check if there is already an account associated with the given email address
-     */
     @Test
-    public void testDuplicateAccounts(){
-        if (owner.getEmail().equals(owner2.getEmail())){
-            assertFalse(false, "Account already exists with this email address!");
-        }
+    public void testValidEmailAddress(){
+        assertTrue(owner.checkValidEmail());
     }
 
-    /**
-     * Test to determine whether the email address given is valid
-     * Checked parameter with the '@' character
-     */
     @Test
     public void testInvalidEmailAddress(){
-        assertTrue(owner.checkValidEmail(), "Email address must contain '@' and '.com'");
+        assertFalse(owner2.checkValidEmail());
     }
-
 
     /**
      * Test to determine if password inputted has a capitalised character
      */
     @Test
     public void testPasswordCapital(){
-        assertTrue(owner2.checkCapitalPassword(), "Password must have at least one capital letter!");
+        assertTrue(owner.checkCapitalPassword());
     }
 
     /**
@@ -116,7 +101,7 @@ public class OwnerTest {
      */
     @Test
     public void testPasswordNumber(){
-        assertTrue(owner.checkNumberPassowrd(), "Password must have at least one number!");
+        assertTrue(owner.checkNumberPassowrd());
     }
 
     /**
@@ -124,7 +109,7 @@ public class OwnerTest {
      */
     @Test
     public void testPasswordLength(){
-        assertTrue(owner.checkLengthPassword(), "Password must be at least 8 characters long!");
+        assertTrue(owner.checkLengthPassword());
     }
 
     /**
@@ -132,7 +117,6 @@ public class OwnerTest {
      */
     @Test
     public void testPasswordUnique(){
-        assertTrue(owner2.checkUniqueCharacterPassword(), "Password must contain at least one special character!");
+        assertTrue(owner.checkUniqueCharacterPassword());
     }
 }
-

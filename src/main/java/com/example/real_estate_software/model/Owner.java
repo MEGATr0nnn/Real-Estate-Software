@@ -74,10 +74,6 @@ public class Owner extends User{
         this.signedIn = signedIn;
     }
 
-    public boolean checkValidEmail() {
-        return this.getEmail().contains("@") && this.getEmail().contains(".com");
-    }
-
     public boolean checkCapitalPassword() {
         for (int i = 0; i < this.getPassword().length(); i++) {
             if (Character.isUpperCase(this.getPassword().charAt(i))) {
@@ -104,7 +100,7 @@ public class Owner extends User{
         String uniqueChar = ".*[!@#$%^&*()_+{}|:;<>?,./`~]*.";
 
         for (int i = 0; i < this.getPassword().length(); i++){
-            for (int j = 0; j < uniqueChar.length(); j++){
+            for (int j = 1; j < uniqueChar.length(); j++){
                 char c = this.getPassword().charAt(i);
                 if (c == uniqueChar.charAt(j)){
                     return true;
