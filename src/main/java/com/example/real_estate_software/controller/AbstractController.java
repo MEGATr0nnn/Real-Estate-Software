@@ -27,11 +27,13 @@ public abstract class AbstractController {
     private OwnerDAO ownerDAO;
     private PropertyDAO propertyDAO;
     private TenantDAO tenantDAO;
+    private UtilitiesDAO utilitiesDAO;
 
     public AbstractController() {
         ownerDAO = new OwnerDAO();
         propertyDAO = new PropertyDAO();
         tenantDAO = new TenantDAO();
+        utilitiesDAO = new UtilitiesDAO();
     }
 
     /**
@@ -123,6 +125,10 @@ public abstract class AbstractController {
 
     public TenantDAO getTenantDAO() {
         return tenantDAO;
+    }
+
+    public UtilitiesDAO getUtilitiesDAO() {
+        return utilitiesDAO;
     }
 
     /**

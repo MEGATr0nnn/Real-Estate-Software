@@ -110,10 +110,6 @@
     <Text layoutX="150" layoutY="325" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent" />
     <TextField fx:id="rentField" layoutX="250" layoutY="310" prefWidth="200"/>
 
-    <!-- Utilities Label and TextField -->
-    <Text layoutX="150" layoutY="365" strokeType="OUTSIDE" strokeWidth="0.0" text="Utilities" />
-    <TextField fx:id="utilitiesField" layoutX="250" layoutY="350" prefWidth="200"/>
-
     <Button fx:id="addPropertyButton"  layoutX="300.0" layoutY="420.0" mnemonicParsing="false"  text="Add Property" onAction="#onAddPropertyClick"/>
 
 </AnchorPane>

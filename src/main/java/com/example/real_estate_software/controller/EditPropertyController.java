@@ -23,8 +23,6 @@ public class EditPropertyController extends AbstractController {
     private TextField carsField;
     @FXML
     private TextField rentField;
-    @FXML
-    private TextField utilitiesField;
 
     public EditPropertyController() {
         super();
@@ -48,7 +46,6 @@ public class EditPropertyController extends AbstractController {
             selectedProperty.setNum_Baths(Integer.parseInt(bathsField.getText()));
             selectedProperty.setNum_Cars(Integer.parseInt(carsField.getText()));
             selectedProperty.setRent(Integer.parseInt(rentField.getText()));
-            selectedProperty.setUtilities(Integer.parseInt(utilitiesField.getText()));
             selectedProperty.setHas_Tenants(selectedProperty.checkHas_Tenants());
             getPropertyDAO().update_Property(selectedProperty);
             displayProperties();
@@ -119,7 +116,6 @@ public class EditPropertyController extends AbstractController {
         bathsField.setText(String.valueOf(property.getNum_Baths()));
         carsField.setText(String.valueOf(property.getNum_Cars()));
         rentField.setText(String.valueOf(property.getRent()));
-        utilitiesField.setText(String.valueOf(property.getUtilities()));
     }
 
     /**
@@ -131,7 +127,6 @@ public class EditPropertyController extends AbstractController {
         bathsField.clear();
         carsField.clear();
         rentField.clear();
-        utilitiesField.clear();
     }
 
     /**
@@ -144,8 +139,7 @@ public class EditPropertyController extends AbstractController {
         boolean emptyBaths = bathsField.getText().trim().isEmpty();
         boolean emptyCars = carsField.getText().trim().isEmpty();
         boolean emptyRent = rentField.getText().trim().isEmpty();
-        boolean emptyUtilities = utilitiesField.getText().trim().isEmpty();
-        return emptyAddress || emptyBeds || emptyBaths || emptyCars || emptyRent || emptyUtilities;
+        return emptyAddress || emptyBeds || emptyBaths || emptyCars || emptyRent;
     }
 
 }

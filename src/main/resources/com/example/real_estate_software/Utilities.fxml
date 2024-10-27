@@ -104,7 +104,7 @@
             <ImageView fitHeight="90.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@images/water.png"/>
             </ImageView>
-            <TextField promptText="Amount"/>
+            <TextField fx:id="waterTextField" promptText="Amount"/>
             <Button fx:id="addWater" mnemonicParsing="false" text="Add Water Bill" onAction="#onWaterClick"/>
         </VBox>
 
@@ -113,7 +113,7 @@
             <ImageView fitHeight="116.0" fitWidth="210.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@images/electricity.png"/>
             </ImageView>
-            <TextField promptText="Amount"/>
+            <TextField fx:id="electricTextField" promptText="Amount"/>
             <Button fx:id="addElectricity" mnemonicParsing="false" text="Add Electricity Bill" onAction="#onElectricityClick"/>
         </VBox>
 
@@ -122,7 +122,7 @@
             <ImageView fitHeight="99.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@images/gas.png"/>
             </ImageView>
-            <TextField promptText="Amount"/>
+            <TextField fx:id="gasTextField" promptText="Amount"/>
             <Button fx:id="addGas" mnemonicParsing="false" text="Add Gas Bill" onAction="#onGasClick"/>
         </VBox>
     </HBox>

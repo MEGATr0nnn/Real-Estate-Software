@@ -2,6 +2,7 @@ package com.example.real_estate_software.controller;
 
 import com.example.real_estate_software.model.Owner;
 import com.example.real_estate_software.model.Property;
+import com.example.real_estate_software.model.Utilities;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -19,8 +20,6 @@ public class AddPropertyController extends AbstractController {
     private TextField carsField;
     @FXML
     private TextField rentField;
-    @FXML
-    private TextField utilitiesField;
 
     public AddPropertyController() {
         super();
@@ -48,8 +47,9 @@ public class AddPropertyController extends AbstractController {
         int baths = Integer.parseInt(bathsField.getText());
         int cars = Integer.parseInt(carsField.getText());
         int rent = Integer.parseInt(rentField.getText());
-        int utilities = Integer.parseInt(utilitiesField.getText());
-        getPropertyDAO().insert_New_Property(new Property(address, beds, baths, cars, rent, utilities), currentOwner);
+        Property newProperty = new Property(address, beds, baths, cars, rent);
+        getPropertyDAO().insert_New_Property(newProperty, currentOwner);
+        getUtilitiesDAO().addUtilities(new Utilities(0,0,0), newProperty);
     }
 
     /**
@@ -61,7 +61,6 @@ public class AddPropertyController extends AbstractController {
         bathsField.clear();
         carsField.clear();
         rentField.clear();
-        utilitiesField.clear();
     }
 
     /**
@@ -74,8 +73,7 @@ public class AddPropertyController extends AbstractController {
         boolean emptyBaths = bathsField.getText().trim().isEmpty();
         boolean emptyCars = carsField.getText().trim().isEmpty();
         boolean emptyRent = rentField.getText().trim().isEmpty();
-        boolean emptyUtilities = utilitiesField.getText().trim().isEmpty();
-        return emptyAddress || emptyBeds || emptyBaths || emptyCars || emptyRent || emptyUtilities;
+        return emptyAddress || emptyBeds || emptyBaths || emptyCars || emptyRent;
     }
 
 }

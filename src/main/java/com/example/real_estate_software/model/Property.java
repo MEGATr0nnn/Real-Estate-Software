@@ -18,7 +18,6 @@ public class Property {
     private int num_Baths;
     private int num_Cars;
     private int rent;
-    private int utilities;
     private boolean has_Tenants;
     private boolean is_Selected;
 
@@ -30,16 +29,14 @@ public class Property {
      * @param num_Baths Number of bathrooms in the property
      * @param num_Cars Number of car spaces available
      * @param rent Monthly rent amount
-     * @param utilities Utility costs
      */
-    public Property(String address, int num_Beds, int num_Baths, int num_Cars, int rent, int utilities){
+    public Property(String address, int num_Beds, int num_Baths, int num_Cars, int rent){
         this.address = address;
         num_Tenants = 0;
         this.num_Beds = num_Beds;
         this.num_Baths = num_Baths;
         this.num_Cars = num_Cars;
         this.rent = rent;
-        this.utilities = utilities;
         has_Tenants = checkHas_Tenants();
         is_Selected = false;
     }
@@ -53,17 +50,15 @@ public class Property {
      * @param num_Baths Number of bathrooms in the property
      * @param num_Cars Number of car spaces available
      * @param rent Monthly rent amount
-     * @param utilities Utility costs
      * @param is_Selected Indicates if the property is selected
      */
-    public Property(String address, int num_Tenants, int num_Beds, int num_Baths, int num_Cars, int rent, int utilities, boolean is_Selected){
+    public Property(String address, int num_Tenants, int num_Beds, int num_Baths, int num_Cars, int rent, boolean is_Selected){
         this.address = address;
         this.num_Tenants = num_Tenants;
         this.num_Beds = num_Beds;
         this.num_Baths = num_Baths;
         this.num_Cars = num_Cars;
         this.rent = rent;
-        this.utilities = utilities;
         has_Tenants = checkHas_Tenants();
         this.is_Selected = is_Selected;
     }
@@ -89,9 +84,6 @@ public class Property {
 
     public int getRent() {return rent;}
     public void setRent(int rent) {this.rent = rent;}
-
-    public int getUtilities() {return utilities;}
-    public void setUtilities(int utilities) {this.utilities = utilities;}
 
     public boolean getHas_Tenants() {return has_Tenants;}
     public void setHas_Tenants(boolean has_Tenants) {this.has_Tenants = has_Tenants;}
