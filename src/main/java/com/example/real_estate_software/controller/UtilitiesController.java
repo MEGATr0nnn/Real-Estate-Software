@@ -1,11 +1,12 @@
 package com.example.real_estate_software.controller;
 
 import com.example.real_estate_software.HelloApplication;
-import javafx.event.ActionEvent;
+import com.example.real_estate_software.model.Utilities;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
@@ -17,14 +18,26 @@ public class UtilitiesController extends AbstractController {
     @FXML
     private Button backButton;
     @FXML
+    private Button addWater;
+    @FXML
+    private TextField waterTextField;
+    @FXML
     private Button addElectricity;
+    @FXML
+    private TextField electricTextField;
     @FXML
     private Button addGas;
     @FXML
-    private Button addWater;
+    private TextField gasTextField;
+
 
     public UtilitiesController() {
         super();
+    }
+
+    @FXML
+    public void initialize() {
+        displayUtil();
     }
 
     /**
@@ -41,16 +54,43 @@ public class UtilitiesController extends AbstractController {
         stage.show();
     }
 
-    public void onGasClick(ActionEvent actionEvent) {
-        //Add functionality here for when the GAS button is pressed, the data gets saved and uploaded to DB
+    public void onWaterClick() {
+        if(!waterTextField.getText().trim().isEmpty()) {
+            editUtil();
+        }
     }
 
-    public void onWaterClick(ActionEvent actionEvent) {
-        //Add functionality here for when the WATER button is pressed, the data gets saved and uploaded to DB
+    public void onElectricityClick() {
+        if(!electricTextField.getText().trim().isEmpty()) {
+            editUtil();
+        }
     }
 
-    public void onElectricityClick(ActionEvent actionEvent) {
-        //Add functionality here for when the ELECTRICITY button is pressed, the data gets saved and uploaded to DB
+    public void onGasClick() {
+        if(!gasTextField.getText().trim().isEmpty()) {
+            editUtil();
+        }
+    }
+
+    /**
+     * Used to edit Utilities information for the database
+     */
+    private void editUtil() {
+        Utilities currentUtil = getUtilitiesDAO().getUtilities(getPropertyDAO().get_Property(true));
+        currentUtil.setWaterUtilities(Integer.parseInt(waterTextField.getText()));
+        currentUtil.setElectricityUtilities(Integer.parseInt(electricTextField.getText()));
+        currentUtil.setGasUtilities(Integer.parseInt(gasTextField.getText()));
+        getUtilitiesDAO().updateUtilities(currentUtil, getPropertyDAO().get_Property(true));
+    }
+
+    /**
+     * Used to display Utilities information on screen
+     */
+    private void displayUtil() {
+        Utilities currentUtil = getUtilitiesDAO().getUtilities(getPropertyDAO().get_Property(true));
+        waterTextField.setText(String.valueOf(currentUtil.getWaterUtilities()));
+        electricTextField.setText(String.valueOf(currentUtil.getElectricityUtilities()));
+        gasTextField.setText(String.valueOf(currentUtil.getGasUtilities()));
     }
 
 }

@@ -67,29 +67,26 @@ public class PropertyDashboardController extends AbstractController {
 
 
     private int calculateTotalRentalIncome(Property property) {
-        return property.getNum_Tenants() * property.getRent();
+        return getTenantDAO().getAllType(property).size() * property.getRent();
     }
 
     private int calculateVacantRooms(Property property) {
-        return property.getNum_Beds() - property.getNum_Tenants();
-    }
-
-    private int calculateBondAmount(Property property) {
-        return property.getRent() * 4;
+        return property.getNum_Beds() - getTenantDAO().getAllType(property).size();
     }
 
     private int calculatePropertyValuation(Property property) {
         return property.getRent() * 52 * 10;
     }
 
-    //NEEDS TO BE IMPLEMENTED ONCE DAO IS DONE
-    private int getElectricityBill(Property property) {return 0;}
+    private int getWaterBill(Property property) {return getUtilitiesDAO().getUtilities(property).getWaterUtilities();}
 
-    //NEEDS TO BE IMPLEMENTED ONCE DAO IS DONE
-    private int getWaterBill(Property property) {return 0;}
+    private int getElectricityBill(Property property) {return getUtilitiesDAO().getUtilities(property).getElectricityUtilities();}
 
-    //NEEDS TO BE IMPLEMENTED ONCE DAO IS DONE
-    private int getGasBill(Property property) {return 0;}
+    private int getGasBill(Property property) {return getUtilitiesDAO().getUtilities(property).getGasUtilities();}
+
+    private int calculateBondAmount(Property property) {
+        return property.getRent() * 4;
+    }
 
     /**
      * Button action for when the owner wants to add a new tenant to the associated property
