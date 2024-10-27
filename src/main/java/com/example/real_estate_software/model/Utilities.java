@@ -2,6 +2,10 @@ package com.example.real_estate_software.model;
 
 /**
  * The Utilities class is used to create and manage objects representing utilities
+ *
+ * @author Harrison Mega, Steven Hujbert
+ * @version 1.1
+ *
  */
 public class Utilities {
     private int id;
@@ -12,9 +16,9 @@ public class Utilities {
 
     /**
      * Constructor to create a new Utilities object
-     * @param waterUtilities
-     * @param electricityUtilities
-     * @param gasUtilities
+     * @param waterUtilities Water
+     * @param electricityUtilities Electricity
+     * @param gasUtilities Gas
      */
     public Utilities(int waterUtilities, int electricityUtilities, int gasUtilities) {
         this.waterUtilities = waterUtilities;
