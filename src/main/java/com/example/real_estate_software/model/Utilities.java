@@ -12,9 +12,9 @@ public class Utilities {
 
     /**
      * Constructor to create a new Utilities object
-     * @param waterUtilities
-     * @param electricityUtilities
-     * @param gasUtilities
+     * @param waterUtilities Water
+     * @param electricityUtilities Electricity
+     * @param gasUtilities Gas
      */
     public Utilities(int waterUtilities, int electricityUtilities, int gasUtilities) {
         this.waterUtilities = waterUtilities;
