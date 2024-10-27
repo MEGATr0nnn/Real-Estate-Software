@@ -1,7 +1,7 @@
 package com.example.real_estate_software.model;
 
 /**
- * Abstract class that contains fields that are shared by other Users
+ * Abstract class that contains fields that are shared by other Objects of type User (ie: Owners, Tenants)
  *
  * @author Harrison Mega, Steven Hujbert
  * @version 1
@@ -13,7 +13,14 @@ public abstract class User implements IUser {
     private String lastName;
     private String email;
 
-
+    /**
+     * User constructor
+     *
+     * @param firstName Users First Name
+     * @param lastName Users Last Name
+     * @param  email Users Email
+     *
+     * */
     public User(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
