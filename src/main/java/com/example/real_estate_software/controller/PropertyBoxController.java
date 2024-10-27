@@ -13,7 +13,9 @@ public class PropertyBoxController {
     private Label tenantLabel;
     @FXML
     private Label rentLabel;
-
+    /**
+    used to create the property boxes and populate them with the relevant information
+     */
     public void setPropertyData(Property property) {
         propertyAddressLabel.setText(property.getAddress());
         numRoomsLabel.setText(String.valueOf(property.getNum_Beds()));

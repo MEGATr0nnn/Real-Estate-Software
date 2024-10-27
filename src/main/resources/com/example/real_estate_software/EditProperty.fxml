@@ -87,6 +87,7 @@
             </Button>
         </HBox>
     </Pane>
+<!-- the box containing the fields with account information and the buttons to edit ot delete -->
 
     <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#add8ffa2" height="300.0" layoutX="144.0" layoutY="109.0" stroke="BLACK" strokeType="INSIDE" width="500.0" />
     <ListView fx:id="propertyListView" layoutX="154.0" layoutY="119.0" maxHeight="250" maxWidth="200"/>

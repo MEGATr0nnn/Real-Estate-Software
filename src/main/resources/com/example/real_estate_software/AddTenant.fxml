@@ -98,6 +98,7 @@
             </Button>
         </HBox>
     </Pane>
+<!-- text fields to inout tenant information and button to confirm details -->
 
     <TextField fx:id="firstNameField" layoutX="120.0" layoutY="140.0" promptText="First Name"/>
     <TextField fx:id="lastNameField" layoutX="120.0" layoutY="180.0" promptText="Last Name"/>

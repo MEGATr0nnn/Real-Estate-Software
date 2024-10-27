@@ -1,3 +1,4 @@
+<!-- layout for each property box added to the property dashboard -->
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_software.controller.PropertyBoxController">
     <Label fx:id="propertyAddressLabel" layoutX="10" layoutY="10" text="Property Address"/>

@@ -10,7 +10,7 @@
 <?import javafx.scene.control.Button?>
 
 <ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_software.controller.ChartController" fitToWidth="true" prefHeight="600.0" prefWidth="800.0">
-
+<!-- pulls the various charts after they have been calculated based on property information -->
     <VBox spacing="20" alignment="CENTER">
 
         <HBox spacing="20">

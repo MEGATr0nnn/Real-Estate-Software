@@ -15,6 +15,8 @@
         </font>
     </Text>
 
+    <!-- text and fields to input account creation informaton -->
+
     <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#add8ffa2" height="300.0" layoutX="44.0" layoutY="68.0" stroke="BLACK" strokeType="INSIDE" width="500.0" />
 
     <Text layoutX="120.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
@@ -26,6 +28,7 @@
     <Text layoutX="120.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
     <TextField fx:id="passwordField" layoutX="345.0" layoutY="230.0" />
 
+    <!-- back and create account button-->
     <Button fx:id="backButton" layoutX="200.0" layoutY="290.0" mnemonicParsing="false" text="Go Back" onAction="#onBackClick"/>
     <Button fx:id="createAccountButton" layoutX="300.0" layoutY="290.0" mnemonicParsing="false" text="Create New Account" onAction="#onCreateAccountClick"/>
 

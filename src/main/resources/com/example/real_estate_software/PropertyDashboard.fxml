@@ -85,7 +85,7 @@
          </Button>
       </HBox>
    </Pane>
-
+<!-- the buttons and the relevant property infmation to be populated onto the dashboard -->
    <Button fx:id="addTenant" layoutX="550.0" layoutY="190.0" mnemonicParsing="false" text="Add Tenant" onAction="#onTenantClick"/>
    <Button fx:id="removeTenant" layoutX="550.0" layoutY="230.0" mnemonicParsing="false" text="Remove Tenant" onAction="#onRemoveTenantClick"/>
    <Button fx:id="assignRent" layoutX="550.0" layoutY="270.0" mnemonicParsing="false" text="Assign Rent" onAction="#onRentClick"/>
