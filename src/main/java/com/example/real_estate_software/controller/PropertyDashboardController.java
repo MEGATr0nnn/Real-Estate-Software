@@ -2,6 +2,7 @@ package com.example.real_estate_software.controller;
 
 import com.example.real_estate_software.HelloApplication;
 import com.example.real_estate_software.model.Property;
+import com.example.real_estate_software.model.Tenant;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -67,7 +68,11 @@ public class PropertyDashboardController extends AbstractController {
 
 
     private int calculateTotalRentalIncome(Property property) {
-        return getTenantDAO().getAllType(property).size() * property.getRent();
+        int totalRent = 0;
+        for (Tenant tenant : getTenantDAO().getAllType(property)) {
+            totalRent += tenant.getRentOwed();
+        }
+        return totalRent;
     }
 
     private int calculateVacantRooms(Property property) {
@@ -75,7 +80,12 @@ public class PropertyDashboardController extends AbstractController {
     }
 
     private int calculatePropertyValuation(Property property) {
-        return property.getRent() * 52 * 10;
+        int totalRent = 0;
+        for (Tenant tenant : getTenantDAO().getAllType(property)) {
+            totalRent += tenant.getRentOwed();
+        }
+
+        return totalRent * 52 * 10;
     }
 
     private int getWaterBill(Property property) {return getUtilitiesDAO().getUtilities(property).getWaterUtilities();}
@@ -85,7 +95,12 @@ public class PropertyDashboardController extends AbstractController {
     private int getGasBill(Property property) {return getUtilitiesDAO().getUtilities(property).getGasUtilities();}
 
     private int calculateBondAmount(Property property) {
-        return property.getRent() * 4;
+        int totalRent = 0;
+        for (Tenant tenant : getTenantDAO().getAllType(property)) {
+            totalRent += tenant.getRentOwed();
+        }
+
+        return totalRent * 4;
     }
 
     /**

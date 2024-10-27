@@ -100,8 +100,6 @@
     <TextField fx:id="bathsField" layoutX="480.0" layoutY="210.0" />
     <Text layoutX="390.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cars" />
     <TextField fx:id="carsField" layoutX="480.0" layoutY="250.0" />
-    <Text layoutX="390.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent" />
-    <TextField fx:id="rentField" layoutX="480.0" layoutY="290.0" />
 
     <Button layoutX="300.0" layoutY="378.0" mnemonicParsing="false"  text="Edit Property" onAction="#onEditClick"/>
     <Button layoutX="400.0" layoutY="378.0" mnemonicParsing="false"  text="Delete Property" onAction="#onDeleteClick"/>

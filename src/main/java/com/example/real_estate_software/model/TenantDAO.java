@@ -26,6 +26,7 @@ public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
                 + "lastName VARCHAR NOT NULL,"
                 + "email VARCHAR NOT NULL,"
                 + "phoneNumber VARCHAR NOT NULL,"
+                + "rentOwed INTEGER NOT NULL,"
                 + "assignedToProp BOOLEAN NOT NULL,"
                 + "FOREIGN KEY (propertyId) REFERENCES properties(id)"
                 + ")";
@@ -34,13 +35,14 @@ public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
 
     @Override
     public void insertNew(Tenant tenant, Property property) {
-        String query = "INSERT INTO tenants (propertyId, firstName, lastName, email, phoneNumber, assignedToProp) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO tenants (propertyId, firstName, lastName, email, phoneNumber, rentOwed, assignedToProp) VALUES (?, ?, ?, ?, ?, ?, ?)";
         Object[] params = {
                 property.getId(),
                 tenant.getFirstName(),
                 tenant.getLastName(),
                 tenant.getEmail(),
                 tenant.getPhoneNumber(),
+                tenant.getRentOwed(),
                 tenant.getAssignedToProp()
         };
         tenant.setId(connect.executeQuery(query, params));
@@ -57,12 +59,13 @@ public class TenantDAO implements IUserDAODoubleGeneric<Tenant, Property>{
 
     @Override
     public void update(Tenant tenant) {
-        String query = "UPDATE tenants SET firstName = ?, lastName = ?, email = ?, phoneNumber = ?, assignedToProp = ? WHERE id = ?";
+        String query = "UPDATE tenants SET firstName = ?, lastName = ?, email = ?, phoneNumber = ?, rentOwed = ?, assignedToProp = ? WHERE id = ?";
         Object[] params = {
                 tenant.getFirstName(),
                 tenant.getLastName(),
                 tenant.getEmail(),
                 tenant.getPhoneNumber(),
+                tenant.getRentOwed(),
                 tenant.getAssignedToProp(),
                 tenant.getId()
         };

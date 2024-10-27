@@ -10,9 +10,9 @@ public class PropertyTest {
 
     @BeforeEach
     public void setUp(){
-        property = new Property("123 wallaby way", 2, 1, 2, 0, 0, 200, false);
-        property2 = new Property("123 constitution way", 2, 1, 2, 100, 2, 200, true);
-        property3 = new Property("123 constitution way", 3, 2, 1, 50, 2, 400, true);
+        property = new Property("123 wallaby way", 2, 1, 2, 0, false);
+        property2 = new Property("123 constitution way", 2, 1, 2, 2, true);
+        property3 = new Property("123 constitution way", 3, 2, 1, 2, true);
     }
 
     @Test

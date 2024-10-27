@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
  */
 public class Tenant extends User {
     private String phoneNumber;
+    private int rentOwed;
     private boolean assignedToProp;
 
     /**
@@ -25,6 +26,7 @@ public class Tenant extends User {
     public Tenant(String firstName, String lastName, String email, String phoneNumber) {
         super(firstName, lastName, email);
         this.phoneNumber = phoneNumber;
+        rentOwed = 0;
         assignedToProp = true;
     }
 
@@ -38,9 +40,10 @@ public class Tenant extends User {
      * @param assignedToProp Boolean that tracks if the Tenant has been assigned to a property in to the DB or not
      *
      */
-    public Tenant(String firstName, String lastName, String email, String phoneNumber, boolean assignedToProp) {
+    public Tenant(String firstName, String lastName, String email, String phoneNumber, int rentOwed, boolean assignedToProp) {
         super(firstName, lastName, email);
         this.phoneNumber = phoneNumber;
+        this.rentOwed = rentOwed;
         this.assignedToProp = assignedToProp;
     }
 
@@ -51,6 +54,14 @@ public class Tenant extends User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public int getRentOwed() {
+        return rentOwed;
+    }
+
+    public void setRentOwed(int rentOwed) {
+        this.rentOwed = rentOwed;
     }
 
     public boolean getAssignedToProp() {

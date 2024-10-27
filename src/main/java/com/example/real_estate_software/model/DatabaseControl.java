@@ -159,9 +159,10 @@ public class DatabaseControl<T> {
                 String lastName = resultSet.getString("lastName");
                 String email = resultSet.getString("email");
                 String phoneNumber = resultSet.getString("phoneNumber");
+                int rentOwed = resultSet.getInt("rentOwed");
                 boolean assignedToProp = resultSet.getBoolean("assignedToProp");
 
-                Tenant tenant = new Tenant(firstName, lastName, email, phoneNumber, assignedToProp);
+                Tenant tenant = new Tenant(firstName, lastName, email, phoneNumber, rentOwed, assignedToProp);
                 tenant.setId(id);
                 tenants.add(tenant);
             }
@@ -191,9 +192,10 @@ public class DatabaseControl<T> {
                 String lastName = resultSet.getString("lastName");
                 String email = resultSet.getString("email");
                 String phoneNumber = resultSet.getString("phoneNumber");
+                int rentOwed = resultSet.getInt("rentOwed");
                 boolean assignedToProp = resultSet.getBoolean("assignedToProp");
 
-                Tenant tenant = new Tenant(firstName, lastName, email, phoneNumber, assignedToProp);
+                Tenant tenant = new Tenant(firstName, lastName, email, phoneNumber, rentOwed, assignedToProp);
                 tenant.setId(id);
                 tenants.add(tenant);
             }

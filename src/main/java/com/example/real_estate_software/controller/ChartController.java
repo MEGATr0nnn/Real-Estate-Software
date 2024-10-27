@@ -1,10 +1,7 @@
 package com.example.real_estate_software.controller;
 
 import com.example.real_estate_software.HelloApplication;
-import com.example.real_estate_software.model.Owner;
-import com.example.real_estate_software.model.OwnerDAO;
-import com.example.real_estate_software.model.Property;
-import com.example.real_estate_software.model.PropertyDAO;
+import com.example.real_estate_software.model.*;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
@@ -31,10 +28,12 @@ public class ChartController {
     private Button backButton;
     private PropertyDAO propertyDAO;
     private OwnerDAO ownerDAO;
+    private TenantDAO tenantDAO;
 
     public ChartController() {
         propertyDAO = new PropertyDAO();
         ownerDAO = new OwnerDAO();
+        tenantDAO = new TenantDAO();
     }
 
     @FXML
@@ -61,11 +60,15 @@ public class ChartController {
 
         for (Property property : properties) {
             // Calculate total rent
-            int totalRent = property.getRent() * property.getNum_Tenants();
+            List<Tenant> tenants = tenantDAO.getAllType(property);
+            int totalRent = 0;
+            for (Tenant tenant : tenants) {
+                totalRent += tenant.getRentOwed();
+            }
 
             // Add data to rent and tenant series
             rentSeries.getData().add(new XYChart.Data<>(property.getAddress(), totalRent));
-            tenantSeries.getData().add(new XYChart.Data<>(property.getAddress(), property.getNum_Tenants()));
+            tenantSeries.getData().add(new XYChart.Data<>(property.getAddress(), tenantDAO.getAllType(property).size()));
         }
 
         // Add the series to the bar charts

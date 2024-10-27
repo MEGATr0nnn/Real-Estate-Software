@@ -18,8 +18,6 @@ public class AddPropertyController extends AbstractController {
     private TextField bathsField;
     @FXML
     private TextField carsField;
-    @FXML
-    private TextField rentField;
 
     public AddPropertyController() {
         super();
@@ -46,8 +44,7 @@ public class AddPropertyController extends AbstractController {
         int beds = Integer.parseInt(bedsField.getText());
         int baths = Integer.parseInt(bathsField.getText());
         int cars = Integer.parseInt(carsField.getText());
-        int rent = Integer.parseInt(rentField.getText());
-        Property newProperty = new Property(address, beds, baths, cars, rent);
+        Property newProperty = new Property(address, beds, baths, cars);
         getPropertyDAO().insert_New_Property(newProperty, currentOwner);
         getUtilitiesDAO().addUtilities(new Utilities(0,0,0), newProperty);
     }
@@ -60,7 +57,6 @@ public class AddPropertyController extends AbstractController {
         bedsField.clear();
         bathsField.clear();
         carsField.clear();
-        rentField.clear();
     }
 
     /**
@@ -72,8 +68,7 @@ public class AddPropertyController extends AbstractController {
         boolean emptyBeds = bedsField.getText().trim().isEmpty();
         boolean emptyBaths = bathsField.getText().trim().isEmpty();
         boolean emptyCars = carsField.getText().trim().isEmpty();
-        boolean emptyRent = rentField.getText().trim().isEmpty();
-        return emptyAddress || emptyBeds || emptyBaths || emptyCars || emptyRent;
+        return emptyAddress || emptyBeds || emptyBaths || emptyCars;
     }
 
 }

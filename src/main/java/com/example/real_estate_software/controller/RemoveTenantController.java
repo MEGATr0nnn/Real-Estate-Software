@@ -9,12 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.StrokeType;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
@@ -84,7 +84,7 @@ public class RemoveTenantController extends AbstractController {
     private AnchorPane createTenantBox(Tenant tenant) {
 
         AnchorPane box = new AnchorPane();
-        box.setPrefSize(208, 200);
+        box.setPrefSize(180, 190);
         box.setStyle("-fx-background-color: white;");
 
         DropShadow dropShadow = new DropShadow();
@@ -103,31 +103,31 @@ public class RemoveTenantController extends AbstractController {
         innerShadow.setColor(Color.rgb(215, 209, 209));
         innerPane.setEffect(innerShadow);
 
-        Circle iconCircle = new Circle(47.0, 44.0, 22.0);
-        iconCircle.setFill(Color.DODGERBLUE);
-        iconCircle.setStroke(Color.BLACK);
-        iconCircle.setStrokeType(StrokeType.INSIDE);
+        Image tenantImage = new Image(getClass().getResource("/com/example/real_estate_software/images/ProfileIcon.jpg").toExternalForm(), 150, 50, true, true);
+        ImageView imageView = new ImageView();
+        imageView.setImage(tenantImage);
+        imageView.setLayoutX(110);
+        imageView.setLayoutY(15);
 
-        Label nameLabel = new Label("Name: " + tenant.getFirstName() + " " + tenant.getLastName());
+        Label nameLabel = new Label( tenant.getFirstName() + " " + tenant.getLastName());
         nameLabel.setLayoutX(10);
-        nameLabel.setLayoutY(65);
+        nameLabel.setLayoutY(60);
         nameLabel.getStyleClass().add("name-label");
 
-        Label emailLabel = new Label("Email: " + tenant.getEmail());
+        Label emailLabel = new Label(tenant.getEmail());
         emailLabel.setLayoutX(10);
-        emailLabel.setLayoutY(100);
+        emailLabel.setLayoutY(90);
         emailLabel.getStyleClass().add("email-address-label");
 
-        Label phoneNumberLabel = new Label("Phone Number: " + tenant.getPhoneNumber());
+        Label phoneNumberLabel = new Label(tenant.getPhoneNumber());
         phoneNumberLabel.setLayoutX(10);
-        phoneNumberLabel.setLayoutY(130);
+        phoneNumberLabel.setLayoutY(120);
         phoneNumberLabel.getStyleClass().add("phone-number-label");
 
-        innerPane.getChildren().addAll(iconCircle);
-        box.getChildren().addAll(innerPane, nameLabel, emailLabel, phoneNumberLabel);
-
-        // Set click event to remove tenant
-        box.setOnMouseClicked(event -> {
+        Button removeButton = new Button("Remove");
+        removeButton.setLayoutX(65);
+        removeButton.setLayoutY(150);
+        removeButton.setOnMouseClicked(event -> {
             try {
                 removeTenant(tenant);
                 reloadPage();
@@ -135,6 +135,9 @@ public class RemoveTenantController extends AbstractController {
                 e.printStackTrace();
             }
         });
+
+        innerPane.getChildren().addAll(imageView);
+        box.getChildren().addAll(imageView, nameLabel, emailLabel, phoneNumberLabel, removeButton);
 
         return box;
     }

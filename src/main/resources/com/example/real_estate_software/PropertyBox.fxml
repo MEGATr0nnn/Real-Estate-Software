@@ -4,5 +4,4 @@
     <Label fx:id="propertyAddressLabel" layoutX="10" layoutY="10" text="Property Address"/>
     <Label fx:id="numRoomsLabel" layoutX="10" layoutY="40" text="No. of Rooms"/>
     <Label fx:id="tenantLabel" layoutX="10" layoutY="70" text="Main Tenant"/>
-    <Label fx:id="rentLabel" layoutX="10" layoutY="100" text="Rent"/>
 </AnchorPane>

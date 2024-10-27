@@ -3,6 +3,7 @@ package com.example.real_estate_software.controller;
 import com.example.real_estate_software.HelloApplication;
 import com.example.real_estate_software.model.Owner;
 import com.example.real_estate_software.model.Property;
+import com.example.real_estate_software.model.Tenant;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -110,7 +111,7 @@ public class MainDashboardController extends AbstractController {
 
         Label roomsLabel = new Label("No. rooms: " + property.getNum_Beds());
         roomsLabel.setLayoutX(10);
-        roomsLabel.setLayoutY(65);
+        roomsLabel.setLayoutY(70);
         roomsLabel.getStyleClass().add("no-rooms-label");
 
         Label addressLabel = new Label(property.getAddress());
@@ -122,11 +123,15 @@ public class MainDashboardController extends AbstractController {
         tenantsLabel.setLayoutX(10);
         tenantsLabel.setLayoutY(130);
 
-        Label rentLabel = new Label("Current rent: $" + property.getRent());
+        int totalRent = 0;
+        for (Tenant tenant : getTenantDAO().getAllType(property)) {
+            totalRent += tenant.getRentOwed();
+        }
+
+        Label rentLabel = new Label("Current rent: $" + totalRent);
         rentLabel.setLayoutX(10);
         rentLabel.setLayoutY(150);
         rentLabel.getStyleClass().add("rent-label");
-        rentLabel.setTextFill(Color.GREEN); // Rent text in green
 
         innerPane.getChildren().addAll(iconCircle);
 
