@@ -237,7 +237,7 @@ public class DatabaseControl<T> {
         return null;
     }
     /**
-     * Thes method returns all properties associated with the currant owner instance
+     * These method returns all properties associated with the currant owner instance
      * @param owner The current owner.
      * */
     public List<Property> executeFetchAllOwnerProperties(Owner owner) {
@@ -264,4 +264,8 @@ public class DatabaseControl<T> {
         }
         return properties;
     }
+    //============================================================================================
+    //                                          UTILITIES BLOC
+    //============================================================================================
+
 }
