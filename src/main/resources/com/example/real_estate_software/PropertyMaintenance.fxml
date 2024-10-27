@@ -93,16 +93,6 @@
         </HBox>
     </Pane>
 
-    <Text layoutX="80.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filename Uploaded:">
-        <font>
-            <Font size="18.0" />
-        </font>
-    </Text>
-    <Text layoutX="80.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File size:">
-        <font>
-            <Font size="18.0" />
-        </font>
-    </Text>
     <Text layoutX="232.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please note, only PDF Files can be uploaded">
         <font>
             <Font size="18.0" />
