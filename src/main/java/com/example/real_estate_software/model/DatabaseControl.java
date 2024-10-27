@@ -205,4 +205,32 @@ public class DatabaseControl<T> {
 
         return tenants;
     }
+
+    //============================================================================================
+    //                                          PROPERTY BLOC
+    //============================================================================================
+
+    public Property executeFetchProperty (boolean is_Selected){
+        try{
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM properties WHERE is_Selected = ?");
+            statement.setBoolean(1, is_Selected);
+            ResultSet resultSet = statement.executeQuery(); //execute the search query
+            if (resultSet.next()){ //keep returning results till null
+                int id = resultSet.getInt("id");
+                String address = resultSet.getString("address");
+                int num_Tenants = resultSet.getInt("num_Tenants");
+                int num_Beds = resultSet.getInt("num_Beds");
+                int num_Baths = resultSet.getInt("num_Baths");
+                int num_Cars = resultSet.getInt("num_Cars");
+                is_Selected = resultSet.getBoolean("is_Selected");
+                Property property = new Property(address, num_Tenants, num_Beds, num_Baths, num_Cars, is_Selected);
+                property.setId(id);
+                return property;
+            }
+        }
+        catch (Exception ex){
+            System.err.println(ex);
+        }
+        return null;
+    }
 }
