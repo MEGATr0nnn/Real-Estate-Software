@@ -209,7 +209,10 @@ public class DatabaseControl<T> {
     //============================================================================================
     //                                          PROPERTY BLOC
     //============================================================================================
-
+    /**
+     * This method returns the selected property back to the user
+     * @param is_Selected Is an SQL column that tracks if a property has been selected
+     * */
     public Property executeFetchProperty (boolean is_Selected){
         try{
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM properties WHERE is_Selected = ?");
@@ -232,5 +235,33 @@ public class DatabaseControl<T> {
             System.err.println(ex);
         }
         return null;
+    }
+    /**
+     * Thes method returns all properties associated with the currant owner instance
+     * @param owner The current owner.
+     * */
+    public List<Property> executeFetchAllOwnerProperties(Owner owner) {
+        List<Property> properties = new ArrayList<>();
+        try{
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM properties WHERE ownerId = ?");
+            statement.setInt(1, owner.getId());
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                String address = resultSet.getString("address");
+                int num_Tenants = resultSet.getInt("num_Tenants");
+                int num_Beds = resultSet.getInt("num_Beds");
+                int num_Baths = resultSet.getInt("num_Baths");
+                int num_Cars = resultSet.getInt("num_Cars");
+                boolean is_Selected = resultSet.getBoolean("is_Selected");
+                Property property = new Property(address, num_Tenants, num_Beds, num_Baths, num_Cars, is_Selected);
+                property.setId(id);
+                properties.add(property);
+            }
+        }
+        catch (Exception ex){
+            System.err.println(ex);
+        }
+        return properties;
     }
 }

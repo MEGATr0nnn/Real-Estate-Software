@@ -1,7 +1,6 @@
 package com.example.real_estate_software.model;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,11 +11,9 @@ import java.util.List;
  *
  */
 public class PropertyDAO {
-    private Connection connection;
     private DatabaseControl<Property> connect;
 
     public PropertyDAO(){
-        connection = DatabaseConnection.getInstance();
         connect = new DatabaseControl<Property>();
         create_Table_Property();
     }
@@ -102,28 +99,6 @@ public class PropertyDAO {
      data of the properties associated with your user
      **/
     public List<Property> get_OwnerProperties(Owner owner) {
-        List<Property> properties = new ArrayList<>();
-        try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM properties WHERE ownerId = ?");
-            statement.setInt(1, owner.getId());
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()){
-                int id = resultSet.getInt("id");
-                String address = resultSet.getString("address");
-                int num_Tenants = resultSet.getInt("num_Tenants");
-                int num_Beds = resultSet.getInt("num_Beds");
-                int num_Baths = resultSet.getInt("num_Baths");
-                int num_Cars = resultSet.getInt("num_Cars");
-                boolean is_Selected = resultSet.getBoolean("is_Selected");
-                Property property = new Property(address, num_Tenants, num_Beds, num_Baths, num_Cars, is_Selected);
-                property.setId(id);
-                properties.add(property);
-            }
-        }
-        catch (Exception ex){
-            System.err.println(ex);
-        }
-        return properties;
+        return connect.executeFetchAllOwnerProperties(owner);
     }
-
 }
