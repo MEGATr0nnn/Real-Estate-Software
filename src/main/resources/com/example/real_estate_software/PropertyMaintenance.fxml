@@ -113,7 +113,7 @@
             <Font size="16.0" />
         </font>
     </Text>
-    <Button layoutX="346.0" layoutY="427.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="108.0" text="Add File">
+    <Button fx:id= "addFileButton" layoutX = "346.0" layoutY="427.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="108.0" text="Add File" onAction="#onAddFileClick">
         <font>
             <Font size="18.0" />
         </font>
